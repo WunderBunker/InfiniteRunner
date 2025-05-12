@@ -1,0 +1,46 @@
+using Unity.Mathematics;
+using UnityEngine;
+
+public class Projectile : MonoBehaviour
+{
+    public int Direction = 1;
+    [SerializeField] float _speed;
+    [SerializeField] float _range;
+
+    float _groundDistance;
+    float _groundHeight;
+    float _bulletHalfSize;
+
+    float _ZInit;
+    float _initSpeed;
+
+    void Start()
+    {
+        _groundHeight = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>().GroundHeight;
+        _groundDistance = math.abs(transform.position.y - _groundHeight);
+        _groundHeight *= 1.2f;
+        _ZInit = transform.position.z;
+        float vNewSpeed = _speed + GameObject.FindGameObjectWithTag("Player").GetComponent<playerControls>().FrontSpeed;
+        _range *= vNewSpeed / _speed;
+        _initSpeed = vNewSpeed;
+        _bulletHalfSize = gameObject.GetComponent<MeshFilter>().mesh.bounds.extents.x;
+    }
+    void Update()
+    {
+        float vCurveCoef = 1 - Tools.InExpo(math.abs(transform.position.z - _ZInit) / _range);
+
+        _speed = (math.max(vCurveCoef, 0) + 0.5f) * _initSpeed;
+        transform.position += Direction * Vector3.forward * _speed * Time.deltaTime;
+
+        float vHeight = vCurveCoef * _groundDistance + _groundHeight;
+        transform.position = new Vector3(transform.position.x, vHeight, transform.position.z);
+        if (vHeight + _bulletHalfSize < _groundHeight) Explode();
+    }
+
+    public void Explode()
+    {
+        Destroy(gameObject);
+    }
+
+
+}

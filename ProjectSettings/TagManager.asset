@@ -6,14 +6,17 @@ TagManager:
   tags:
   - LanesManager
   - GroundsManager
+  - Bullet
+  - MainCanvas
+  - WindManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -40,8 +43,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 882336961
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1209753885
+    locked: 0
+  - name: Player
+    uniqueID: 4034504989
+    locked: 0
+  - name: UI
+    uniqueID: 1650555449
     locked: 0
   m_RenderingLayers:
   - Default
