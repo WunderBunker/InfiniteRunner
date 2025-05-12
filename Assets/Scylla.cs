@@ -89,7 +89,7 @@ public class Kraken : MonoBehaviour
                     int vAttackNumber = (byte)_random.Next(1, _laneManager.LaneNumber - 1);
                     for (int i = 0; i < vAttackNumber; i++)
                     {
-                        GameObject vNewPreAttack = Instantiate(_preAttack, new Vector3((float)_laneManager.GetLaneCenter(_attackLane), _laneManager.GroundHeight, _playerTransform.position.z -_attackRange), Quaternion.identity, transform);
+                        GameObject vNewPreAttack = Instantiate(_preAttack, new Vector3((float)_laneManager.GetLaneCenter(_attackLane), _laneManager.GroundHeight, _playerTransform.position.z - _attackRange), Quaternion.identity, transform);
                         _preAttacksList.Add(vNewPreAttack);
                     }
 
@@ -101,7 +101,7 @@ public class Kraken : MonoBehaviour
 
                     foreach (GameObject _ in _preAttacksList)
                     {
-                        GameObject vNewAttack = Instantiate(_attack, new Vector3((float)_laneManager.GetLaneCenter(_attackLane), _laneManager.GroundHeight, _playerTransform.position.z-_attackRange), Quaternion.identity, transform);
+                        GameObject vNewAttack = Instantiate(_attack, new Vector3((float)_laneManager.GetLaneCenter(_attackLane), _laneManager.GroundHeight, _playerTransform.position.z - _attackRange), Quaternion.identity, transform);
                         _attacksList.Add(vNewAttack);
                     }
                     for (int lCptAttack = 0; lCptAttack < _attacksList.Count; lCptAttack++)
@@ -122,9 +122,9 @@ public class Kraken : MonoBehaviour
             }
 
         foreach (GameObject lPreAttack in _preAttacksList)
-            lPreAttack.transform.position = new Vector3(lPreAttack.transform.position.x, _laneManager.GroundHeight, _playerTransform.position.z-_attackRange);
+            lPreAttack.transform.position = new Vector3(lPreAttack.transform.position.x, _laneManager.GroundHeight, _playerTransform.position.z - _attackRange);
         foreach (GameObject lAttack in _attacksList)
-            lAttack.transform.position = new Vector3(lAttack.transform.position.x, _laneManager.GroundHeight, _playerTransform.position.z -_attackRange);
+            lAttack.transform.position = new Vector3(lAttack.transform.position.x, _laneManager.GroundHeight, _playerTransform.position.z - _attackRange);
 
         _body.transform.position = new Vector3(_body.transform.position.x, _body.transform.position.y, _playerTransform.position.z - 50);
     }
@@ -138,6 +138,19 @@ public class Kraken : MonoBehaviour
             if (_life <= 0) DeActive();
         }
     }
+}
+
+
+public struct Attack
+{
+    GameObject _preAttack;
+    GameObject _attack;
+
+    public Attack(GameObject pAttackObject)
+    {
+
+    }
+
 }
 
 public enum KrakenState
