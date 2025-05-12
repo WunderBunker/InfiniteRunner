@@ -35,7 +35,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Hurt(byte pDamage)
     {
-        Life = (byte)(Life != 0 ? Life - pDamage : 0);
+        Life -= pDamage;
+        if (Life == 0) { Die(); return; }
         StartCoroutine(_camera.GetComponent<FollowPlayer>().Tremour());
     }
     public void Heal(byte pPV)
@@ -49,12 +50,18 @@ public class PlayerManager : MonoBehaviour
         if (pContext.started)
         {
             GameObject vBullet = Instantiate(_bullet, transform.Find("CanonPivot").position, Quaternion.identity, null);
-            if (_playerControls.ReverseXControls)
+            if (_playerControls.IsBossMode)
             {
                 vBullet.transform.position = new Vector3(vBullet.transform.position.x, vBullet.transform.position.y, vBullet.transform.position.z - _playerSize.z);
                 vBullet.GetComponent<Projectile>().Direction = -1;
             }
         }
+    }
+
+    void Die()
+    {
+        GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<MainCanvas>().LaunchEndMenu();
+        //gameObject.SetActive(false);
     }
 
     public void AddOboles(int pNb)

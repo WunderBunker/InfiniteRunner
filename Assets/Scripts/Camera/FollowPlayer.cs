@@ -25,9 +25,10 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 vTempTargetPosition = new Vector3(transform.position.x, transform.position.y, _playertransform.position.z);
 
-        vTempTargetPosition.z += _isBackward ? -_initialZSpacingWithPlayer : _initialZSpacingWithPlayer;
+        Vector3 vTempTargetPosition = new Vector3(transform.position.x, transform.position.y, _playertransform.position.z);
+        //Dans le cas du backward on augmente le spacing car smoothdamp a une inertie qui cause un retard sur l'axe z (car le player se déplace dans ce sens)
+        vTempTargetPosition.z += _isBackward ? -_initialZSpacingWithPlayer*1.5f : _initialZSpacingWithPlayer; 
 
         if (!_rotationIsFixed)
         {
@@ -38,7 +39,7 @@ public class FollowPlayer : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, _isBackward ? 180 : 0, transform.eulerAngles.z));
                 _rotationIsFixed = true;
-                _playertransform.GetComponent<playerControls>().ReverseXControls = _isBackward;
+                _playertransform.GetComponent<playerControls>().IsBossMode = _isBackward;
             }
         }
 
@@ -50,12 +51,6 @@ public class FollowPlayer : MonoBehaviour
     {
         _isBackward = !_isBackward;
         _rotationIsFixed = false;
-    }
-
-    public void OnRotateInput(InputAction.CallbackContext pContext)
-    {
-        if (pContext.started)
-            ChangeDirection();
     }
 
     public IEnumerator Tremour()

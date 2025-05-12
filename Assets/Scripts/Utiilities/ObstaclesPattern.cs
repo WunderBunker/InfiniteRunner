@@ -19,8 +19,8 @@ public class ObstaclesPatternEditor : Editor
 
 public class ObstaclesPattern : MonoBehaviour
 {
-
-    [SerializeField] float _distanceBtwnObstacles;
+    //On rentre la distance en dur car impossible de sériliser des champs statiques. Todo : passer les patternes en ScriptableObject pour bénéficier de champs communs
+    static public float _distanceBtwnObstacles = 7;
     //Key : Prefab de l'obstacle ; Value : Lane(axe x), Line (axe y)
     public Dictionary<GameObject, (byte, int)> Obstacles { get; private set; } = new();
     //Les patternes qui ne prennent pas toute la largeur du couloir peuvent d'être décaler d'un certain nombre de lane,
@@ -59,7 +59,7 @@ public class ObstaclesPattern : MonoBehaviour
         }
         MaxLaneOffset = _LM.LaneNumber - 1 - vCurrentLane;
 
-        float vMaxDeltaZSameLine =_distanceBtwnObstacles * 0.75f;
+        float vMaxDeltaZSameLine = _distanceBtwnObstacles * 0.75f;
         //On tri les obstacles selon leur position sur Z
         vOrderedTransforms = vOrderedTransforms.OrderBy(transform => transform.position.z).ToList();
         //On détermine les lignes (axe z) de chaque obstacle en fonction de l'écart maximal toléré en z sur une même ligne

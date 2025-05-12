@@ -65,29 +65,30 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.39f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Obole.cs" />
     <Compile Include="Assets\Scripts\Player\playerControls.cs" />
-    <Compile Include="Assets\PauseMenu.cs" />
-    <Compile Include="Assets\ObolesUI.cs" />
-    <Compile Include="Assets\Scylla.cs" />
+    <Compile Include="Assets\Scripts\Object\Obole.cs" />
     <Compile Include="Assets\Scripts\UI\LifeUI.cs" />
     <Compile Include="Assets\Scripts\UI\DistanceUI.cs" />
-    <Compile Include="Assets\SaveManager.cs" />
-    <Compile Include="Assets\ScyllaAttack.cs" />
+    <Compile Include="Assets\Scripts\UI\MainCanvas.cs" />
+    <Compile Include="Assets\Scripts\Mobs\Scylla.cs" />
+    <Compile Include="Assets\BossIndicator.cs" />
     <Compile Include="Assets\Scripts\Object\Projectile.cs" />
-    <Compile Include="Assets\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Map\ObstaclesManager.cs" />
-    <Compile Include="Assets\PartieManager.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Utiilities\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Camera\FollowPlayer.cs" />
-    <Compile Include="Assets\WindManager.cs" />
+    <Compile Include="Assets\Scripts\Mobs\ScyllaAttack.cs" />
     <Compile Include="Assets\Scripts\Utiilities\ObstaclesPattern.cs" />
     <Compile Include="Assets\Scripts\Object\Log.cs" />
+    <Compile Include="Assets\Scripts\Object\Plank.cs" />
     <Compile Include="Assets\Scripts\Cours\Cours.cs" />
-    <Compile Include="Assets\MainCanvas.cs" />
+    <Compile Include="Assets\Scripts\UI\ObolesUI.cs" />
+    <Compile Include="Assets\Scripts\Map\WindManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Utiilities\Tools.cs" />
+    <Compile Include="Assets\Scripts\Utiilities\PartieManager.cs" />
     <Compile Include="Assets\Scripts\Map\LanesManager.cs" />
-    <Compile Include="Assets\Plank.cs" />
     <Compile Include="Assets\Scripts\Object\Rock.cs" />
   </ItemGroup>
   <ItemGroup>

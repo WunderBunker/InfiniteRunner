@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ObstaclesManager : MonoBehaviour
@@ -13,6 +12,8 @@ public class ObstaclesManager : MonoBehaviour
     GameObject _player;
     Queue<GameObject> _obstacles = new();
 
+    bool _isBossMode = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,9 +24,11 @@ public class ObstaclesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_isBossMode) return;
+
         _spawnTimerInMeters -= _player.GetComponent<PlayerManager>().DeltaDistance;
-        Vector3 vPlayerPivotPosition=_player.transform.Find("Pivot").position;
-       
+        Vector3 vPlayerPivotPosition = _player.transform.Find("Pivot").position;
+
         //instantition de nouveau obstacles si le timer le requiert
         if (_spawnTimerInMeters <= 0)
         {
@@ -39,7 +42,7 @@ public class ObstaclesManager : MonoBehaviour
             _obstacles.Enqueue(vNewPattern);
         }
 
-        //Destruction des veiux patternes si besoin    
+        //Destruction des vieux patternes si besoin    
         if (_obstacles.Count > 0)
         {
             GameObject vFirstObst = _obstacles.Peek();
@@ -49,5 +52,18 @@ public class ObstaclesManager : MonoBehaviour
                 Destroy(vFirstObst);
             }
         }
+    }
+
+    public void SwitchBossMode(bool pIsBoss)
+    {
+        if (pIsBoss && !_isBossMode)
+            while (_obstacles.Count > 0)
+            {
+                GameObject vObstacle = _obstacles.Dequeue();
+                if (vObstacle != null)
+                    Destroy(vObstacle);
+            }
+
+        _isBossMode = pIsBoss;
     }
 }
