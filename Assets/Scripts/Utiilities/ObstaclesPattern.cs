@@ -20,7 +20,7 @@ public class ObstaclesPatternEditor : Editor
 public class ObstaclesPattern : MonoBehaviour
 {
     //On rentre la distance en dur car impossible de sériliser des champs statiques. Todo : passer les patternes en ScriptableObject pour bénéficier de champs communs
-    static public float _distanceBtwnObstacles = 7;
+    static public float _distanceBtwnObstacles = 10;
     //Key : Prefab de l'obstacle ; Value : Lane(axe x), Line (axe y)
     public Dictionary<GameObject, (byte, int)> Obstacles { get; private set; } = new();
     //Les patternes qui ne prennent pas toute la largeur du couloir peuvent d'être décaler d'un certain nombre de lane,

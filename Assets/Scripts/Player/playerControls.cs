@@ -25,9 +25,10 @@ public class playerControls : MonoBehaviour
     [SerializeField] float _sideMoveLatency;
     //Vitesse de rotation de la voile
     [SerializeField] float _sailTurnSpeed;
+    [SerializeField] float _minSailZScale;
+    [SerializeField] float _maxSailZScale;
 
     PlayerManager _playerManager;
-
 
     LanesManager _laneManager;
     bool _isMovingOnSide;
@@ -46,6 +47,7 @@ public class playerControls : MonoBehaviour
         _playerManager = GetComponent<PlayerManager>();
         _laneManager = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
         _sailTransform = transform.Find("Sail");
+        _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y, _minSailZScale);
         _windManager = GameObject.FindGameObjectWithTag("WindManager").GetComponent<WindManager>();
         _currentSailAngle = _sailTransform.localEulerAngles.y % 360;
         CurrentSpeed = _maxSpeedInitial;
@@ -123,6 +125,9 @@ public class playerControls : MonoBehaviour
         }
         DebugTool.DrawDebugOnUI(2, "vAngleDiff : " + vAngleDiff.ToString("0.0"));
         DebugTool.DrawDebugOnUI(3, "wind coeff sail : " + _windDampeningCoef.ToString("0.0"));
+
+        _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y,
+            math.lerp(_minSailZScale, _maxSailZScale, _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef));
 
         //On applique un éventuel dampening à la  vitesse
         if (_windDampeningCoef > 0) CurrentSpeed = math.max(CurrentSpeed - Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime * _windDampeningCoef, _minSpeed);

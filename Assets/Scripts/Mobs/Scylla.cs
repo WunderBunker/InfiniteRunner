@@ -2,11 +2,10 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
-public class Scylla : MonoBehaviour,IBoss
+public class Scylla : MonoBehaviour
 {
-    public float DistanceToPlayerRatio{get; private set;}
-
     [SerializeField] float _maxDistanceToPlayer;
     [SerializeField] GameObject _attack;
     [SerializeField] float _attackTempo;
@@ -28,6 +27,7 @@ public class Scylla : MonoBehaviour,IBoss
 
     float _speed;
     float _distanceToPlayer;
+    Slider _bossIndicator;
 
     void Start()
     {
@@ -41,6 +41,8 @@ public class Scylla : MonoBehaviour,IBoss
 
         _distanceToPlayer = _maxDistanceToPlayer;
         _speed = _playerControls.CurrentMaxSpeed / 2;
+
+        _bossIndicator =GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").GetComponent<Slider>();
     }
 
     public void OnRotateInput(InputAction.CallbackContext pContext)
@@ -75,12 +77,11 @@ public class Scylla : MonoBehaviour,IBoss
 
     void Update()
     {
-
         if (!_isActive)
         {
             _speed = _playerControls.CurrentMaxSpeed / 2;
             _distanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
-            DistanceToPlayerRatio = 1-_distanceToPlayer/_maxDistanceToPlayer;
+            _bossIndicator.value = 1-_distanceToPlayer/_maxDistanceToPlayer;
             if (_distanceToPlayer == 0) Active();
             return;
         }
@@ -119,9 +120,4 @@ public class Scylla : MonoBehaviour,IBoss
 public enum ScyllaAttackState
 {
     preparing, attacking
-}
-
-public interface IBoss
-{
-    public float DistanceToPlayerRatio{get;}
 }

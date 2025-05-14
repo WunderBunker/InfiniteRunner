@@ -71,7 +71,7 @@
     <Compile Include="Assets\Scripts\UI\DistanceUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainCanvas.cs" />
     <Compile Include="Assets\Scripts\Mobs\Scylla.cs" />
-    <Compile Include="Assets\BossIndicator.cs" />
+    <Compile Include="Assets\BulletsUI.cs" />
     <Compile Include="Assets\Scripts\Object\Projectile.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Map\ObstaclesManager.cs" />
