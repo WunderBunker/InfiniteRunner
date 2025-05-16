@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
 
     float _ZInit;
     float _initSpeed;
+    bool _isBouncing;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class Projectile : MonoBehaviour
         _groundDistance = math.abs(transform.position.y - _groundHeight);
         _groundHeight *= 1.2f;
         _ZInit = transform.position.z;
-        float vNewSpeed = _speed + (Direction>0?GameObject.FindGameObjectWithTag("Player").GetComponent<playerControls>().CurrentSpeed:0);
+        float vNewSpeed = _speed + (Direction > 0 ? GameObject.FindGameObjectWithTag("Player").GetComponent<playerControls>().CurrentSpeed : 0);
         _range *= vNewSpeed / _speed;
         _initSpeed = vNewSpeed;
         _bulletHalfSize = gameObject.GetComponent<MeshFilter>().mesh.bounds.extents.x;
@@ -30,7 +31,8 @@ public class Projectile : MonoBehaviour
         float vCurveCoef = 1 - Tools.InExpo(math.abs(transform.position.z - _ZInit) / _range);
 
         _speed = (math.max(vCurveCoef, 0) + 0.5f) * _initSpeed;
-        transform.position += Direction * Vector3.forward * _speed * Time.deltaTime;
+
+        transform.position += (_isBouncing ? -1 : 1) * Direction * Vector3.forward * _speed * Time.deltaTime;
 
         float vHeight = vCurveCoef * _groundDistance + _groundHeight;
         transform.position = new Vector3(transform.position.x, vHeight, transform.position.z);
@@ -40,6 +42,15 @@ public class Projectile : MonoBehaviour
     public void Explode()
     {
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("vho collision : " + collision.gameObject.name);
+        _isBouncing = !_isBouncing;
+        float vRangeLeft = math.abs( transform.position.z - _ZInit);
+        _range = _range - vRangeLeft * 0.9f ;
+        _speed /= 5;
     }
 
 

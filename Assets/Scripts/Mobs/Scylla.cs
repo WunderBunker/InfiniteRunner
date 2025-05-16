@@ -63,7 +63,11 @@ public class Scylla : MonoBehaviour
     {
         if (_isActive) return;
         _isActive = true;
+
         _body.SetActive(true);
+        for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
+            _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetInteger("Head", lCptChild);
+
         _life = _maxLife;
         _attackTimer = _attackTempo;
         GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(true);
@@ -74,6 +78,10 @@ public class Scylla : MonoBehaviour
         if (!_isActive) return;
         _isActive = false;
         _body.SetActive(false);
+
+        for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
+            _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetTrigger("Stop");
+
         GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(false);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
         foreach (GameObject lAttack in _attackList) Destroy(lAttack);
@@ -84,7 +92,7 @@ public class Scylla : MonoBehaviour
     {
         if (!_isActive)
         {
-            _speed = _playerControls.CurrentMaxSpeed / 2;
+            _speed = _playerControls.CurrentMaxSpeed * 0.7f;
             _distanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
             _bossIndicator.value = 1 - _distanceToPlayer / _maxDistanceToPlayer;
             if (_distanceToPlayer == 0) Active();
@@ -127,7 +135,7 @@ public class Scylla : MonoBehaviour
             }
         }
 
-        _body.transform.position = new Vector3(_body.transform.position.x, _body.transform.position.y, _playerTransform.position.z - _attackRange - 25);
+        _body.transform.position = new Vector3(_body.transform.position.x, _body.transform.position.y, _playerTransform.position.z - _attackRange - 5);
     }
 
     void OnTriggerEnter(Collider pOther)
@@ -140,7 +148,6 @@ public class Scylla : MonoBehaviour
             if (_life <= 0) DeActive();
         }
     }
-
 }
 
 public enum ScyllaAttackState

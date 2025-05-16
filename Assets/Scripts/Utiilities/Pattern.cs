@@ -29,7 +29,7 @@ public class Pattern : MonoBehaviour
     //cette valeur permet de controler ça (ex : partterne à 2 lane dans couloir à 3 => offset max de 1 lane)
     public int MaxLaneOffset { get; private set; }
     [SerializeField, ReadOnly] float _length;
-    public float Length { get => _length; private set{ _length = value; } }
+    public float Length { get => _length; private set { _length = value; } }
 
     LanesManager _LM;
 
@@ -87,6 +87,11 @@ public class Pattern : MonoBehaviour
         }
 
         Length = vCurrentLine * _patternConfig.DistanceBtwLines;
+
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this); // Marque l’objet comme modifié
+        PrefabUtility.RecordPrefabInstancePropertyModifications(this); // Pour forcer la sauvegarde sur le prefab
+#endif
     }
 
     //Applique à chaque objet sa position à partir de sa ligne et lane

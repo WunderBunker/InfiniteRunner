@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567617816deb83a41b403a6a91531a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: 1
   _speed: 20
   _range: 40
 --- !u!33 &-4888893103945366362
@@ -65,7 +66,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830928755140170442}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bcddfad829bb81b4685f617cfb002f7e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

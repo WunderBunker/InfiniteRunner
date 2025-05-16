@@ -15,6 +15,7 @@ public class FollowPlayer : MonoBehaviour
     bool _isBackward;
     bool _rotationIsFixed = true;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {

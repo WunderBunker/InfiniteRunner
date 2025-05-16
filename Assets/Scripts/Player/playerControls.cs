@@ -1,5 +1,6 @@
 using System;
 using Unity.Mathematics;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -38,9 +39,17 @@ public class playerControls : MonoBehaviour
 
     bool _sailTaken = false;
     Transform _sailTransform;
+    Color _sailInitColor;
     WindManager _windManager;
     float _currentSailAngle;
     float _windDampeningCoef = 0;
+
+    ParticleSystem _speedPS;
+    float _maxSpeedPartEmission;
+    float _minSpeedPartRadius;
+
+    ParticleSystem _splashPS;
+    float _maxSplashPartEmission;
 
     void Start()
     {
@@ -48,10 +57,19 @@ public class playerControls : MonoBehaviour
         _laneManager = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
         _sailTransform = transform.Find("Sail");
         _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y, _minSailZScale);
+        _sailInitColor = _sailTransform.GetComponent<MeshRenderer>().materials[1].color;
+
         _windManager = GameObject.FindGameObjectWithTag("WindManager").GetComponent<WindManager>();
         _currentSailAngle = _sailTransform.localEulerAngles.y % 360;
         CurrentSpeed = _maxSpeedInitial;
         CurrentMaxSpeed = _maxSpeedInitial;
+
+        _speedPS = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("SpeedEffect").GetComponent<ParticleSystem>();
+        _minSpeedPartRadius = _speedPS.shape.radius;
+        _maxSpeedPartEmission = _speedPS.emission.rateOverTime.constant;
+
+        _splashPS = transform.Find("Splash").GetComponent<ParticleSystem>();
+        _maxSplashPartEmission = _splashPS.emission.rateOverTime.constant;
     }
     public void OnMoveInput(InputAction.CallbackContext pContext)
     {
@@ -128,6 +146,7 @@ public class playerControls : MonoBehaviour
 
         _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y,
             math.lerp(_minSailZScale, _maxSailZScale, _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef));
+        _sailTransform.GetComponent<MeshRenderer>().materials[1].color = Color.Lerp(_sailInitColor, new Color(1,0,0, _sailInitColor.a), _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef);
 
         //On applique un éventuel dampening à la  vitesse
         if (_windDampeningCoef > 0) CurrentSpeed = math.max(CurrentSpeed - Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime * _windDampeningCoef, _minSpeed);
@@ -135,6 +154,19 @@ public class playerControls : MonoBehaviour
         else if (_windDampeningCoef < 0) CurrentSpeed = math.min(CurrentSpeed - Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime * _windDampeningCoef, CurrentMaxSpeed);
         //Lorsque le coef est à 0 on revient à la vitesse max sans boost particulier
         else CurrentSpeed = math.min(CurrentSpeed + Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime, CurrentMaxSpeed);
+
+        if (CurrentSpeed >= _maxSpeedFinal/4)
+        {
+            if (!_speedPS.isPlaying) _speedPS.Play();
+
+            ParticleSystem.EmissionModule vEmission = _speedPS.emission;
+            vEmission.rateOverTime = new() { constant = math.lerp(0, _maxSpeedPartEmission, CurrentSpeed / _maxSpeedFinal) };
+            ParticleSystem.ShapeModule vShape = _speedPS.shape;
+            vShape.radius = math.lerp(_minSpeedPartRadius+7, _minSpeedPartRadius, CurrentSpeed / _maxSpeedFinal);
+        }
+        else if (_speedPS.isPlaying) _speedPS.Stop();
+        ParticleSystem.EmissionModule vSpashEmission = _splashPS.emission;
+        vSpashEmission.rateOverTime = new() { constant = math.lerp(0, _maxSplashPartEmission, CurrentSpeed / _maxSpeedFinal)  };
 
 
         //On avance tout droit

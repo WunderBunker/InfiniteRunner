@@ -78,6 +78,7 @@ MonoBehaviour:
   - Object: {fileID: 8682291476643262220}
     Lane: 2
     Line: 3
+  _length: 45
 --- !u!1001 &56131580433590095
 PrefabInstance:
   m_ObjectHideFlags: 0

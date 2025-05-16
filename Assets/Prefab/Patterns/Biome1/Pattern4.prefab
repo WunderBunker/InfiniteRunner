@@ -57,12 +57,12 @@ MonoBehaviour:
   - Object: {fileID: 1561892607075736074}
     Lane: 0
     Line: 2
-  - Object: {fileID: 1550544732775115444}
-    Lane: 1
-    Line: 0
   - Object: {fileID: 6344500521488678508}
     Lane: 1
     Line: 1
+  - Object: {fileID: 1550544732775115444}
+    Lane: 1
+    Line: 0
   - Object: {fileID: 9082198503452341648}
     Lane: 1
     Line: 2
@@ -78,6 +78,7 @@ MonoBehaviour:
   - Object: {fileID: 3512697253870042802}
     Lane: 2
     Line: 3
+  _length: 45
 --- !u!1001 &873396874796720884
 PrefabInstance:
   m_ObjectHideFlags: 0
