@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PartieManager : MonoBehaviour
 {
     PlayerManager _playerManager;
+    
 
     public static void OnDebug(InputAction.CallbackContext pContext)
     {
@@ -15,6 +16,7 @@ public class PartieManager : MonoBehaviour
     {
         _playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
+
 
     void OnApplicationQuit()
     {

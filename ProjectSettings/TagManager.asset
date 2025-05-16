@@ -9,7 +9,8 @@ TagManager:
   - Bullet
   - MainCanvas
   - WindManager
-  - ObstaclesManager
+  - PatternsManager
+  - BiomesManager
   layers:
   - Default
   - TransparentFX

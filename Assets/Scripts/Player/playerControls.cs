@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class playerControls : MonoBehaviour
 {
-    public float CurrentSpeed;
+    public float CurrentSpeed { get; private set; }
     //True si phase de boss  (caméra et directions sur l'axe X sont inversés )
     [NonSerialized] public bool IsBossMode;
     public float CurrentMaxSpeed { get; private set; }

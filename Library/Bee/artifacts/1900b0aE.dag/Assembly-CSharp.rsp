@@ -427,6 +427,8 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/BulletsUI.cs"
+"Assets/Prefab/Patterns/Biome.cs"
+"Assets/Prefab/Patterns/PatternConfig.cs"
 "Assets/Scripts/Camera/FollowPlayer.cs"
 "Assets/Scripts/Cours/Cours.cs"
 "Assets/Scripts/Map/LanesManager.cs"
@@ -451,6 +453,7 @@
 "Assets/Scripts/Utiilities/PartieManager.cs"
 "Assets/Scripts/Utiilities/SaveManager.cs"
 "Assets/Scripts/Utiilities/Tools.cs"
+"Assets/WaterPlanes.cs"
 -langversion:9.0
 /deterministic
 /optimize+

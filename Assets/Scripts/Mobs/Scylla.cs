@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -29,6 +30,9 @@ public class Scylla : MonoBehaviour
     float _distanceToPlayer;
     Slider _bossIndicator;
 
+    float _hitTime = 1.5f;
+    float _hitTimer;
+
     void Start()
     {
         _laneManager = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
@@ -42,7 +46,8 @@ public class Scylla : MonoBehaviour
         _distanceToPlayer = _maxDistanceToPlayer;
         _speed = _playerControls.CurrentMaxSpeed / 2;
 
-        _bossIndicator =GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").GetComponent<Slider>();
+        _bossIndicator = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").GetComponent<Slider>();
+
     }
 
     public void OnRotateInput(InputAction.CallbackContext pContext)
@@ -61,7 +66,7 @@ public class Scylla : MonoBehaviour
         _body.SetActive(true);
         _life = _maxLife;
         _attackTimer = _attackTempo;
-        GameObject.FindGameObjectWithTag("ObstaclesManager").GetComponent<ObstaclesManager>().SwitchBossMode(true);
+        GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(true);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
     }
     void DeActive()
@@ -69,7 +74,7 @@ public class Scylla : MonoBehaviour
         if (!_isActive) return;
         _isActive = false;
         _body.SetActive(false);
-        GameObject.FindGameObjectWithTag("ObstaclesManager").GetComponent<ObstaclesManager>().SwitchBossMode(false);
+        GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(false);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
         foreach (GameObject lAttack in _attackList) Destroy(lAttack);
         _attackList.Clear();
@@ -81,7 +86,7 @@ public class Scylla : MonoBehaviour
         {
             _speed = _playerControls.CurrentMaxSpeed / 2;
             _distanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
-            _bossIndicator.value = 1-_distanceToPlayer/_maxDistanceToPlayer;
+            _bossIndicator.value = 1 - _distanceToPlayer / _maxDistanceToPlayer;
             if (_distanceToPlayer == 0) Active();
             return;
         }
@@ -104,6 +109,24 @@ public class Scylla : MonoBehaviour
             }
         }
 
+        if (_hitTimer > 0)
+        {
+            _hitTimer -= Time.deltaTime;
+            foreach (GameObject lAttack in _attackList)
+                if (lAttack != null)
+                    foreach (Material lMaterial in lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials)
+                        lMaterial.SetColor("_BaseColor", lMaterial.GetColor("_Color") + new Color(math.sin(Time.time * 25), 0, 0));
+
+            if (_hitTimer <= 0)
+            {
+                _hitTimer = 0;
+                foreach (GameObject lAttack in _attackList)
+                    if (lAttack != null)
+                        foreach (Material lMaterial in lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials)
+                            lMaterial.SetColor("_BaseColor", lMaterial.GetColor("_Color") + new Color(math.sin(Time.time * 25), 0, 0));
+            }
+        }
+
         _body.transform.position = new Vector3(_body.transform.position.x, _body.transform.position.y, _playerTransform.position.z - _attackRange - 25);
     }
 
@@ -112,9 +135,12 @@ public class Scylla : MonoBehaviour
         if (pOther.CompareTag("Bullet"))
         {
             _life -= 1;
+            _hitTimer = _hitTime;
+            pOther.GetComponent<Projectile>().Explode();
             if (_life <= 0) DeActive();
         }
     }
+
 }
 
 public enum ScyllaAttackState

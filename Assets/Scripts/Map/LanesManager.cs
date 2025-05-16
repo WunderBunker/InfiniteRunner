@@ -76,7 +76,7 @@ public class LanesManager : MonoBehaviour
         GameObject vLaneLimit = vNewCorridor.transform.Find("LaneDelimitation").gameObject;
         
         for (int lCptLaneLimit = 1; lCptLaneLimit<LaneNumber ; lCptLaneLimit++)
-            Instantiate(vLaneLimit,pPosition+Vector3.right*(-_corridorSize.x/2+lCptLaneLimit*LaneWidth), vLaneLimit.transform.rotation,vNewCorridor.transform);
+            Instantiate(vLaneLimit,pPosition+Vector3.right*(-_corridorSize.x/2+lCptLaneLimit*LaneWidth) + Vector3.up*vLaneLimit.transform.position.y, vLaneLimit.transform.rotation,vNewCorridor.transform);
         Destroy(vLaneLimit);
 
         _corridors.Enqueue(vNewCorridor);

@@ -65,25 +65,30 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.39f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Prefab\Patterns\PatternConfig.cs" />
     <Compile Include="Assets\Scripts\Player\playerControls.cs" />
     <Compile Include="Assets\Scripts\Object\Obole.cs" />
     <Compile Include="Assets\Scripts\UI\LifeUI.cs" />
     <Compile Include="Assets\Scripts\UI\DistanceUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainCanvas.cs" />
     <Compile Include="Assets\Scripts\Mobs\Scylla.cs" />
+    <Compile Include="Assets\Scripts\Utiilities\EditorMisc.cs" />
     <Compile Include="Assets\BulletsUI.cs" />
+    <Compile Include="Assets\WaterPlanes.cs" />
     <Compile Include="Assets\Scripts\Object\Projectile.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
-    <Compile Include="Assets\Scripts\Map\ObstaclesManager.cs" />
+    <Compile Include="Assets\Prefab\Patterns\Biome.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Utiilities\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\Mobs\ScyllaAttack.cs" />
-    <Compile Include="Assets\Scripts\Utiilities\ObstaclesPattern.cs" />
     <Compile Include="Assets\Scripts\Object\Log.cs" />
+    <Compile Include="Assets\BiomesManager.cs" />
     <Compile Include="Assets\Scripts\Object\Plank.cs" />
     <Compile Include="Assets\Scripts\Cours\Cours.cs" />
     <Compile Include="Assets\Scripts\UI\ObolesUI.cs" />
+    <Compile Include="Assets\Scripts\Utiilities\Pattern.cs" />
+    <Compile Include="Assets\Scripts\Map\PatternsManager.cs" />
     <Compile Include="Assets\Scripts\Map\WindManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Utiilities\Tools.cs" />
@@ -96,6 +101,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Shaders\WaveFunction.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />

@@ -28,7 +28,7 @@ public class FollowPlayer : MonoBehaviour
 
         Vector3 vTempTargetPosition = new Vector3(transform.position.x, transform.position.y, _playertransform.position.z);
         //Dans le cas du backward on augmente le spacing car smoothdamp a une inertie qui cause un retard sur l'axe z (car le player se déplace dans ce sens)
-        vTempTargetPosition.z += _isBackward ? -_initialZSpacingWithPlayer*1.5f : _initialZSpacingWithPlayer; 
+        vTempTargetPosition.z += _isBackward ? -_initialZSpacingWithPlayer*1.75f : _initialZSpacingWithPlayer; 
 
         if (!_rotationIsFixed)
         {
