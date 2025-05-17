@@ -46,10 +46,9 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("vho collision : " + collision.gameObject.name);
         _isBouncing = !_isBouncing;
         float vRangeLeft = math.abs( transform.position.z - _ZInit);
-        _range = _range - vRangeLeft * 0.9f ;
+        _range = _range - vRangeLeft * 0.95f ;
         _speed /= 5;
     }
 

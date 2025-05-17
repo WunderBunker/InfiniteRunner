@@ -11,6 +11,7 @@ TagManager:
   - WindManager
   - PatternsManager
   - BiomesManager
+  - WaterPlane
   layers:
   - Default
   - TransparentFX

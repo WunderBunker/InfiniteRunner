@@ -22,3 +22,8 @@ MonoBehaviour:
   - {fileID: 2277238951042640493, guid: a4889f9fe885703419ed52d6672ef72a, type: 3}
   - {fileID: 2277238951042640493, guid: 1a429f143f5e4244e873a37dd1acf37e, type: 3}
   - {fileID: 2277238951042640493, guid: e4713bf5f3dbcaa439d30fd8bcd70d0c, type: 3}
+  Boss: {fileID: 5570233857038618572, guid: dd3f6468634d45e4d8fae9318043fceb, type: 3}
+  WaterColor: {r: 0.050980397, g: 0.2509804, b: 0.95294124, a: 1}
+  HorizonColor: {r: 0.9245283, g: 0.43067357, b: 0.13519046, a: 1}
+  SkyColor: {r: 0.03137255, g: 0.54509807, b: 0.9725491, a: 1}
+  GateColor: {r: 0, g: 0.68235296, b: 1, a: 1}

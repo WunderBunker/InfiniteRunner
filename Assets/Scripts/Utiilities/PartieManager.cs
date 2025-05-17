@@ -9,6 +9,7 @@ public class PartieManager : MonoBehaviour
 
     public static void OnDebug(InputAction.CallbackContext pContext)
     {
+        Debug.Log("vho -1");
         if (pContext.started) DebugTool.ChangeDebugMode();
     }
 
@@ -50,14 +51,14 @@ public static class DebugTool
     {
         IsModeDebug = !IsModeDebug;
         for (int lCptChild = 0; lCptChild < _debugUI.childCount; lCptChild++)
-            _debugUI.GetChild(lCptChild).gameObject.GetComponent<TextMeshPro>().text = "";
+            _debugUI.GetChild(lCptChild).gameObject.GetComponent<TextMeshProUGUI>().text = "";
     }
 
 
     static public void DrawDebugOnUI(int pSlot, string pText)
     {
         if (!IsModeDebug) return;
-        TextMeshPro vTextMesh = _debugUI.Find(pSlot == 1 ? "Slot1" : (pSlot == 2 ? "Slot2" : "Slot3")).gameObject.GetComponent<TextMeshPro>();
+        TextMeshProUGUI vTextMesh = _debugUI.Find(pSlot == 1 ? "Slot1" : (pSlot == 2 ? "Slot2" : "Slot3")).gameObject.GetComponent<TextMeshProUGUI>();
         vTextMesh.text = pText;
     }
 

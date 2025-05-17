@@ -141,12 +141,14 @@ public class playerControls : MonoBehaviour
             //On détermine notre coeff qui servira au dampening de la vitesse
             _windDampeningCoef = vAngleDiff / vEcartMax;
         }
-        DebugTool.DrawDebugOnUI(2, "vAngleDiff : " + vAngleDiff.ToString("0.0"));
-        DebugTool.DrawDebugOnUI(3, "wind coeff sail : " + _windDampeningCoef.ToString("0.0"));
+        DebugTool.DrawDebugOnUI(2, "Sail angle : " + _currentSailAngle.ToString("0.0"));
+        DebugTool.DrawDebugOnUI(3, "Current speed : " + CurrentSpeed.ToString("0.0") + " / angle diff : " + vAngleDiff.ToString("0.0")
+        + " / dampening coef  : " + _windDampeningCoef.ToString("0.0") + " / current max speed : " + CurrentMaxSpeed.ToString("0.0"));
 
+        //Modifications visuelles de la voile
         _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y,
             math.lerp(_minSailZScale, _maxSailZScale, _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef));
-        _sailTransform.GetComponent<MeshRenderer>().materials[1].color = Color.Lerp(_sailInitColor, new Color(1,0,0, _sailInitColor.a), _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef);
+        _sailTransform.GetComponent<MeshRenderer>().materials[1].color = Color.Lerp(_sailInitColor, new Color(1, 0, 0, _sailInitColor.a), _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef);
 
         //On applique un éventuel dampening à la  vitesse
         if (_windDampeningCoef > 0) CurrentSpeed = math.max(CurrentSpeed - Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime * _windDampeningCoef, _minSpeed);
@@ -155,18 +157,18 @@ public class playerControls : MonoBehaviour
         //Lorsque le coef est à 0 on revient à la vitesse max sans boost particulier
         else CurrentSpeed = math.min(CurrentSpeed + Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime, CurrentMaxSpeed);
 
-        if (CurrentSpeed >= _maxSpeedFinal/4)
+        if (CurrentSpeed >= _maxSpeedFinal / 4)
         {
             if (!_speedPS.isPlaying) _speedPS.Play();
 
             ParticleSystem.EmissionModule vEmission = _speedPS.emission;
             vEmission.rateOverTime = new() { constant = math.lerp(0, _maxSpeedPartEmission, CurrentSpeed / _maxSpeedFinal) };
             ParticleSystem.ShapeModule vShape = _speedPS.shape;
-            vShape.radius = math.lerp(_minSpeedPartRadius+7, _minSpeedPartRadius, CurrentSpeed / _maxSpeedFinal);
+            vShape.radius = math.lerp(_minSpeedPartRadius + 7, _minSpeedPartRadius, CurrentSpeed / _maxSpeedFinal);
         }
         else if (_speedPS.isPlaying) _speedPS.Stop();
         ParticleSystem.EmissionModule vSpashEmission = _splashPS.emission;
-        vSpashEmission.rateOverTime = new() { constant = math.lerp(0, _maxSplashPartEmission, CurrentSpeed / _maxSpeedFinal)  };
+        vSpashEmission.rateOverTime = new() { constant = math.lerp(0, _maxSplashPartEmission, CurrentSpeed / _maxSpeedFinal) };
 
 
         //On avance tout droit
@@ -196,5 +198,10 @@ public class playerControls : MonoBehaviour
             }
         }
 
+    }
+
+    public void SlowDown(float pDecreaseCoef)
+    {
+        CurrentSpeed = math.max(CurrentSpeed-pDecreaseCoef*CurrentSpeed, _minSpeed);
     }
 }

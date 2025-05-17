@@ -20,7 +20,13 @@ public class BiomePatternEditor : Editor
 public class Biome : ScriptableObject
 {
     public string BiomeId;
-    [SerializeField] public List<GameObject> Patterns;
+    public List<GameObject> Patterns;
+    public GameObject Boss;
+    public Color WaterColor;
+    public Color HorizonColor;
+    public Color SkyColor;
+    public Color GateColor;
+
 
     public void MajAllPattern()
     {

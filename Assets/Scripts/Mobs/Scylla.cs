@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Scylla : MonoBehaviour
+public class Scylla : MonoBehaviour,IBoss
 {
     [SerializeField] float _maxDistanceToPlayer;
     [SerializeField] GameObject _attack;
@@ -50,16 +48,7 @@ public class Scylla : MonoBehaviour
 
     }
 
-    public void OnRotateInput(InputAction.CallbackContext pContext)
-    {
-        if (pContext.started)
-        {
-            if (_isActive) DeActive();
-            else Active();
-        }
-    }
-
-    void Active()
+    public void Activate()
     {
         if (_isActive) return;
         _isActive = true;
@@ -73,7 +62,7 @@ public class Scylla : MonoBehaviour
         GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(true);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
     }
-    void DeActive()
+    public void DeActivate()
     {
         if (!_isActive) return;
         _isActive = false;
@@ -95,7 +84,7 @@ public class Scylla : MonoBehaviour
             _speed = _playerControls.CurrentMaxSpeed * 0.7f;
             _distanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
             _bossIndicator.value = 1 - _distanceToPlayer / _maxDistanceToPlayer;
-            if (_distanceToPlayer == 0) Active();
+            if (_distanceToPlayer == 0) Activate();
             return;
         }
 
@@ -145,7 +134,7 @@ public class Scylla : MonoBehaviour
             _life -= 1;
             _hitTimer = _hitTime;
             pOther.GetComponent<Projectile>().Explode();
-            if (_life <= 0) DeActive();
+            if (_life <= 0) DeActivate();
         }
     }
 }
@@ -153,4 +142,10 @@ public class Scylla : MonoBehaviour
 public enum ScyllaAttackState
 {
     preparing, attacking
+}
+
+interface IBoss
+{
+    public void Activate();
+    public void DeActivate();
 }

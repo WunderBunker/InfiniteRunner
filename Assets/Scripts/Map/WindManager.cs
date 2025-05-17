@@ -68,7 +68,7 @@ public class WindManager : MonoBehaviour
                 _compassPointerTransform.localRotation = Quaternion.Euler(new Vector3(_compassPointerTransform.localRotation.x, _compassPointerTransform.localRotation.y, -_targetAngle));
                 CurrentAngle = _targetAngle;
                 _isMovingAngle = false;
-                DebugTool.DrawDebugOnUI(1, "_currentAngle compass : " + CurrentAngle.ToString("0.0"));
+                DebugTool.DrawDebugOnUI(1, "Wind angle : " + CurrentAngle.ToString("0.0"));
             }
             //Maj de l'orientation des particules de vent
             _windParticles.localRotation = Quaternion.Euler(new Vector3(_windParticles.localEulerAngles.x, CurrentAngle, _windParticles.localEulerAngles.z));

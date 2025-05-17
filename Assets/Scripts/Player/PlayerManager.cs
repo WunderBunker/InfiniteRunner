@@ -23,6 +23,8 @@ public class PlayerManager : MonoBehaviour
     bool _mustReload;
     BulletsUI _bulletsUI;
 
+    float _invincibilityTimer;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,10 +45,12 @@ public class PlayerManager : MonoBehaviour
         _lastZ = transform.position.z;
         TotalDistance += DeltaDistance;
 
+        if (_invincibilityTimer > 0) _invincibilityTimer = math.max(_invincibilityTimer - Time.deltaTime,0);
+
         if (_mustReload)
         {
             _reloadTimer -= Time.deltaTime;
-            _bulletsUI.SetReloadValue(1-math.max(_reloadTimer,0) / _bullletReloadTime);
+            _bulletsUI.SetReloadValue(1 - math.max(_reloadTimer, 0) / _bullletReloadTime);
             if (_reloadTimer <= 0)
             {
                 _reloadTimer = _bullletReloadTime;
@@ -59,8 +63,13 @@ public class PlayerManager : MonoBehaviour
 
     public void Hurt(byte pDamage)
     {
+        if (_invincibilityTimer > 0) return;
+
+        _invincibilityTimer = 1.5f;
+
         Life -= pDamage;
         if (Life == 0) { Die(); return; }
+        _playerControls.SlowDown(0.25f);
         StartCoroutine(_camera.GetComponent<FollowPlayer>().Tremour());
     }
     public void Heal(byte pPV)
