@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +12,7 @@ public class playerControls : MonoBehaviour
     public float CurrentMaxSpeed { get; private set; }
 
     //Vitesse max en début de run
-    [SerializeField] float _maxSpeedInitial;
+    [SerializeField] public float MaxSpeedInitial;
     //Vitesse max en fin de run mètres
     [SerializeField] float _maxSpeedFinal;
 
@@ -28,7 +29,11 @@ public class playerControls : MonoBehaviour
     [SerializeField] float _minSailZScale;
     [SerializeField] float _maxSailZScale;
 
+    [SerializeField] List<AudioClip> _winSounds = new();
+    [SerializeField] List<AudioClip> _waterSlideSounds = new();
+
     PlayerManager _playerManager;
+    AudioManager _AM;
 
     LanesManager _laneManager;
     bool _isMovingOnSide;
@@ -50,6 +55,12 @@ public class playerControls : MonoBehaviour
     ParticleSystem _splashPS;
     float _maxSplashPartEmission;
 
+    bool _isBlockOnLane;
+    float _blockTimer;
+
+    byte _currentWindSound = 0;
+    int _windSoudnToken = 0;
+
     void Start()
     {
         _playerManager = GetComponent<PlayerManager>();
@@ -60,8 +71,8 @@ public class playerControls : MonoBehaviour
 
         _windManager = GameObject.FindGameObjectWithTag("WindManager").GetComponent<WindManager>();
         _currentSailAngle = _sailTransform.localEulerAngles.y % 360;
-        CurrentSpeed = _maxSpeedInitial;
-        CurrentMaxSpeed = _maxSpeedInitial;
+        CurrentSpeed = MaxSpeedInitial;
+        CurrentMaxSpeed = MaxSpeedInitial;
 
         _speedPS = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("SpeedEffect").GetComponent<ParticleSystem>();
         _minSpeedPartRadius = _speedPS.shape.radius;
@@ -69,13 +80,19 @@ public class playerControls : MonoBehaviour
 
         _splashPS = transform.Find("Splash").GetComponent<ParticleSystem>();
         _maxSplashPartEmission = _splashPS.emission.rateOverTime.constant;
+
+        _AM = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     public void OnMoveInput(InputAction.CallbackContext pContext)
     {
+        if (_isBlockOnLane) return;
+
         if (pContext.performed)
         {
             Vector2 vInputValue = pContext.ReadValue<Vector2>();
             if (IsBossMode) vInputValue *= -1;
+
+            _AM.PlaySound(_waterSlideSounds[new System.Random().Next(0, _waterSlideSounds.Count)],1);
 
             float? vNewXTarget = _laneManager.GetNextLaneX((int)vInputValue.x);
             _goingToNextLane = vNewXTarget != null;
@@ -112,15 +129,54 @@ public class playerControls : MonoBehaviour
         //On applique la nouvelle rotation à la voile
         _sailTransform.rotation = Quaternion.Euler(new Vector3(_sailTransform.localEulerAngles.x, vNewAngle, _sailTransform.localEulerAngles.z));
         _currentSailAngle = vNewAngle;
-
     }
 
 
     void Update()
     {
-        //Maj de la vitesse maximal tous les 500m (equivaut à interpolation lineaire sur 50000m)
-        CurrentMaxSpeed = math.min(math.lerp(_maxSpeedInitial, _maxSpeedFinal, _playerManager.TotalDistance / 5000), _maxSpeedFinal);
+        if (_isBlockOnLane)
+        {
+            _blockTimer -= Time.deltaTime;
+            if (_blockTimer <= 0) _isBlockOnLane = false;
+        }
 
+        //Maj de la vitesse maximal tous les 500m (equivaut à interpolation lineaire sur 50000m)
+        CurrentMaxSpeed = math.min(math.lerp(MaxSpeedInitial, _maxSpeedFinal, _playerManager.TotalDistance / 5000), _maxSpeedFinal);
+
+        //Maj du coefficient de décélération
+        UpdateWindDampening();
+
+        //Maj de l'avancée vers l'avant et de sffets associés
+        UpdateForwardMove();
+
+        //Eventuel déplacement de côté pour changement de lane
+        if (_isMovingOnSide) UpdateLaneMove();
+
+    }
+
+    public void SlowDown(float pDecreaseCoef)
+    {
+        CurrentSpeed = math.max(CurrentSpeed - pDecreaseCoef * CurrentSpeed, _minSpeed);
+    }
+
+
+    public void BlockLane(byte pLane, float pTime)
+    {
+        _isBlockOnLane = true;
+        _blockTimer = pTime;
+
+        int vDirection = pLane > _laneManager.CurrentPlayerLane ? 1 : pLane < _laneManager.CurrentPlayerLane ? -1 : 0;
+        if (vDirection != 0)
+        {
+            float? vNewXTarget = _laneManager.GetNextLaneX(vDirection);
+            _goingToNextLane = vNewXTarget != null;
+            _isMovingOnSide = true;
+            _XTarget = _goingToNextLane ? (float)vNewXTarget : _XTarget + math.sign(vDirection) * _laneManager.LaneWidth / 2;
+        }
+    }
+
+    void UpdateWindDampening()
+    {
         //Calcul du coefficient de prise de vent en fonction de l'angle du vent et de la voile
         //Les angles vont de 0 à 360, on décale leur valeur de façon à ce que l'angle 360-Max soit le 0 (pour pouvoir comparer des valeurs allant de 0 à la distance maximal, soit 2*Max)
         float vEcartMax = 2 * _windManager.MaxWindAngle;
@@ -143,7 +199,10 @@ public class playerControls : MonoBehaviour
         DebugTool.DrawDebugOnUI(2, "Sail angle : " + _currentSailAngle.ToString("0.0"));
         DebugTool.DrawDebugOnUI(3, "Current speed : " + CurrentSpeed.ToString("0.0") + " / angle diff : " + vAngleDiff.ToString("0.0")
         + " / dampening coef  : " + _windDampeningCoef.ToString("0.0") + " / current max speed : " + CurrentMaxSpeed.ToString("0.0"));
+    }
 
+    void UpdateForwardMove()
+    {
         //Modifications visuelles de la voile
         _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y,
             math.lerp(_minSailZScale, _maxSailZScale, _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef));
@@ -166,41 +225,44 @@ public class playerControls : MonoBehaviour
             vShape.radius = math.lerp(_minSpeedPartRadius + 7, _minSpeedPartRadius, CurrentSpeed / _maxSpeedFinal);
         }
         else if (_speedPS.isPlaying) _speedPS.Stop();
+
         ParticleSystem.EmissionModule vSpashEmission = _splashPS.emission;
         vSpashEmission.rateOverTime = new() { constant = math.lerp(0, _maxSplashPartEmission, CurrentSpeed / _maxSpeedFinal) };
 
+        //Maj du bruit des vagues
+        byte vNewWindSound = (byte)(CurrentSpeed < _maxSpeedFinal / 3 ? 0 : CurrentSpeed < _maxSpeedFinal * 2 / 3 ? 1 : 2);
+        if (vNewWindSound != _currentWindSound)
+        {
+            if (_windSoudnToken != 0) _AM.StopKeepSound(_windSoudnToken);
+            _windSoudnToken = _AM.PlayKeepSound(_winSounds[vNewWindSound], 1);
+            _currentWindSound = vNewWindSound;
+        }
 
         //On avance tout droit
         transform.position += CurrentSpeed * Time.deltaTime * Vector3.forward;
-
-        //Eventuel deplacement de côté pour changement de lane
-        if (_isMovingOnSide)
-        {
-            Vector3 vTempTargetPosition = new Vector3(_XTarget, transform.position.y, transform.position.z);
-
-            if (_goingToNextLane)
-                transform.position = Vector3.SmoothDamp(transform.position, vTempTargetPosition,
-                    ref _SDVelocityRef, _sideMoveLatency);
-            else
-                transform.position = Vector3.MoveTowards(transform.position, vTempTargetPosition, _laneManager.LaneWidth / _sideMoveLatency * Time.deltaTime);
-
-            if (Mathf.Abs(transform.position.x - _XTarget) < 0.05f)
-            {
-                transform.position = vTempTargetPosition;
-
-                if (_goingToNextLane) _isMovingOnSide = false;
-                else
-                {
-                    _XTarget = (float)_laneManager.GetLaneCenter(_laneManager.CurrentPlayerLane);
-                    _goingToNextLane = true;
-                }
-            }
-        }
-
     }
 
-    public void SlowDown(float pDecreaseCoef)
+
+    void UpdateLaneMove()
     {
-        CurrentSpeed = math.max(CurrentSpeed-pDecreaseCoef*CurrentSpeed, _minSpeed);
+        Vector3 vTempTargetPosition = new Vector3(_XTarget, transform.position.y, transform.position.z);
+
+        if (_goingToNextLane)
+            transform.position = Vector3.SmoothDamp(transform.position, vTempTargetPosition,
+                ref _SDVelocityRef, _sideMoveLatency);
+        else
+            transform.position = Vector3.MoveTowards(transform.position, vTempTargetPosition, _laneManager.LaneWidth / _sideMoveLatency * Time.deltaTime);
+
+        if (Mathf.Abs(transform.position.x - _XTarget) < 0.05f)
+        {
+            transform.position = vTempTargetPosition;
+
+            if (_goingToNextLane) _isMovingOnSide = false;
+            else
+            {
+                _XTarget = (float)_laneManager.GetLaneCenter(_laneManager.CurrentPlayerLane);
+                _goingToNextLane = true;
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Microsoft.Unity.VisualStudio.Editor;
+
 
 
 #if UNITY_EDITOR
@@ -22,6 +24,7 @@ public class Biome : ScriptableObject
     public string BiomeId;
     public List<GameObject> Patterns;
     public GameObject Boss;
+    public Sprite BossLogo;
     public Color WaterColor;
     public Color HorizonColor;
     public Color SkyColor;

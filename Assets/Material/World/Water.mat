@@ -67,7 +67,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scale: 0.04
-    - _Smoothness: 0.792
+    - _Smoothness: 0.726
     - _TotalFadeDistance: 150
     - _WaveScale: 60
     m_Colors:

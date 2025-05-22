@@ -13,6 +13,6 @@ public class ObolesUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TextMeshProUGUI>().text = "Oboles : " + _playerManager.CollectedOboles.ToString();
+        GetComponent<TextMeshProUGUI>().text = _playerManager.CollectedOboles.ToString();
     }
 }

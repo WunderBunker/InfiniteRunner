@@ -12,6 +12,8 @@ TagManager:
   - PatternsManager
   - BiomesManager
   - WaterPlane
+  - AudioManager
+  - Global
   layers:
   - Default
   - TransparentFX
