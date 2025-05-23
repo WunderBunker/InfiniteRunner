@@ -6072,10 +6072,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -11458,7 +11458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patternSpawnTempoInMeters: 70
-  _gateSpawnTempoInMeters: 100
+  _gateSpawnTempoInMeters: 1000
   _spawnDistance: 150
   _numberOfPassedPatternsBfDelete: 5
   _gate: {fileID: 551672196284593298, guid: 3706dc0f2c38ba548ad54148407d1056, type: 3}

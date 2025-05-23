@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Microsoft.Unity.VisualStudio.Editor;
-
 
 
 #if UNITY_EDITOR

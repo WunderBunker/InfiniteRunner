@@ -180,7 +180,9 @@
         170,
         171,
         172,
-        173
+        173,
+        174,
+        175
       ],
       "DebugActionIndex": 0
     },
@@ -401,6 +403,24 @@
       "DebugActionIndex": 12
     },
     {
+      "Annotation": "CopyFiles Build/InfiniteRunner_Data/sharedassets0.resource",
+      "DisplayName": "Copying sharedassets0.resource",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Library/PlayerDataCache/Win642/Data/sharedassets0.resource"
+      ],
+      "InputFlags": [
+        0
+      ],
+      "Outputs": [
+        "Build/InfiniteRunner_Data/sharedassets0.resource"
+      ],
+      "OutputFlags": [
+        2
+      ],
+      "DebugActionIndex": 13
+    },
+    {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/sharedassets1.assets",
       "DisplayName": "Copying sharedassets1.assets",
       "ActionType": "CopyFiles",
@@ -416,7 +436,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 13
+      "DebugActionIndex": 14
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/sharedassets1.assets.resS",
@@ -434,14 +454,32 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 14
+      "DebugActionIndex": 15
+    },
+    {
+      "Annotation": "CopyFiles Build/InfiniteRunner_Data/sharedassets1.resource",
+      "DisplayName": "Copying sharedassets1.resource",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Library/PlayerDataCache/Win642/Data/sharedassets1.resource"
+      ],
+      "InputFlags": [
+        0
+      ],
+      "Outputs": [
+        "Build/InfiniteRunner_Data/sharedassets1.resource"
+      ],
+      "OutputFlags": [
+        2
+      ],
+      "DebugActionIndex": 16
     },
     {
       "Annotation": "WriteText Library/Bee/artifacts/csharpactions/boot.config_tyr4.info",
       "DisplayName": "Writing boot.config_tyr4.info",
       "ActionType": "WriteFile",
       "PayloadOffset": 83,
-      "PayloadLength": 54098,
+      "PayloadLength": 54220,
       "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
       "Inputs": [],
       "InputFlags": [],
@@ -451,7 +489,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 15
+      "DebugActionIndex": 17
     },
     {
       "Annotation": "AddBootConfigGUID Library/Bee/artifacts/WinPlayerBuildProgram/boot.config",
@@ -472,8 +510,10 @@
         "Library/PlayerDataCache/Win642/Data/ScriptingAssemblies.json",
         "Library/PlayerDataCache/Win642/Data/sharedassets0.assets",
         "Library/PlayerDataCache/Win642/Data/sharedassets0.assets.resS",
+        "Library/PlayerDataCache/Win642/Data/sharedassets0.resource",
         "Library/PlayerDataCache/Win642/Data/sharedassets1.assets",
         "Library/PlayerDataCache/Win642/Data/sharedassets1.assets.resS",
+        "Library/PlayerDataCache/Win642/Data/sharedassets1.resource",
         "C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AIModule.dll",
         "C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.AMDModule.dll",
         "C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.ARModule.dll",
@@ -1301,6 +1341,8 @@
         0,
         0,
         0,
+        0,
+        0,
         2,
         2,
         2,
@@ -1344,11 +1386,11 @@
         0
       ],
       "ToBuildDependencies": [
-        15
+        17
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 16
+      "DebugActionIndex": 18
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/boot.config",
@@ -1367,15 +1409,15 @@
         2
       ],
       "ToBuildDependencies": [
-        16
+        18
       ],
-      "DebugActionIndex": 17
+      "DebugActionIndex": 19
     },
     {
       "Annotation": "WriteResponseFile Library/Bee/artifacts/rsp/2814075464632956945.rsp",
       "DisplayName": "Writing 2814075464632956945.rsp",
       "ActionType": "WriteFile",
-      "PayloadOffset": 54270,
+      "PayloadOffset": 54392,
       "PayloadLength": 79846,
       "PayloadDebugContentSnippet": "--allowed-assembly=\"C:/Program",
       "Inputs": [],
@@ -1386,7 +1428,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 18
+      "DebugActionIndex": 20
     },
     {
       "Annotation": "UnityLinker D:/Unity projects/InfiniteRunner/Library/Bee/artifacts/unitylinker_dwek.traceevents",
@@ -2718,7 +2760,7 @@
         0
       ],
       "ToBuildDependencies": [
-        18
+        20
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
@@ -2744,7 +2786,7 @@
           "Recurse": 1
         }
       ],
-      "DebugActionIndex": 19
+      "DebugActionIndex": 21
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Assembly-CSharp.dll",
@@ -2763,9 +2805,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 20
+      "DebugActionIndex": 22
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Mono.Security.dll",
@@ -2784,9 +2826,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 21
+      "DebugActionIndex": 23
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/mscorlib.dll",
@@ -2805,9 +2847,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 22
+      "DebugActionIndex": 24
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/netstandard.dll",
@@ -2826,9 +2868,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 23
+      "DebugActionIndex": 25
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.ComponentModel.Composition.dll",
@@ -2847,9 +2889,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 24
+      "DebugActionIndex": 26
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Configuration.dll",
@@ -2868,9 +2910,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 25
+      "DebugActionIndex": 27
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Core.dll",
@@ -2889,9 +2931,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 26
+      "DebugActionIndex": 28
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Data.DataSetExtensions.dll",
@@ -2910,9 +2952,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 27
+      "DebugActionIndex": 29
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Data.dll",
@@ -2931,9 +2973,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 28
+      "DebugActionIndex": 30
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.dll",
@@ -2952,9 +2994,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 29
+      "DebugActionIndex": 31
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Drawing.dll",
@@ -2973,9 +3015,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 30
+      "DebugActionIndex": 32
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.EnterpriseServices.dll",
@@ -2994,9 +3036,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 31
+      "DebugActionIndex": 33
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.IO.Compression.dll",
@@ -3015,9 +3057,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 32
+      "DebugActionIndex": 34
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.IO.Compression.FileSystem.dll",
@@ -3036,9 +3078,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 33
+      "DebugActionIndex": 35
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Net.Http.dll",
@@ -3057,9 +3099,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 34
+      "DebugActionIndex": 36
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Numerics.dll",
@@ -3078,9 +3120,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 35
+      "DebugActionIndex": 37
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Runtime.dll",
@@ -3099,9 +3141,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 36
+      "DebugActionIndex": 38
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Runtime.Serialization.dll",
@@ -3120,9 +3162,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 37
+      "DebugActionIndex": 39
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Security.dll",
@@ -3141,9 +3183,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 38
+      "DebugActionIndex": 40
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.ServiceModel.Internals.dll",
@@ -3162,9 +3204,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 39
+      "DebugActionIndex": 41
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Transactions.dll",
@@ -3183,9 +3225,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 40
+      "DebugActionIndex": 42
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Xml.dll",
@@ -3204,9 +3246,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 41
+      "DebugActionIndex": 43
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/System.Xml.Linq.dll",
@@ -3225,9 +3267,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 42
+      "DebugActionIndex": 44
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.AI.Navigation.dll",
@@ -3246,9 +3288,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 43
+      "DebugActionIndex": 45
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Burst.dll",
@@ -3267,9 +3309,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 44
+      "DebugActionIndex": 46
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Burst.Unsafe.dll",
@@ -3288,9 +3330,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 45
+      "DebugActionIndex": 47
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Collections.dll",
@@ -3309,9 +3351,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 46
+      "DebugActionIndex": 48
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Collections.LowLevel.ILSupport.dll",
@@ -3330,9 +3372,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 47
+      "DebugActionIndex": 49
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.InputSystem.dll",
@@ -3351,9 +3393,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 48
+      "DebugActionIndex": 50
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.InputSystem.ForUI.dll",
@@ -3372,9 +3414,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 49
+      "DebugActionIndex": 51
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Mathematics.dll",
@@ -3393,9 +3435,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 50
+      "DebugActionIndex": 52
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Multiplayer.Center.Common.dll",
@@ -3414,9 +3456,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 51
+      "DebugActionIndex": 53
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Rendering.LightTransport.Runtime.dll",
@@ -3435,9 +3477,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 52
+      "DebugActionIndex": 54
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll",
@@ -3456,9 +3498,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 53
+      "DebugActionIndex": 55
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll",
@@ -3477,9 +3519,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 54
+      "DebugActionIndex": 56
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.Core.Runtime.Shared.dll",
@@ -3498,9 +3540,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 55
+      "DebugActionIndex": 57
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll",
@@ -3519,9 +3561,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 56
+      "DebugActionIndex": 58
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.GPUDriven.Runtime.dll",
@@ -3540,9 +3582,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 57
+      "DebugActionIndex": 59
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll",
@@ -3561,9 +3603,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 58
+      "DebugActionIndex": 60
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.Universal.2D.Runtime.dll",
@@ -3582,9 +3624,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 59
+      "DebugActionIndex": 61
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.Universal.Config.Runtime.dll",
@@ -3603,9 +3645,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 60
+      "DebugActionIndex": 62
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll",
@@ -3624,9 +3666,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 61
+      "DebugActionIndex": 63
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll",
@@ -3645,9 +3687,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 62
+      "DebugActionIndex": 64
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.TextMeshPro.dll",
@@ -3666,9 +3708,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 63
+      "DebugActionIndex": 65
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.Timeline.dll",
@@ -3687,9 +3729,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 64
+      "DebugActionIndex": 66
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll",
@@ -3708,9 +3750,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 65
+      "DebugActionIndex": 67
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.VisualScripting.Core.dll",
@@ -3729,9 +3771,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 66
+      "DebugActionIndex": 68
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.VisualScripting.Flow.dll",
@@ -3750,9 +3792,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 67
+      "DebugActionIndex": 69
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/Unity.VisualScripting.State.dll",
@@ -3771,9 +3813,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 68
+      "DebugActionIndex": 70
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.AccessibilityModule.dll",
@@ -3792,9 +3834,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 69
+      "DebugActionIndex": 71
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.AIModule.dll",
@@ -3813,9 +3855,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 70
+      "DebugActionIndex": 72
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.AMDModule.dll",
@@ -3834,9 +3876,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 71
+      "DebugActionIndex": 73
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.AndroidJNIModule.dll",
@@ -3855,9 +3897,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 72
+      "DebugActionIndex": 74
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.AnimationModule.dll",
@@ -3876,9 +3918,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 73
+      "DebugActionIndex": 75
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ARModule.dll",
@@ -3897,9 +3939,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 74
+      "DebugActionIndex": 76
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.AssetBundleModule.dll",
@@ -3918,9 +3960,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 75
+      "DebugActionIndex": 77
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.AudioModule.dll",
@@ -3939,9 +3981,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 76
+      "DebugActionIndex": 78
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ClothModule.dll",
@@ -3960,9 +4002,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 77
+      "DebugActionIndex": 79
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ClusterInputModule.dll",
@@ -3981,9 +4023,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 78
+      "DebugActionIndex": 80
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ClusterRendererModule.dll",
@@ -4002,9 +4044,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 79
+      "DebugActionIndex": 81
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ContentLoadModule.dll",
@@ -4023,9 +4065,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 80
+      "DebugActionIndex": 82
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.CoreModule.dll",
@@ -4044,9 +4086,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 81
+      "DebugActionIndex": 83
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.CrashReportingModule.dll",
@@ -4065,9 +4107,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 82
+      "DebugActionIndex": 84
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.DirectorModule.dll",
@@ -4086,9 +4128,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 83
+      "DebugActionIndex": 85
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.dll",
@@ -4107,9 +4149,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 84
+      "DebugActionIndex": 86
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.DSPGraphModule.dll",
@@ -4128,9 +4170,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 85
+      "DebugActionIndex": 87
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.GameCenterModule.dll",
@@ -4149,9 +4191,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 86
+      "DebugActionIndex": 88
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.GIModule.dll",
@@ -4170,9 +4212,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 87
+      "DebugActionIndex": 89
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.GraphicsStateCollectionSerializerModule.dll",
@@ -4191,9 +4233,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 88
+      "DebugActionIndex": 90
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.GridModule.dll",
@@ -4212,9 +4254,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 89
+      "DebugActionIndex": 91
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.HierarchyCoreModule.dll",
@@ -4233,9 +4275,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 90
+      "DebugActionIndex": 92
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.HotReloadModule.dll",
@@ -4254,9 +4296,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 91
+      "DebugActionIndex": 93
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ImageConversionModule.dll",
@@ -4275,9 +4317,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 92
+      "DebugActionIndex": 94
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.IMGUIModule.dll",
@@ -4296,9 +4338,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 93
+      "DebugActionIndex": 95
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.InputForUIModule.dll",
@@ -4317,9 +4359,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 94
+      "DebugActionIndex": 96
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.InputLegacyModule.dll",
@@ -4338,9 +4380,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 95
+      "DebugActionIndex": 97
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.InputModule.dll",
@@ -4359,9 +4401,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 96
+      "DebugActionIndex": 98
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.JSONSerializeModule.dll",
@@ -4380,9 +4422,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 97
+      "DebugActionIndex": 99
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.LocalizationModule.dll",
@@ -4401,9 +4443,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 98
+      "DebugActionIndex": 100
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.MarshallingModule.dll",
@@ -4422,9 +4464,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 99
+      "DebugActionIndex": 101
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.MultiplayerModule.dll",
@@ -4443,9 +4485,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 100
+      "DebugActionIndex": 102
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.NVIDIAModule.dll",
@@ -4464,9 +4506,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 101
+      "DebugActionIndex": 103
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ParticleSystemModule.dll",
@@ -4485,9 +4527,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 102
+      "DebugActionIndex": 104
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.PerformanceReportingModule.dll",
@@ -4506,9 +4548,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 103
+      "DebugActionIndex": 105
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.Physics2DModule.dll",
@@ -4527,9 +4569,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 104
+      "DebugActionIndex": 106
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.PhysicsModule.dll",
@@ -4548,9 +4590,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 105
+      "DebugActionIndex": 107
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.PropertiesModule.dll",
@@ -4569,9 +4611,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 106
+      "DebugActionIndex": 108
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
@@ -4590,9 +4632,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 107
+      "DebugActionIndex": 109
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ScreenCaptureModule.dll",
@@ -4611,9 +4653,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 108
+      "DebugActionIndex": 110
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.ShaderVariantAnalyticsModule.dll",
@@ -4632,9 +4674,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 109
+      "DebugActionIndex": 111
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.SharedInternalsModule.dll",
@@ -4653,9 +4695,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 110
+      "DebugActionIndex": 112
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.SpriteMaskModule.dll",
@@ -4674,9 +4716,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 111
+      "DebugActionIndex": 113
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.SpriteShapeModule.dll",
@@ -4695,9 +4737,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 112
+      "DebugActionIndex": 114
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.StreamingModule.dll",
@@ -4716,9 +4758,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 113
+      "DebugActionIndex": 115
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.SubstanceModule.dll",
@@ -4737,9 +4779,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 114
+      "DebugActionIndex": 116
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.SubsystemsModule.dll",
@@ -4758,9 +4800,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 115
+      "DebugActionIndex": 117
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.TerrainModule.dll",
@@ -4779,9 +4821,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 116
+      "DebugActionIndex": 118
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.TerrainPhysicsModule.dll",
@@ -4800,9 +4842,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 117
+      "DebugActionIndex": 119
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll",
@@ -4821,9 +4863,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 118
+      "DebugActionIndex": 120
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll",
@@ -4842,9 +4884,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 119
+      "DebugActionIndex": 121
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.TextRenderingModule.dll",
@@ -4863,9 +4905,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 120
+      "DebugActionIndex": 122
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.TilemapModule.dll",
@@ -4884,9 +4926,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 121
+      "DebugActionIndex": 123
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.TLSModule.dll",
@@ -4905,9 +4947,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 122
+      "DebugActionIndex": 124
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UI.dll",
@@ -4926,9 +4968,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 123
+      "DebugActionIndex": 125
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UIElementsModule.dll",
@@ -4947,9 +4989,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 124
+      "DebugActionIndex": 126
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UIModule.dll",
@@ -4968,9 +5010,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 125
+      "DebugActionIndex": 127
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UmbraModule.dll",
@@ -4989,9 +5031,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 126
+      "DebugActionIndex": 128
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll",
@@ -5010,9 +5052,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 127
+      "DebugActionIndex": 129
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityAnalyticsModule.dll",
@@ -5031,9 +5073,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 128
+      "DebugActionIndex": 130
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityConnectModule.dll",
@@ -5052,9 +5094,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 129
+      "DebugActionIndex": 131
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityCurlModule.dll",
@@ -5073,9 +5115,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 130
+      "DebugActionIndex": 132
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityTestProtocolModule.dll",
@@ -5094,9 +5136,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 131
+      "DebugActionIndex": 133
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll",
@@ -5115,9 +5157,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 132
+      "DebugActionIndex": 134
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll",
@@ -5136,9 +5178,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 133
+      "DebugActionIndex": 135
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityWebRequestModule.dll",
@@ -5157,9 +5199,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 134
+      "DebugActionIndex": 136
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll",
@@ -5178,9 +5220,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 135
+      "DebugActionIndex": 137
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll",
@@ -5199,9 +5241,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 136
+      "DebugActionIndex": 138
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.VehiclesModule.dll",
@@ -5220,9 +5262,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 137
+      "DebugActionIndex": 139
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.VFXModule.dll",
@@ -5241,9 +5283,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 138
+      "DebugActionIndex": 140
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.VideoModule.dll",
@@ -5262,9 +5304,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 139
+      "DebugActionIndex": 141
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.VirtualTexturingModule.dll",
@@ -5283,9 +5325,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 140
+      "DebugActionIndex": 142
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.VRModule.dll",
@@ -5304,9 +5346,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 141
+      "DebugActionIndex": 143
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.WindModule.dll",
@@ -5325,9 +5367,9 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 142
+      "DebugActionIndex": 144
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Managed/UnityEngine.XRModule.dll",
@@ -5346,15 +5388,15 @@
         2
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
-      "DebugActionIndex": 143
+      "DebugActionIndex": 145
     },
     {
       "Annotation": "GenerateNativePluginsForAssemblies Library/Bee/artifacts/WinPlayerBuildProgram/AsyncPluginsFromLinker",
       "DisplayName": "Running Burst Compiler",
       "ActionType": "RunRPCCommand",
-      "PayloadOffset": 134239,
+      "PayloadOffset": 134361,
       "PayloadLength": 11934,
       "PayloadDebugContentSnippet": "{\"PlayerBuildProgramLibrary.Da",
       "Action": "GenerateNativePluginsForAssemblies",
@@ -5627,7 +5669,7 @@
         0
       ],
       "ToBuildDependencies": [
-        19
+        21
       ],
       "StatSignatures": [
         {
@@ -5653,7 +5695,7 @@
           "Recurse": 1
         }
       ],
-      "DebugActionIndex": 144
+      "DebugActionIndex": 146
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Plugins/x86_64/lib_burst_generated.dll",
@@ -5672,15 +5714,15 @@
         2
       ],
       "ToBuildDependencies": [
-        144
+        146
       ],
-      "DebugActionIndex": 145
+      "DebugActionIndex": 147
     },
     {
       "Annotation": "WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info",
       "DisplayName": "Writing app.info",
       "ActionType": "WriteFile",
-      "PayloadOffset": 146262,
+      "PayloadOffset": 146384,
       "PayloadLength": 29,
       "PayloadDebugContentSnippet": "DefaultCompany\nInfiniteRunner",
       "Inputs": [],
@@ -5691,7 +5733,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 146
+      "DebugActionIndex": 148
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/app.info",
@@ -5710,9 +5752,9 @@
         2
       ],
       "ToBuildDependencies": [
-        146
+        148
       ],
-      "DebugActionIndex": 147
+      "DebugActionIndex": 149
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner_Data/Resources/unity default resources",
@@ -5730,7 +5772,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 148
+      "DebugActionIndex": 150
     },
     {
       "Annotation": "CopyFiles Build/InfiniteRunner.exe",
@@ -5748,7 +5790,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 149
+      "DebugActionIndex": 151
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll",
@@ -5766,7 +5808,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 150
+      "DebugActionIndex": 152
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
@@ -5784,7 +5826,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 151
+      "DebugActionIndex": 153
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
@@ -5802,7 +5844,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 152
+      "DebugActionIndex": 154
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
@@ -5820,7 +5862,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 153
+      "DebugActionIndex": 155
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/2.0/machine.config",
@@ -5838,7 +5880,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 154
+      "DebugActionIndex": 156
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/2.0/settings.map",
@@ -5856,7 +5898,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 155
+      "DebugActionIndex": 157
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/2.0/web.config",
@@ -5874,7 +5916,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 156
+      "DebugActionIndex": 158
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
@@ -5892,7 +5934,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 157
+      "DebugActionIndex": 159
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
@@ -5910,7 +5952,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 158
+      "DebugActionIndex": 160
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.0/machine.config",
@@ -5928,7 +5970,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 159
+      "DebugActionIndex": 161
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.0/settings.map",
@@ -5946,7 +5988,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 160
+      "DebugActionIndex": 162
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.0/web.config",
@@ -5964,7 +6006,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 161
+      "DebugActionIndex": 163
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
@@ -5982,7 +6024,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 162
+      "DebugActionIndex": 164
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
@@ -6000,7 +6042,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 163
+      "DebugActionIndex": 165
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.5/machine.config",
@@ -6018,7 +6060,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 164
+      "DebugActionIndex": 166
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.5/settings.map",
@@ -6036,7 +6078,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 165
+      "DebugActionIndex": 167
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/4.5/web.config",
@@ -6054,7 +6096,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 166
+      "DebugActionIndex": 168
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/browscap.ini",
@@ -6072,7 +6114,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 167
+      "DebugActionIndex": 169
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/config",
@@ -6090,7 +6132,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 168
+      "DebugActionIndex": 170
     },
     {
       "Annotation": "CopyFiles Build/MonoBleedingEdge/etc/mono/mconfig/config.xml",
@@ -6108,7 +6150,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 169
+      "DebugActionIndex": 171
     },
     {
       "Annotation": "CopyFiles Build/UnityCrashHandler64.exe",
@@ -6126,7 +6168,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 170
+      "DebugActionIndex": 172
     },
     {
       "Annotation": "CopyFiles Build/UnityPlayer.dll",
@@ -6144,7 +6186,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 171
+      "DebugActionIndex": 173
     },
     {
       "Annotation": "CopyFiles Build/D3D12/D3D12Core.dll",
@@ -6162,7 +6204,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 172
+      "DebugActionIndex": 174
     },
     {
       "Annotation": "Player",
@@ -6186,9 +6228,9 @@
         12,
         13,
         14,
-        17,
-        20,
-        21,
+        15,
+        16,
+        19,
         22,
         23,
         24,
@@ -6311,9 +6353,9 @@
         141,
         142,
         143,
+        144,
         145,
         147,
-        148,
         149,
         150,
         151,
@@ -6337,9 +6379,11 @@
         169,
         170,
         171,
-        172
+        172,
+        173,
+        174
       ],
-      "DebugActionIndex": 173
+      "DebugActionIndex": 175
     }
   ],
   "FileSignatures": [
@@ -6554,7 +6598,7 @@
   "EmitDataForBeeWhy": 0,
         "NamedNodes": {
           "all_tundra_nodes": 0,
-          "Player": 173
+          "Player": 175
         }
 ,  "DefaultNodes": [
     0

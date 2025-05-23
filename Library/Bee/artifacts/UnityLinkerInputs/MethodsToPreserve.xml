@@ -1,10 +1,13 @@
 <linker>
 	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="AudioButton">
+			<method name="OnButtonClick"/>
+		</type>
 		<type fullname="MainCanvas">
 			<method name="LaunchPauseMenu"/>
-			<method name="LaunchPauseMenu"/>
 			<method name="OnBackToMenuButton"/>
 			<method name="OnBackToMenuButton"/>
+			<method name="OnButtonClose"/>
 			<method name="OnRetryButton"/>
 		</type>
 		<type fullname="MenuManager">
@@ -23,6 +26,12 @@
 		</type>
 		<type fullname="PlayerManager">
 			<method name="OnShoot"/>
+		</type>
+		<type fullname="SoundMenu">
+			<method name="OnClose"/>
+			<method name="OnFxChange"/>
+			<method name="OnMasterChange"/>
+			<method name="OnMusicChange"/>
 		</type>
 	</assembly>
 	<assembly fullname="Unity.RenderPipelines.Core.Runtime" ignoreIfMissing="1">

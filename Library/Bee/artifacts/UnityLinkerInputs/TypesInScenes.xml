@@ -1,9 +1,13 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
+		<type fullname="AttackCollider" preserve="nothing"/>
+		<type fullname="AudioButton" preserve="nothing"/>
+		<type fullname="AudioManager" preserve="nothing"/>
 		<type fullname="Biome" preserve="nothing"/>
 		<type fullname="BiomesManager" preserve="nothing"/>
 		<type fullname="BulletsUI" preserve="nothing"/>
 		<type fullname="DistanceUI" preserve="nothing"/>
+		<type fullname="FiltreAlerte" preserve="nothing"/>
 		<type fullname="FollowPlayer" preserve="nothing"/>
 		<type fullname="Gate" preserve="nothing"/>
 		<type fullname="LanesManager" preserve="nothing"/>
@@ -11,6 +15,7 @@
 		<type fullname="Log" preserve="nothing"/>
 		<type fullname="MainCanvas" preserve="nothing"/>
 		<type fullname="MenuManager" preserve="nothing"/>
+		<type fullname="Mermaid" preserve="nothing"/>
 		<type fullname="Obole" preserve="nothing"/>
 		<type fullname="ObolesUI" preserve="nothing"/>
 		<type fullname="PartieManager" preserve="nothing"/>
@@ -24,6 +29,8 @@
 		<type fullname="Rock" preserve="nothing"/>
 		<type fullname="Scylla" preserve="nothing"/>
 		<type fullname="ScyllaAttack" preserve="nothing"/>
+		<type fullname="ScyllaAttack2" preserve="nothing"/>
+		<type fullname="SoundMenu" preserve="nothing"/>
 		<type fullname="WaterPlanes" preserve="nothing"/>
 		<type fullname="WindManager" preserve="nothing"/>
 	</assembly>
@@ -119,8 +126,14 @@
 		<type fullname="UnityEditor.VFXManager" preserve="nothing"/>
 		<type fullname="UnityEngine.AnimationClip" preserve="nothing"/>
 		<type fullname="UnityEngine.Animator" preserve="nothing"/>
+		<type fullname="UnityEngine.Audio.AudioMixer" preserve="nothing"/>
+		<type fullname="UnityEngine.Audio.AudioMixerGroup" preserve="nothing"/>
+		<type fullname="UnityEngine.Audio.AudioMixerSnapshot" preserve="nothing"/>
+		<type fullname="UnityEngine.Audio.AudioResource" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioBehaviour" preserve="nothing"/>
+		<type fullname="UnityEngine.AudioClip" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioListener" preserve="nothing"/>
+		<type fullname="UnityEngine.AudioSource" preserve="nothing"/>
 		<type fullname="UnityEngine.Behaviour" preserve="nothing"/>
 		<type fullname="UnityEngine.BoxCollider" preserve="nothing"/>
 		<type fullname="UnityEngine.Camera" preserve="nothing"/>
@@ -173,6 +186,7 @@
 		<type fullname="UnityEngine.UI.Image" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.LayoutElement" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Mask" preserve="nothing"/>
+		<type fullname="UnityEngine.UI.RectMask2D" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Scrollbar" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.ScrollRect" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Slider" preserve="nothing"/>
