@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
         transform.position = new Vector3(transform.position.x, vHeight, transform.position.z);
         if (vHeight + _bulletHalfSize < _groundHeight)
         {
-            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(_splashSounds[new System.Random().Next(0, _splashSounds.Count)], 1);
+            AudioManager.Instance.PlaySound(_splashSounds[new System.Random().Next(0, _splashSounds.Count)], 1);
             Instantiate(_splash, transform.position, _splash.transform.rotation, transform.parent);
             Explode();
         }

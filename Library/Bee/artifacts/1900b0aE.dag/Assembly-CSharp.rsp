@@ -426,15 +426,19 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/AudioButton.cs"
 "Assets/CoursGlobal.cs"
 "Assets/CoursTrigger.cs"
 "Assets/Cours_player.cs"
+"Assets/FiltreAlerte.cs"
 "Assets/piece_cours.cs"
 "Assets/Prefab/Patterns/Biome.cs"
 "Assets/Prefab/Patterns/PatternConfig.cs"
 "Assets/Scripts/Audio/AudioManager.cs"
+"Assets/Scripts/Boss/AttackCollider.cs"
 "Assets/Scripts/Boss/Scylla.cs"
 "Assets/Scripts/Boss/ScyllaAttack.cs"
+"Assets/Scripts/Boss/ScyllaAttack2.cs"
 "Assets/Scripts/Camera/FollowPlayer.cs"
 "Assets/Scripts/Cours/Cours.cs"
 "Assets/Scripts/Item/Obole.cs"
@@ -463,7 +467,7 @@
 "Assets/Scripts/World/PatternsManager.cs"
 "Assets/Scripts/World/WaterPlanes.cs"
 "Assets/Scripts/World/WindManager.cs"
-"Assets/ScyllaAttack2.cs"
+"Assets/SoundMenu.cs"
 -langversion:9.0
 /deterministic
 /optimize+

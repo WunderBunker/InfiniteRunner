@@ -30,7 +30,6 @@ public class Mermaid : MonoBehaviour
     float _maxAlpha;
 
     GameObject _body;
-    AudioManager _AM;
     bool _isDead;
 
 
@@ -60,8 +59,7 @@ public class Mermaid : MonoBehaviour
         _isChanting = true;
         _PS.Play();
 
-        _AM = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-        _AM.PlaySound(_chantSounds[new System.Random().Next(0, _chantSounds.Count)], 1, transform.position);
+        AudioManager.Instance.PlaySound(_chantSounds[new System.Random().Next(0, _chantSounds.Count)], 1, transform.position);
     }
 
     // Update is called once per frame
@@ -148,7 +146,7 @@ public class Mermaid : MonoBehaviour
                 _isChanting = true;
                 _chantTimer = _chantTime;
                 _PS.Play();
-                _AM.PlaySound(_chantSounds[new System.Random().Next(0, _chantSounds.Count)], 1, transform.position);
+                AudioManager.Instance.PlaySound(_chantSounds[new System.Random().Next(0, _chantSounds.Count)], 1, transform.position);
             }
         }
     }
@@ -168,7 +166,7 @@ public class Mermaid : MonoBehaviour
     IEnumerator Death()
     {
         _isDead = true;
-        _AM.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1, transform.position);
+        AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1, transform.position);
         _body.GetComponent<Animator>().SetTrigger("Death");
         yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(_body.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);

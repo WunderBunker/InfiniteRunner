@@ -67,14 +67,19 @@
   <ItemGroup>
     <Compile Include="Assets\Prefab\Patterns\PatternConfig.cs" />
     <Compile Include="Assets\Scripts\Player\playerControls.cs" />
+    <Compile Include="Assets\FiltreAlerte.cs" />
+    <Compile Include="Assets\Scripts\Boss\ScyllaAttack2.cs" />
     <Compile Include="Assets\Scripts\Utiilities\BiomesManager.cs" />
+    <Compile Include="Assets\SoundMenu.cs" />
     <Compile Include="Assets\Scripts\Item\Plank.cs" />
     <Compile Include="Assets\CoursGlobal.cs" />
     <Compile Include="Assets\Scripts\UI\BulletsUI.cs" />
     <Compile Include="Assets\Scripts\UI\LifeUI.cs" />
     <Compile Include="Assets\Scripts\UI\DistanceUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainCanvas.cs" />
+    <Compile Include="Assets\AudioButton.cs" />
     <Compile Include="Assets\Scripts\Utiilities\EditorMisc.cs" />
+    <Compile Include="Assets\Scripts\Boss\AttackCollider.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\Cours_player.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Log.cs" />
@@ -83,7 +88,6 @@
     <Compile Include="Assets\Scripts\Player\Projectile.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Utiilities\SaveManager.cs" />
-    <Compile Include="Assets\ScyllaAttack2.cs" />
     <Compile Include="Assets\Scripts\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\World\WindManager.cs" />
     <Compile Include="Assets\Scripts\Item\Obole.cs" />

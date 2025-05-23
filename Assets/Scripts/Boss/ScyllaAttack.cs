@@ -69,9 +69,11 @@ public class ScyllaAttack : MonoBehaviour
         yield return new WaitForSeconds(_attackAnimTime);
         _preAttack.SetActive(false);
         _attack.SetActive(true);
+        transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", new Color(1, 0, 1, 0.9f));
+        
         _attackTimer = _attackTime;
         Instantiate(_splash, transform.Find("SplashPosition").position, _splash.transform.rotation, transform.parent);
-        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(_splashSounds[new System.Random().Next(0, _splashSounds.Count)],1);
+        AudioManager.Instance.PlaySound(_splashSounds[new System.Random().Next(0, _splashSounds.Count)],1);
     }
 }
 

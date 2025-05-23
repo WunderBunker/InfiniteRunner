@@ -14,6 +14,9 @@ public class Scylla : MonoBehaviour, IBoss
     [SerializeField] float _maxLife;
     [SerializeField] List<AudioClip> _hurtSounds = new();
     [SerializeField] AudioClip _deathSound;
+    [SerializeField] AudioClip _shieldSound;
+    [SerializeField] Color _shieldColor;
+
 
     float _initMaxDistanceToPLayer;
 
@@ -23,9 +26,9 @@ public class Scylla : MonoBehaviour, IBoss
     LanesManager _laneManager;
     Transform _playerTransform;
     playerControls _playerControls;
+    FiltreAlerte _filtreAlerte;
     System.Random _random = new();
     List<GameObject> _attackList = new();
-    MeshRenderer _shieldPlan;
 
     bool _isActive = false;
     bool _isBeaten = false;
@@ -38,32 +41,25 @@ public class Scylla : MonoBehaviour, IBoss
     float _distanceToPlayer;
     Slider _bossIndicator;
 
-    float _hitTime = 1.5f;
-    float _hitTimer;
-
-    float _shieldFlickerTimer;
-
-    AudioManager _AM;
+    bool _shieldFlicker;
+    private bool _isHit;
 
     void Start()
     {
         _laneManager = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _playerControls = _playerTransform.GetComponent<playerControls>();
+        _filtreAlerte = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filtre").GetComponent<FiltreAlerte>();
 
         _body = transform.GetChild(0).gameObject;
         _body.SetActive(false);
         _attackRange = _attack.GetComponent<ScyllaAttack>().GetAttackRange();
-
-        _shieldPlan = _body.transform.Find("Shield").GetComponent<MeshRenderer>();
 
         _distanceToPlayer = _maxDistanceToPlayer;
         _speed = _playerControls.CurrentMaxSpeed / 2;
         _initMaxDistanceToPLayer = _maxDistanceToPlayer;
 
         _bossIndicator = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").GetComponent<Slider>();
-
-        _AM = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     public void Activate()
@@ -77,13 +73,16 @@ public class Scylla : MonoBehaviour, IBoss
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() == null) continue;
             _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetBool("Stopped", false);
             _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetInteger("Head", lCptChild);
+            _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", _shieldColor);
         }
 
         _life = _maxLife;
         _attackTimer = _attackTempo;
-        _attack2Timer = _attack2Tempo/2;
+        _attack2Timer = _attack2Tempo / 2;
         GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(true);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
+
+        _filtreAlerte.SetActive(false);
     }
     public void DeActivate()
     {
@@ -100,6 +99,8 @@ public class Scylla : MonoBehaviour, IBoss
         _attackList.Clear();
         _distanceToPlayer = _maxDistanceToPlayer;
         _isBeaten = false;
+
+        _filtreAlerte.SetActive(false);
     }
 
     void Update()
@@ -110,46 +111,51 @@ public class Scylla : MonoBehaviour, IBoss
             _maxDistanceToPlayer = _initMaxDistanceToPLayer * _playerControls.CurrentMaxSpeed / _playerControls.MaxSpeedInitial;
 
             _speed = _playerControls.CurrentMaxSpeed * 0.7f;
-            _distanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
+            float vNewDistanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
+
+            if (vNewDistanceToPlayer <= _maxDistanceToPlayer / 4 && _distanceToPlayer > _maxDistanceToPlayer / 4) _filtreAlerte.SetActive(true);
+            else if (_distanceToPlayer <= _maxDistanceToPlayer / 4 && vNewDistanceToPlayer > _maxDistanceToPlayer / 4) _filtreAlerte.SetActive(false);
+
+            _distanceToPlayer = vNewDistanceToPlayer;
             _bossIndicator.value = 1 - _distanceToPlayer / _maxDistanceToPlayer;
             if (_distanceToPlayer == 0) Activate();
             return;
         }
 
-        if (_hitTimer > 0)
+        if (_isHit)
         {
-            _hitTimer -= Time.deltaTime;
+            Color vBodyColor = _body.transform.GetChild(0).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].GetColor("_Emission");
+            if (vBodyColor.a > 0.1f)
+            {
+                vBodyColor.a -= Time.deltaTime * 0.35f;
+                if (vBodyColor.a <= 0.1f) _isHit = false;
+            }
+            else _isHit = false;
+
+            Color vAttackColor = new Color(1, 0, 0, vBodyColor.a);
+
             foreach (GameObject lAttack in _attackList)
                 if (lAttack != null)
-                    foreach (Material lMaterial in lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials)
-                        lMaterial.SetColor("_BaseColor", lMaterial.GetColor("_Color") + new Color(math.sin(Time.time * 25), 0, 0));
-
-            if (_hitTimer <= 0)
-            {
-                _hitTimer = 0;
-                foreach (GameObject lAttack in _attackList)
-                    if (lAttack != null)
-                        foreach (Material lMaterial in lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials)
-                            lMaterial.SetColor("_BaseColor", lMaterial.GetColor("_Color") + new Color(math.sin(Time.time * 25), 0, 0));
-            }
+                {
+                    Material lMat = lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0];
+                    lMat.SetColor("_Emission", vAttackColor);
+                }
+            for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
+                _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vBodyColor);
         }
 
-        if (_shieldPlan.enabled)
+        if (_shieldFlicker)
         {
-            _shieldFlickerTimer -= Time.deltaTime;
-
-            Color vPlanColor = _shieldPlan.material.GetColor("_Color");
-            if (_shieldFlickerTimer <= 0)
+            Color vShieldColor = _body.transform.GetChild(0).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].GetColor("_Emission");
+            if (vShieldColor.a > 0.1f)
             {
-                if (vPlanColor.a > 0) vPlanColor.a -= Time.deltaTime * 5;
-                else
-                {
-                    vPlanColor.a = 0.8f;
-                    _shieldPlan.enabled = false;
-                }
+                vShieldColor.a -= Time.deltaTime * 0.35f;
+                if (vShieldColor.a <= 0.2f) _shieldFlicker = false;
             }
-            else vPlanColor.a = math.clamp(vPlanColor.a + Time.deltaTime * math.sin(Time.time * 20) * 5, 0.1f, 0.8f);
-            _shieldPlan.material.SetColor("_Color", vPlanColor);
+            else _shieldFlicker = false;
+
+            for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
+                _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vShieldColor);
         }
 
         if (_isBeaten) return;
@@ -197,19 +203,38 @@ public class Scylla : MonoBehaviour, IBoss
         {
             if (_life == 0) return;
             _life -= 1;
-            _hitTimer = _hitTime;
+            _isHit = true;
+
             pOther.GetComponent<Projectile>().Explode();
-            _AM.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1);
+
+            AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1);
+
+            Color vCol = new Color(1, 0, 0, 0.9f);
+            foreach (GameObject lAttack in _attackList)
+                if (lAttack != null)
+                {
+                    Material lMat = lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0];
+                    lMat.SetColor("_Emission", vCol);
+                }
+            for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
+                _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vCol);
+
             if (_life == 0) StartCoroutine(IsBeaten());
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        //Le bouclier s'active et le bouelt rebondit
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            _shieldFlickerTimer = 2;
-            _shieldPlan.enabled = true;
+            _shieldFlicker = true;
+            Color vColor = _shieldColor;
+            vColor.a = 0.8f;
+            for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
+                _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vColor);
+
+            AudioManager.Instance.PlaySound(_shieldSound, 1);
         }
     }
 
@@ -220,8 +245,8 @@ public class Scylla : MonoBehaviour, IBoss
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() != null) _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetTrigger("Beaten");
         yield return new WaitForSeconds(0.2f);
         float vAnimTime = _body.transform.GetChild(0).GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
-        _AM.PlaySound(_deathSound, 1);
-        yield return new WaitForSeconds(vAnimTime + 0.5f);
+        AudioManager.Instance.PlaySound(_deathSound, 1);
+        yield return new WaitForSeconds(vAnimTime);
         DeActivate();
     }
 }

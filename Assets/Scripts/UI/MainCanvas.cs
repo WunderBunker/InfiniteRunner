@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -34,18 +35,33 @@ public class MainCanvas : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void OnButtonClose()
+    {
+        LaunchPauseMenu();
+        AudioManager.Instance.PlayClickSound();
+    }
+
     public void OnRetryButton()
     {
         SaveManager.AddOboles(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CollectedOboles);
         SceneManager.LoadScene("RunScene");
         Time.timeScale = 1;
+
+        AudioManager.Instance.PlayClickSound();
     }
 
     public void OnBackToMenuButton()
     {
         SaveManager.AddOboles(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CollectedOboles);
         SaveManager.SaveSave();
-        SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
+        StartCoroutine(WaitForClickSoundAndLoad());
+    }
+
+    IEnumerator WaitForClickSoundAndLoad()
+    {
+        AudioManager.Instance.PlayClickSound();
+        yield return new WaitForSeconds(0.25f);
+        SceneManager.LoadScene("Menu");
     }
 }

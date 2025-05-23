@@ -21,7 +21,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject _bullet;
 
     GameObject _camera;
-    AudioManager _AM;
     float _lastZ;
     playerControls _playerControls;
     Vector3 _playerSize;
@@ -55,7 +54,6 @@ public class PlayerManager : MonoBehaviour
         _lifeUI = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Life").GetComponent<LifeUI>();
         _lifeUI.SetMaxLife(_maxLife);
 
-        _AM = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -94,7 +92,7 @@ public class PlayerManager : MonoBehaviour
         _life -= pDamage;
         _lifeUI.SetLifeNb(_life);
 
-        _AM.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)],1);
+        AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)],1);
 
         if (_life == 0) { Die(); return; }
 
@@ -106,7 +104,7 @@ public class PlayerManager : MonoBehaviour
     {
         _life = (byte)(_life >= 0 && _life < _maxLife ? _life + pPV : _life);
         _lifeUI.SetLifeNb(_life);
-        _AM.PlaySound(_healSounds[new System.Random().Next(0, _healSounds.Count)],1);
+        AudioManager.Instance.PlaySound(_healSounds[new System.Random().Next(0, _healSounds.Count)],1);
     }
 
 
@@ -123,7 +121,7 @@ public class PlayerManager : MonoBehaviour
             _mustReload = true;
             _fireRateTimer = _bulletFireRate;
 
-            _AM.PlaySound(_canonSounds[new System.Random().Next(0, _canonSounds.Count)], 1);
+            AudioManager.Instance.PlaySound(_canonSounds[new System.Random().Next(0, _canonSounds.Count)], 1);
 
             if (_playerControls.IsBossMode)
             {
@@ -143,7 +141,7 @@ public class PlayerManager : MonoBehaviour
     {
         CollectedOboles += pNb;
         
-        _AM.PlaySound(_oboleSounds[new System.Random().Next(0, _oboleSounds.Count)],1);
+        AudioManager.Instance.PlaySound(_oboleSounds[new System.Random().Next(0, _oboleSounds.Count)],1);
     }
 
 }

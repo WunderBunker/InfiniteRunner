@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3966659163087973394}
   - component: {fileID: 2007252198152397835}
-  - component: {fileID: 4221055045621803228}
+  - component: {fileID: 6831666813981675120}
   m_Layer: 6
   m_Name: Attack
   m_TagString: Untagged
@@ -85,7 +85,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4221055045621803228
+--- !u!114 &6831666813981675120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,10 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3839972821122014460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97be3cd811a8b6e40a58f12710d52cdf, type: 3}
+  m_Script: {fileID: 11500000, guid: 44600565d3fe38b43a501f71397d62cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rockSounds: []
 --- !u!1 &4879660614814153508
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,7 +5318,7 @@ PrefabInstance:
     - target: {fileID: 5074512353664290214, guid: e47f3704649fcd945b4c07b54a9fbb34, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: add3b381d8adcb74995a6ada8f5b06c5, type: 2}
+      objectReference: {fileID: 2100000, guid: ccc112f1ae9b19349a4896a557982923, type: 2}
     - target: {fileID: 5074512353664290214, guid: e47f3704649fcd945b4c07b54a9fbb34, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 

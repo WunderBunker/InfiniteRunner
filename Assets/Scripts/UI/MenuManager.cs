@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,7 +19,14 @@ public class MenuManager : MonoBehaviour
 
     public void PlayButtonClick()
     {
-        SceneManager.LoadScene("RunScene");
         SaveManager.SaveSave();
+        StartCoroutine(WaitForClickSoundAndLoad());
+    }
+
+    IEnumerator WaitForClickSoundAndLoad()
+    {
+        AudioManager.Instance.PlayClickSound();
+        yield return new WaitForSeconds(0.25f);
+        SceneManager.LoadScene("RunScene");
     }
 }

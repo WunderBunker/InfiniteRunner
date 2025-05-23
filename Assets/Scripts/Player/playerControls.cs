@@ -33,7 +33,6 @@ public class playerControls : MonoBehaviour
     [SerializeField] List<AudioClip> _waterSlideSounds = new();
 
     PlayerManager _playerManager;
-    AudioManager _AM;
 
     LanesManager _laneManager;
     bool _isMovingOnSide;
@@ -58,7 +57,7 @@ public class playerControls : MonoBehaviour
     bool _isBlockOnLane;
     float _blockTimer;
 
-    byte _currentWindSound = 0;
+    [SerializeField] byte _currentWindSound = 0;
     int _windSoudnToken = 0;
 
     void Start()
@@ -81,7 +80,6 @@ public class playerControls : MonoBehaviour
         _splashPS = transform.Find("Splash").GetComponent<ParticleSystem>();
         _maxSplashPartEmission = _splashPS.emission.rateOverTime.constant;
 
-        _AM = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     public void OnMoveInput(InputAction.CallbackContext pContext)
     {
@@ -92,7 +90,7 @@ public class playerControls : MonoBehaviour
             Vector2 vInputValue = pContext.ReadValue<Vector2>();
             if (IsBossMode) vInputValue *= -1;
 
-            _AM.PlaySound(_waterSlideSounds[new System.Random().Next(0, _waterSlideSounds.Count)],1);
+            AudioManager.Instance.PlaySound(_waterSlideSounds[new System.Random().Next(0, _waterSlideSounds.Count)],1);
 
             float? vNewXTarget = _laneManager.GetNextLaneX((int)vInputValue.x);
             _goingToNextLane = vNewXTarget != null;
@@ -230,11 +228,11 @@ public class playerControls : MonoBehaviour
         vSpashEmission.rateOverTime = new() { constant = math.lerp(0, _maxSplashPartEmission, CurrentSpeed / _maxSpeedFinal) };
 
         //Maj du bruit des vagues
-        byte vNewWindSound = (byte)(CurrentSpeed < _maxSpeedFinal / 3 ? 0 : CurrentSpeed < _maxSpeedFinal * 2 / 3 ? 1 : 2);
+        byte vNewWindSound = (byte)(CurrentSpeed < _maxSpeedFinal / 3 ? 0 : (CurrentSpeed < _maxSpeedFinal * 2 / 3 ? 1 : 2));
         if (vNewWindSound != _currentWindSound)
         {
-            if (_windSoudnToken != 0) _AM.StopKeepSound(_windSoudnToken);
-            _windSoudnToken = _AM.PlayKeepSound(_winSounds[vNewWindSound], 1);
+            if (_windSoudnToken != 0) AudioManager.Instance.StopKeepSound(_windSoudnToken);
+            _windSoudnToken = AudioManager.Instance.PlayKeepSound(_winSounds[vNewWindSound], 1);
             _currentWindSound = vNewWindSound;
         }
 

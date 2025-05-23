@@ -12,7 +12,7 @@ public class Rock : MonoBehaviour
         else if (pOther.gameObject.CompareTag("Bullet"))
         {
             pOther.gameObject.GetComponent<Projectile>().Explode();
-            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(_rockSounds[new System.Random().Next(0, _rockSounds.Count)], 1);
+            AudioManager.Instance.PlaySound(_rockSounds[new System.Random().Next(0, _rockSounds.Count)], 1);
         }
     }
 }

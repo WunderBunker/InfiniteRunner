@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    static public AudioManager Instance;
     [SerializeField] protected AudioSource gAudioSource;
     [SerializeField] protected AudioMixer gMainMixer;
+    [SerializeField] protected AudioClip _clickSound;
 
-    private Transform _player;
+    private Transform _center;
 
     Dictionary<int, AudioSource> _audioSources = new Dictionary<int, AudioSource>();
     private int _keepSoundToken = 0;
@@ -17,7 +21,18 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        _player = GameObject.Find("Player").transform;
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _center = GameObject.Find("Player")?.transform;
+        if (_center == null) _center = transform;
     }
 
     void Update()
@@ -25,9 +40,9 @@ public class AudioManager : MonoBehaviour
         FadeSound();
     }
 
-    public void PlaySound(AudioClip pAudio, float pVolume, Vector3? pPosition =null)
+    public void PlaySound(AudioClip pAudio, float pVolume, Vector3? pPosition = null)
     {
-        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition==null?_player.position:(Vector3)pPosition, Quaternion.identity);
+        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
 
         vAudioSource.outputAudioMixerGroup = gMainMixer.FindMatchingGroups("FX")[0];
         vAudioSource.clip = pAudio;
@@ -37,9 +52,9 @@ public class AudioManager : MonoBehaviour
         Destroy(vAudioSource.gameObject, vAudioSource.clip.length);
     }
 
-    public int PlayKeepSound(AudioClip pAudio, float pVolume, Vector3? pPosition =null)
+    public int PlayKeepSound(AudioClip pAudio, float pVolume, Vector3? pPosition = null)
     {
-        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition==null?_player.position:(Vector3)pPosition, Quaternion.identity);
+        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
 
         vAudioSource.outputAudioMixerGroup = gMainMixer.FindMatchingGroups("FX")[0];
         vAudioSource.clip = pAudio;
@@ -59,9 +74,9 @@ public class AudioManager : MonoBehaviour
         _audioSources.Remove(pToken);
     }
 
-    public IEnumerator PlayKeepSoundForATime(AudioClip pAudio, float pVolume, float pTime, Vector3? pPosition =null)
+    public IEnumerator PlayKeepSoundForATime(AudioClip pAudio, float pVolume, float pTime, Vector3? pPosition = null)
     {
-        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition==null?_player.position:(Vector3)pPosition, Quaternion.identity);
+        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
 
         vAudioSource.outputAudioMixerGroup = gMainMixer.FindMatchingGroups("FX")[0];
         vAudioSource.clip = pAudio;
@@ -74,6 +89,11 @@ public class AudioManager : MonoBehaviour
         _fadingSources.Add(vAudioSource);
     }
 
+    public void PlayClickSound()
+    {
+        PlaySound(_clickSound, 1);
+    }
+
     private void FadeSound()
     {
         if (_fadingSources.Count == 0) return;
@@ -81,19 +101,28 @@ public class AudioManager : MonoBehaviour
         List<AudioSource> vAudioToStop = new List<AudioSource>();
         foreach (AudioSource lSource in _fadingSources)
         {
-            lSource.volume -= Time.deltaTime * 2;
-            if (lSource.volume <= 0)
+            if (lSource == null) vAudioToStop.Add(lSource);
+            else
             {
-                lSource.Stop();
-                vAudioToStop.Add(lSource);
+                lSource.volume -= Time.deltaTime * 2;
+                if (lSource.volume <= 0)
+                {
+                    lSource.Stop();
+                    vAudioToStop.Add(lSource);
+                }
             }
         }
 
         foreach (AudioSource lSource in vAudioToStop)
         {
             _fadingSources.Remove(lSource);
-            Destroy(lSource.gameObject);
+            Destroy(lSource?.gameObject);
         }
         vAudioToStop.Clear();
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
