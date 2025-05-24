@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BiomeId: Styx
   Patterns:
-  - {fileID: 2277238951042640493, guid: 67f96a285b22b9c4d8657958ea202e4d, type: 3}
-  - {fileID: 2277238951042640493, guid: be72e5dcc5503c8488e9878f887683ab, type: 3}
-  - {fileID: 2277238951042640493, guid: 2308b1fd1a78a9e408cfb7cd920174c6, type: 3}
-  - {fileID: 2277238951042640493, guid: c6b97acb497c2314c99a896c0f734c51, type: 3}
-  - {fileID: 2277238951042640493, guid: f7780dfeafd16c84882e51998fef5e3a, type: 3}
-  - {fileID: 2277238951042640493, guid: a4889f9fe885703419ed52d6672ef72a, type: 3}
-  - {fileID: 2277238951042640493, guid: 1a429f143f5e4244e873a37dd1acf37e, type: 3}
-  - {fileID: 2277238951042640493, guid: e4713bf5f3dbcaa439d30fd8bcd70d0c, type: 3}
+  - {fileID: 2277238951042640493, guid: 70b7f0c63c6d19a4f801b31de71307ba, type: 3}
+  - {fileID: 2277238951042640493, guid: 8664afdee4292eb42b2d5eff32e85e07, type: 3}
+  - {fileID: 2277238951042640493, guid: 45c1659c81ddaa34d85a058d755c0742, type: 3}
+  - {fileID: 2277238951042640493, guid: 66723a7831a6d7048a9851e3f1e8558c, type: 3}
+  - {fileID: 2277238951042640493, guid: c5b63d6efec999c49bec3559b0160e18, type: 3}
+  - {fileID: 2277238951042640493, guid: 3ede48f8133012445aae8110cb943492, type: 3}
+  - {fileID: 2277238951042640493, guid: a6c65422971f243428796922e1d2b306, type: 3}
+  - {fileID: 2277238951042640493, guid: ccc217fa5e4a5bc4ea9dddeb6840f974, type: 3}
   Boss: {fileID: 5570233857038618572, guid: dd3f6468634d45e4d8fae9318043fceb, type: 3}
   BossLogo: {fileID: 21300000, guid: e8711e0c3c06cb744af72fd41a01ac27, type: 3}
   WaterColor: {r: 0, g: 0.4811321, b: 0.028301915, a: 1}

@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Utiilities\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Camera\FollowPlayer.cs" />
+    <Compile Include="Assets\Spectre.cs" />
     <Compile Include="Assets\Scripts\World\WindManager.cs" />
     <Compile Include="Assets\Scripts\Item\Obole.cs" />
     <Compile Include="Assets\Scripts\Boss\ScyllaAttack.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Scripts\UI\ObolesUI.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Gate.cs" />
     <Compile Include="Assets\Scripts\Utiilities\Pattern.cs" />
+    <Compile Include="Assets\Wreck.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\World\WaterPlanes.cs" />
     <Compile Include="Assets\Scripts\Utiilities\Tools.cs" />
