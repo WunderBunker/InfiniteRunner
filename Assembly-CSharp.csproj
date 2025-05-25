@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Obstacle\Mermaid.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Rock.cs" />
     <Compile Include="Assets\Scripts\World\LanesManager.cs" />
+    <Compile Include="Assets\Hands.cs" />
     <Compile Include="Assets\Scripts\Cours\Cours.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\UI\ObolesUI.cs" />

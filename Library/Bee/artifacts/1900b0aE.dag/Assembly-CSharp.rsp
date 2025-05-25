@@ -431,6 +431,7 @@
 "Assets/CoursTrigger.cs"
 "Assets/Cours_player.cs"
 "Assets/FiltreAlerte.cs"
+"Assets/Hands.cs"
 "Assets/piece_cours.cs"
 "Assets/Prefab/Patterns/Biome.cs"
 "Assets/Prefab/Patterns/PatternConfig.cs"
