@@ -10,6 +10,7 @@
 		<type fullname="FiltreAlerte" preserve="nothing"/>
 		<type fullname="FollowPlayer" preserve="nothing"/>
 		<type fullname="Gate" preserve="nothing"/>
+		<type fullname="Hands" preserve="nothing"/>
 		<type fullname="LanesManager" preserve="nothing"/>
 		<type fullname="LifeUI" preserve="nothing"/>
 		<type fullname="Log" preserve="nothing"/>
@@ -31,8 +32,10 @@
 		<type fullname="ScyllaAttack" preserve="nothing"/>
 		<type fullname="ScyllaAttack2" preserve="nothing"/>
 		<type fullname="SoundMenu" preserve="nothing"/>
+		<type fullname="Spectre" preserve="nothing"/>
 		<type fullname="WaterPlanes" preserve="nothing"/>
 		<type fullname="WindManager" preserve="nothing"/>
+		<type fullname="Wreck" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.InputSystem">
 		<type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="nothing"/>

@@ -347,6 +347,7 @@
 "Assets/CoursTrigger.cs"
 "Assets/Cours_player.cs"
 "Assets/FiltreAlerte.cs"
+"Assets/Hands.cs"
 "Assets/piece_cours.cs"
 "Assets/Prefab/Patterns/Biome.cs"
 "Assets/Prefab/Patterns/PatternConfig.cs"
@@ -384,6 +385,8 @@
 "Assets/Scripts/World/WaterPlanes.cs"
 "Assets/Scripts/World/WindManager.cs"
 "Assets/SoundMenu.cs"
+"Assets/Spectre.cs"
+"Assets/Wreck.cs"
 -langversion:9.0
 /deterministic
 /optimize+
