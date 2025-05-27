@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - Biome
     - BiomesManager
     - BulletsUI
+    - Charron
     - DistanceUI
     - FiltreAlerte
     - FollowPlayer
@@ -127,8 +128,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -682,6 +685,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 40862}
     - Class: 114
       Script: {instanceID: 41144}
+    - Class: 114
+      Script: {instanceID: 55576}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -695,6 +700,8 @@ ScriptsOnlyBuild:
     - Class: 137
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 183
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -2489,6 +2496,72 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c43339b139a0cd25bb14706c5532fda3
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Timeline
+    className: AlembicShotAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 72b3cb4038427f571decda7e78b27695
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicCurves
+  - hash:
+      serializedVersion: 2
+      Hash: d8f45d8abb47a2175a516bd5cc1c4a83
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicCustomData
+  - hash:
+      serializedVersion: 2
+      Hash: 96f5c1f7d1ba49324037b71f5a2eb53b
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicCurvesRenderer
+  - hash:
+      serializedVersion: 2
+      Hash: 30dccaacdac75c732bbc2564647e5360
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicPointsRenderer
+  - hash:
+      serializedVersion: 2
+      Hash: 4f1c1eeaa6a45ed564c31be30022bb1c
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Exporter
+    className: AlembicExporter
+  - hash:
+      serializedVersion: 2
+      Hash: ce1a04950aa7f35f66dcb9d456e0af94
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicStreamPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: cb334585b1fe700cc7b6515ea76973f8
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Timeline
+    className: AlembicTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 3df76eef967156fa97285c659f554c4b
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicStreamDescriptor
+  - hash:
+      serializedVersion: 2
+      Hash: aa22ca89a3b1d9168a1b24dc9443d229
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicPointsCloud
+  - hash:
+      serializedVersion: 2
+      Hash: a3ebad64e6ff0677f7b0a5f816fd7653
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Charron
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

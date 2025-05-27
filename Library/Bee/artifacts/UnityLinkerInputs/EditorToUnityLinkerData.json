@@ -51,6 +51,13 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Charron",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "",
             "nativeClass": "DelayedCallManager",
             "fullManagedTypeName": "",
@@ -624,6 +631,15 @@
             "nativeClass": "CapsuleCollider",
             "fullManagedTypeName": "UnityEngine.CapsuleCollider",
             "moduleName": "Physics",
+            "usedInScenes": [
+                "Assets/Scenes/RunScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "Cloth",
+            "fullManagedTypeName": "UnityEngine.Cloth",
+            "moduleName": "Cloth",
             "usedInScenes": [
                 "Assets/Scenes/RunScene.unity"
             ]

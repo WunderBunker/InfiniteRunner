@@ -17,7 +17,7 @@ public class BiomesManager : MonoBehaviour
     {
         _PM = GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>();
         _waterMaterial = GameObject.FindGameObjectWithTag("WaterPlane").GetComponent<MeshRenderer>().material;
-        ChangeBiome("Styx");
+        ChangeBiome("Egee");
     }
 
     public void ChangeBiome(string pBiomeId)

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638822219855361238
-    m_Hash: 3093799993
+      ticks: 638839325911932722
+    m_Hash: 3740305979
   m_LockFileStatus:
     m_FilePath: D:/Unity projects/InfiniteRunner/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638822219855387859
-    m_Hash: 36359598
+      ticks: 638839325911953591
+    m_Hash: 815434273
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -399,6 +399,151 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 2.6.0
     minimumUnityVersion: 2021.3.0f1
+- packageId: com.unity.formats.alembic@2.4.0
+  testable: 0
+  isDirectDependency: 1
+  version: 2.4.0
+  source: 1
+  resolvedPath: D:\Unity projects\InfiniteRunner\Library\PackageCache\com.unity.formats.alembic@9d89ad59ac86
+  assetPath: Packages/com.unity.formats.alembic
+  name: com.unity.formats.alembic
+  displayName: Alembic
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: assets
+  description: 'Import and export Alembic files (.abc), record and stream animations
+    in the Alembic format directly in Unity.
+
+    NOTE: Supported build platforms:
+    only Windows 64-bit/Arm64, macOS X, and Linux 64.
+
+
+    The Alembic format is
+    commonly used in animation to transfer facial, cloth, and other simulation between
+    applications in the form of baked data.'
+  errors: []
+  versions:
+    all:
+    - 0.1.2-preview
+    - 1.0.0-preview.2
+    - 1.0.0-preview.7
+    - 1.0.0-preview.8
+    - 1.0.0
+    - 1.0.1
+    - 1.0.2
+    - 1.0.3
+    - 1.0.4
+    - 1.0.5
+    - 1.0.6
+    - 1.0.7
+    - 2.0.0-preview.1
+    - 2.0.1-preview.1
+    - 2.1.0-preview.3
+    - 2.1.1-pre.1
+    - 2.1.2
+    - 2.1.3
+    - 2.2.0-exp.1
+    - 2.2.0-exp.2
+    - 2.2.0-pre.3
+    - 2.2.0-pre.4
+    - 2.2.0
+    - 2.2.1
+    - 2.2.2
+    - 2.3.0-pre.1
+    - 2.3.0-pre.2
+    - 2.3.0-pre.3
+    - 2.3.0
+    - 2.3.2
+    - 2.3.3
+    - 2.3.4
+    - 2.4.0
+    compatible:
+    - 2.4.0
+    recommended: 2.4.0
+    deprecated: []
+  dependencies:
+  - name: com.unity.timeline
+    version: 1.0.0
+  - name: com.unity.modules.cloth
+    version: 1.0.0
+  - name: com.unity.modules.unityanalytics
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.timeline
+    version: 1.8.7
+  - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.director
+    version: 1.0.0
+  - name: com.unity.modules.animation
+    version: 1.0.0
+  - name: com.unity.modules.particlesystem
+    version: 1.0.0
+  - name: com.unity.modules.cloth
+    version: 1.0.0
+  - name: com.unity.modules.physics
+    version: 1.0.0
+  - name: com.unity.modules.unityanalytics
+    version: 1.0.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  keywords:
+  - alembic
+  - abc
+  - animation
+  - facial
+  - cloth
+  - simulation
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638464331950000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.formats.alembic@2.4/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/com.unity.formats.alembic.git
+    revision: e7bdaa51d3725be85e55946df9087e1c0046d2a7
+    path: 
+  unityLifecycle:
+    version: 2.4.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Added\n- Added library for Windows ARM64 platform
+    support.\n\n### Changed\n- Updated Alembic to 1.8.5 (was 1.7.16).\n- Updated
+    ISPC to 1.21.0 (was 1.14.1).\n\n### Fixed\n- Fixed bug where vertex color displayed
+    as black when processing RGB, RGBA, and Normal attributes in the `Face` scope\n-
+    Fixed bug causing Editor to crash when a UV attribute is processed in the `Points`
+    or `Face` scope.\n- Prevent a NullReferenceException when adding a curve renderer
+    to an Alembic file with non-visible meshes."}'
+  assetStore:
+    productId: 
+  fingerprint: 9d89ad59ac867821b74ba85f6a2a7b7f20e49e1b
+  editorCompatibility:
+    compatibilityLevel: 0
+    minimumPackageVersion: 2.4.0
+    minimumUnityVersion: 2019.4.0a1
 - packageId: com.unity.ide.rider@3.0.31
   testable: 0
   isDirectDependency: 1
@@ -1522,10 +1667,12 @@ m_ResolvedPackages:
     - 1.9.4
     - 1.9.5
     - 1.9.6
+    - 1.9.7
     compatible:
     - 1.9.5
     - 1.9.6
-    recommended: 1.9.6
+    - 1.9.7
+    recommended: 1.9.7
     deprecated:
     - 1.8.0-pre.1
   dependencies:

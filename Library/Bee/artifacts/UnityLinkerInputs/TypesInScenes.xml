@@ -6,6 +6,7 @@
 		<type fullname="Biome" preserve="nothing"/>
 		<type fullname="BiomesManager" preserve="nothing"/>
 		<type fullname="BulletsUI" preserve="nothing"/>
+		<type fullname="Charron" preserve="nothing"/>
 		<type fullname="DistanceUI" preserve="nothing"/>
 		<type fullname="FiltreAlerte" preserve="nothing"/>
 		<type fullname="FollowPlayer" preserve="nothing"/>
@@ -143,6 +144,7 @@
 		<type fullname="UnityEngine.Canvas" preserve="nothing"/>
 		<type fullname="UnityEngine.CanvasRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.CapsuleCollider" preserve="nothing"/>
+		<type fullname="UnityEngine.Cloth" preserve="nothing"/>
 		<type fullname="UnityEngine.Collider" preserve="nothing"/>
 		<type fullname="UnityEngine.Component" preserve="nothing"/>
 		<type fullname="UnityEngine.ComputeShader" preserve="nothing"/>

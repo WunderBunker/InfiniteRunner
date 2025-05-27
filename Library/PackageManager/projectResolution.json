@@ -39,6 +39,16 @@
       "source": "registry",
       "testable": false
     },
+    "com.unity.formats.alembic@2.4.0": {
+      "name": "com.unity.formats.alembic",
+      "displayName": "Alembic",
+      "resolvedPath": "D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.formats.alembic@9d89ad59ac86",
+      "fingerprint": "9d89ad59ac867821b74ba85f6a2a7b7f20e49e1b",
+      "editorCompatibility": "2019.4.0a1",
+      "version": "2.4.0",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.ide.rider@3.0.31": {
       "name": "com.unity.ide.rider",
       "displayName": "JetBrains Rider Editor",
