@@ -5,8 +5,7 @@ public class PauseMenu : MonoBehaviour
 {
     public void BackToMenu()
     {
-        SaveManager.AddOboles(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CollectedOboles);
-        SaveManager.SaveSave();
+        PartieManager.Instance.SaveRunData();
         SceneManager.LoadScene("Menu");
     }
 

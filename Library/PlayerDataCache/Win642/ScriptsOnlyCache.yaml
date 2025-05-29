@@ -7,12 +7,14 @@ ScriptsOnlyBuild:
     - Biome
     - BiomesManager
     - BulletsUI
-    - Charron
-    - DistanceUI
+    - Charon
+    - CharonAttack
+    - CharonAttack2
     - FiltreAlerte
     - FollowPlayer
     - Gate
     - Hands
+    - JellyFish
     - LanesManager
     - LifeUI
     - Log
@@ -29,6 +31,7 @@ ScriptsOnlyBuild:
     - PlayerManager
     - Projectile
     - Rock
+    - ScoreUI
     - Scylla
     - ScyllaAttack
     - ScyllaAttack2
@@ -128,10 +131,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -401,123 +402,123 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 30306}
+      Script: {instanceID: 30438}
     - Class: 114
-      Script: {instanceID: 30470}
+      Script: {instanceID: 30606}
     - Class: 114
-      Script: {instanceID: 30710}
+      Script: {instanceID: 30850}
     - Class: 114
-      Script: {instanceID: 30756}
+      Script: {instanceID: 30896}
     - Class: 114
-      Script: {instanceID: 30934}
+      Script: {instanceID: 31078}
     - Class: 114
-      Script: {instanceID: 31084}
+      Script: {instanceID: 31228}
     - Class: 114
-      Script: {instanceID: 31202}
+      Script: {instanceID: 31346}
     - Class: 114
-      Script: {instanceID: 31396}
+      Script: {instanceID: 31546}
     - Class: 114
-      Script: {instanceID: 31532}
+      Script: {instanceID: 31682}
     - Class: 114
-      Script: {instanceID: 31782}
+      Script: {instanceID: 31932}
     - Class: 114
-      Script: {instanceID: 31982}
+      Script: {instanceID: 32134}
     - Class: 114
-      Script: {instanceID: 32096}
+      Script: {instanceID: 32248}
     - Class: 114
-      Script: {instanceID: 32326}
+      Script: {instanceID: 32480}
     - Class: 114
-      Script: {instanceID: 32380}
+      Script: {instanceID: 32534}
     - Class: 114
-      Script: {instanceID: 32532}
+      Script: {instanceID: 32686}
     - Class: 114
-      Script: {instanceID: 32754}
+      Script: {instanceID: 32908}
     - Class: 114
-      Script: {instanceID: 32840}
+      Script: {instanceID: 32994}
     - Class: 114
-      Script: {instanceID: 32878}
+      Script: {instanceID: 33036}
     - Class: 114
-      Script: {instanceID: 32932}
+      Script: {instanceID: 33090}
     - Class: 114
-      Script: {instanceID: 32964}
+      Script: {instanceID: 33122}
     - Class: 114
-      Script: {instanceID: 32996}
+      Script: {instanceID: 33154}
     - Class: 114
-      Script: {instanceID: 33838}
+      Script: {instanceID: 34004}
     - Class: 114
-      Script: {instanceID: 34136}
+      Script: {instanceID: 34308}
     - Class: 114
-      Script: {instanceID: 34148}
+      Script: {instanceID: 34320}
     - Class: 114
-      Script: {instanceID: 34834}
+      Script: {instanceID: 35012}
     - Class: 114
-      Script: {instanceID: 34872}
+      Script: {instanceID: 35050}
     - Class: 114
-      Script: {instanceID: 35138}
+      Script: {instanceID: 35316}
     - Class: 114
-      Script: {instanceID: 35228}
+      Script: {instanceID: 35406}
     - Class: 114
-      Script: {instanceID: 35288}
+      Script: {instanceID: 35466}
     - Class: 114
-      Script: {instanceID: 35364}
+      Script: {instanceID: 35544}
     - Class: 114
-      Script: {instanceID: 35442}
+      Script: {instanceID: 35624}
     - Class: 114
-      Script: {instanceID: 35550}
+      Script: {instanceID: 35732}
     - Class: 114
-      Script: {instanceID: 36132}
+      Script: {instanceID: 36316}
     - Class: 114
-      Script: {instanceID: 36312}
+      Script: {instanceID: 36500}
     - Class: 114
-      Script: {instanceID: 36408}
+      Script: {instanceID: 36596}
     - Class: 114
-      Script: {instanceID: 36410}
+      Script: {instanceID: 36598}
     - Class: 114
-      Script: {instanceID: 36656}
+      Script: {instanceID: 36846}
     - Class: 114
-      Script: {instanceID: 37188}
+      Script: {instanceID: 37384}
     - Class: 114
-      Script: {instanceID: 37378}
+      Script: {instanceID: 37576}
     - Class: 114
-      Script: {instanceID: 37920}
+      Script: {instanceID: 38126}
     - Class: 114
-      Script: {instanceID: 37942}
+      Script: {instanceID: 38148}
     - Class: 114
-      Script: {instanceID: 38898}
+      Script: {instanceID: 39114}
     - Class: 114
-      Script: {instanceID: 39304}
+      Script: {instanceID: 39524}
     - Class: 114
-      Script: {instanceID: 39356}
+      Script: {instanceID: 39576}
     - Class: 114
-      Script: {instanceID: 39634}
+      Script: {instanceID: 39856}
     - Class: 114
-      Script: {instanceID: 39706}
+      Script: {instanceID: 39928}
     - Class: 114
-      Script: {instanceID: 39798}
+      Script: {instanceID: 40020}
     - Class: 114
-      Script: {instanceID: 40214}
+      Script: {instanceID: 40440}
     - Class: 114
-      Script: {instanceID: 40322}
+      Script: {instanceID: 40548}
     - Class: 114
-      Script: {instanceID: 40324}
+      Script: {instanceID: 40550}
     - Class: 114
-      Script: {instanceID: 40432}
+      Script: {instanceID: 40658}
     - Class: 114
-      Script: {instanceID: 40562}
+      Script: {instanceID: 40788}
     - Class: 114
-      Script: {instanceID: 40646}
+      Script: {instanceID: 40872}
     - Class: 114
-      Script: {instanceID: 40674}
+      Script: {instanceID: 40900}
     - Class: 114
-      Script: {instanceID: 40822}
+      Script: {instanceID: 41048}
     - Class: 114
-      Script: {instanceID: 41062}
+      Script: {instanceID: 41290}
     - Class: 114
-      Script: {instanceID: 41144}
+      Script: {instanceID: 41376}
     - Class: 114
-      Script: {instanceID: 41362}
+      Script: {instanceID: 41602}
     - Class: 114
-      Script: {instanceID: 41526}
+      Script: {instanceID: 41768}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -581,112 +582,120 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 30306}
+      Script: {instanceID: 30438}
     - Class: 114
-      Script: {instanceID: 30462}
+      Script: {instanceID: 30598}
     - Class: 114
-      Script: {instanceID: 30720}
+      Script: {instanceID: 30860}
     - Class: 114
-      Script: {instanceID: 30756}
+      Script: {instanceID: 30896}
     - Class: 114
-      Script: {instanceID: 30942}
+      Script: {instanceID: 31086}
     - Class: 114
-      Script: {instanceID: 31144}
+      Script: {instanceID: 31288}
     - Class: 114
-      Script: {instanceID: 31340}
+      Script: {instanceID: 31488}
     - Class: 114
-      Script: {instanceID: 31352}
+      Script: {instanceID: 31500}
     - Class: 114
-      Script: {instanceID: 31532}
+      Script: {instanceID: 31682}
     - Class: 114
-      Script: {instanceID: 31782}
+      Script: {instanceID: 31932}
     - Class: 114
-      Script: {instanceID: 31878}
+      Script: {instanceID: 32030}
     - Class: 114
-      Script: {instanceID: 31982}
+      Script: {instanceID: 32134}
     - Class: 114
-      Script: {instanceID: 32380}
+      Script: {instanceID: 32534}
     - Class: 114
-      Script: {instanceID: 32708}
+      Script: {instanceID: 32862}
     - Class: 114
-      Script: {instanceID: 32858}
+      Script: {instanceID: 33012}
     - Class: 114
-      Script: {instanceID: 33008}
+      Script: {instanceID: 33166}
     - Class: 114
-      Script: {instanceID: 33450}
+      Script: {instanceID: 33614}
     - Class: 114
-      Script: {instanceID: 33472}
+      Script: {instanceID: 33636}
     - Class: 114
-      Script: {instanceID: 33488}
+      Script: {instanceID: 33652}
     - Class: 114
-      Script: {instanceID: 33908}
+      Script: {instanceID: 34074}
     - Class: 114
-      Script: {instanceID: 33962}
+      Script: {instanceID: 34128}
     - Class: 114
-      Script: {instanceID: 34136}
+      Script: {instanceID: 34158}
     - Class: 114
-      Script: {instanceID: 34548}
+      Script: {instanceID: 34308}
     - Class: 114
-      Script: {instanceID: 34698}
+      Script: {instanceID: 34720}
     - Class: 114
-      Script: {instanceID: 35092}
+      Script: {instanceID: 34872}
     - Class: 114
-      Script: {instanceID: 35138}
+      Script: {instanceID: 35270}
     - Class: 114
-      Script: {instanceID: 35220}
+      Script: {instanceID: 35316}
     - Class: 114
-      Script: {instanceID: 36086}
+      Script: {instanceID: 35398}
     - Class: 114
-      Script: {instanceID: 36538}
+      Script: {instanceID: 36270}
     - Class: 114
-      Script: {instanceID: 36552}
+      Script: {instanceID: 36728}
     - Class: 114
-      Script: {instanceID: 36656}
+      Script: {instanceID: 36742}
     - Class: 114
-      Script: {instanceID: 37188}
+      Script: {instanceID: 36846}
     - Class: 114
-      Script: {instanceID: 37190}
+      Script: {instanceID: 37384}
     - Class: 114
-      Script: {instanceID: 37400}
+      Script: {instanceID: 37386}
     - Class: 114
-      Script: {instanceID: 37414}
+      Script: {instanceID: 37598}
     - Class: 114
-      Script: {instanceID: 37504}
+      Script: {instanceID: 37612}
     - Class: 114
-      Script: {instanceID: 37920}
+      Script: {instanceID: 37704}
     - Class: 114
-      Script: {instanceID: 37962}
+      Script: {instanceID: 37838}
     - Class: 114
-      Script: {instanceID: 38334}
+      Script: {instanceID: 38028}
     - Class: 114
-      Script: {instanceID: 38610}
+      Script: {instanceID: 38126}
     - Class: 114
-      Script: {instanceID: 38992}
+      Script: {instanceID: 38170}
     - Class: 114
-      Script: {instanceID: 39176}
+      Script: {instanceID: 38546}
     - Class: 114
-      Script: {instanceID: 39614}
+      Script: {instanceID: 38824}
     - Class: 114
-      Script: {instanceID: 40060}
+      Script: {instanceID: 39024}
     - Class: 114
-      Script: {instanceID: 40108}
+      Script: {instanceID: 39210}
     - Class: 114
-      Script: {instanceID: 40170}
+      Script: {instanceID: 39396}
     - Class: 114
-      Script: {instanceID: 40324}
+      Script: {instanceID: 39834}
     - Class: 114
-      Script: {instanceID: 40358}
+      Script: {instanceID: 40284}
     - Class: 114
-      Script: {instanceID: 40432}
+      Script: {instanceID: 40332}
     - Class: 114
-      Script: {instanceID: 40852}
+      Script: {instanceID: 40396}
     - Class: 114
-      Script: {instanceID: 40862}
+      Script: {instanceID: 40550}
     - Class: 114
-      Script: {instanceID: 41144}
+      Script: {instanceID: 40584}
     - Class: 114
-      Script: {instanceID: 55576}
+      Script: {instanceID: 40658}
+    - Class: 114
+      Script: {instanceID: 41078}
+    - Class: 114
+      Script: {instanceID: 41088}
+    - Class: 114
+      Script: {instanceID: 41376}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -746,10 +755,22 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: c43339b139a0cd25bb14706c5532fda3
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Timeline
+    className: AlembicShotAsset
+  - hash:
+      serializedVersion: 2
       Hash: cf62aad97f6c2dd5d482e2509c6c9528
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 72b3cb4038427f571decda7e78b27695
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicCurves
   - hash:
       serializedVersion: 2
       Hash: 2c583ad0ac85d03e8700dd05fdcb46cb
@@ -780,6 +801,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerMessageBox
+  - hash:
+      serializedVersion: 2
+      Hash: d8f45d8abb47a2175a516bd5cc1c4a83
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicCustomData
   - hash:
       serializedVersion: 2
       Hash: e061bdd0159a784b8acc0552dd0f40bb
@@ -1202,7 +1229,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerEnumHistory
   - hash:
       serializedVersion: 2
-      Hash: 0a51f566240f533b44af2263f9259d2d
+      Hash: e96d348e3e513def010ca2dc060c1a59
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PatternConfig
@@ -1412,6 +1439,12 @@ ScriptsOnlyBuild:
     className: ScyllaAttack
   - hash:
       serializedVersion: 2
+      Hash: a60389d9bfcaddb34fd2d85ac47c3590
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: JellyFish
+  - hash:
+      serializedVersion: 2
       Hash: fe0a072dbdcbca34d5003c5299de3aaf
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering
@@ -1484,13 +1517,19 @@ ScriptsOnlyBuild:
     className: AttackCollider
   - hash:
       serializedVersion: 2
+      Hash: 96f5c1f7d1ba49324037b71f5a2eb53b
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicCurvesRenderer
+  - hash:
+      serializedVersion: 2
       Hash: 113e54f67456d0e7754c0598ee2a6dd4
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering
     className: ProbeVolumePerSceneData
   - hash:
       serializedVersion: 2
-      Hash: 31c4a651d0577ef17a0cb02a93dd5a07
+      Hash: 92a0aa5156f9ac13d89e2dfb2d4c3614
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: playerControls
@@ -1500,6 +1539,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 30dccaacdac75c732bbc2564647e5360
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicPointsRenderer
   - hash:
       serializedVersion: 2
       Hash: e49f64f6c7006f2a8a0e7674b5de1fae
@@ -1808,6 +1853,12 @@ ScriptsOnlyBuild:
     className: piece_cours
   - hash:
       serializedVersion: 2
+      Hash: 4f1c1eeaa6a45ed564c31be30022bb1c
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Exporter
+    className: AlembicExporter
+  - hash:
+      serializedVersion: 2
       Hash: 6d94138b60a9299798dda96c1ee6725f
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1824,6 +1875,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ObolesUI
+  - hash:
+      serializedVersion: 2
+      Hash: ce1a04950aa7f35f66dcb9d456e0af94
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicStreamPlayer
   - hash:
       serializedVersion: 2
       Hash: 1553f209ae0b2d5d3a35685fca55f9c3
@@ -1886,6 +1943,12 @@ ScriptsOnlyBuild:
     className: InputDeviceDebuggerWindow
   - hash:
       serializedVersion: 2
+      Hash: cb334585b1fe700cc7b6515ea76973f8
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Timeline
+    className: AlembicTrack
+  - hash:
+      serializedVersion: 2
       Hash: cb61297c4a0b41276433c8946898a08b
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -1896,6 +1959,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
     className: FilmGrain
+  - hash:
+      serializedVersion: 2
+      Hash: a67bbef013a339f2b9209addc5b0435c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CharonAttack
+  - hash:
+      serializedVersion: 2
+      Hash: 3df76eef967156fa97285c659f554c4b
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicStreamDescriptor
   - hash:
       serializedVersion: 2
       Hash: e4b7831f0a9e91f079eb40ea24427631
@@ -1914,6 +1989,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering
     className: VolumeProfile
+  - hash:
+      serializedVersion: 2
+      Hash: 5a66a24f154d1ded9eba3a971a7e54f6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CharonAttack2
   - hash:
       serializedVersion: 2
       Hash: 2f43860e745f8edade7bd381809e537b
@@ -1962,6 +2043,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTriggerStayMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: aa22ca89a3b1d9168a1b24dc9443d229
+    assemblyName: Unity.Formats.Alembic.Runtime
+    namespaceName: UnityEngine.Formats.Alembic.Importer
+    className: AlembicPointsCloud
   - hash:
       serializedVersion: 2
       Hash: ff5172bc81dc2da4c7de2a8bf56dc4b8
@@ -2024,6 +2111,12 @@ ScriptsOnlyBuild:
     className: ScreenSpaceShadows
   - hash:
       serializedVersion: 2
+      Hash: 2677f260ea6cde00581fb8d37d36ad9c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Charon
+  - hash:
+      serializedVersion: 2
       Hash: 9dc274eab7228631e90d4757b13b768a
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
@@ -2042,7 +2135,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 0f85290bf1af8012d8c7a3cb9936b1e9
+      Hash: 83b2dce4e6a4739fe02d74384e54ecb5
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Pattern
@@ -2378,13 +2471,13 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerVector4
   - hash:
       serializedVersion: 2
-      Hash: a2674c0f07ef16eea892b6fe548d5d3a
+      Hash: 251f23ac95ee4294eb04811680371cd5
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: DistanceUI
+    className: ScoreUI
   - hash:
       serializedVersion: 2
-      Hash: 6f9f04b9320ce664c38bbbc447cc1d54
+      Hash: 38b53c1a587059652cac9d88331806a1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Mermaid
@@ -2496,72 +2589,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: c43339b139a0cd25bb14706c5532fda3
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Timeline
-    className: AlembicShotAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 72b3cb4038427f571decda7e78b27695
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Importer
-    className: AlembicCurves
-  - hash:
-      serializedVersion: 2
-      Hash: d8f45d8abb47a2175a516bd5cc1c4a83
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Importer
-    className: AlembicCustomData
-  - hash:
-      serializedVersion: 2
-      Hash: 96f5c1f7d1ba49324037b71f5a2eb53b
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Importer
-    className: AlembicCurvesRenderer
-  - hash:
-      serializedVersion: 2
-      Hash: 30dccaacdac75c732bbc2564647e5360
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Importer
-    className: AlembicPointsRenderer
-  - hash:
-      serializedVersion: 2
-      Hash: 4f1c1eeaa6a45ed564c31be30022bb1c
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Exporter
-    className: AlembicExporter
-  - hash:
-      serializedVersion: 2
-      Hash: ce1a04950aa7f35f66dcb9d456e0af94
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Importer
-    className: AlembicStreamPlayer
-  - hash:
-      serializedVersion: 2
-      Hash: cb334585b1fe700cc7b6515ea76973f8
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Timeline
-    className: AlembicTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 3df76eef967156fa97285c659f554c4b
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Importer
-    className: AlembicStreamDescriptor
-  - hash:
-      serializedVersion: 2
-      Hash: aa22ca89a3b1d9168a1b24dc9443d229
-    assemblyName: Unity.Formats.Alembic.Runtime
-    namespaceName: UnityEngine.Formats.Alembic.Importer
-    className: AlembicPointsCloud
-  - hash:
-      serializedVersion: 2
-      Hash: a3ebad64e6ff0677f7b0a5f816fd7653
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Charron
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

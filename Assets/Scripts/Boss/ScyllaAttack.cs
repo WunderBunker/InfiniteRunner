@@ -15,7 +15,7 @@ public class ScyllaAttack : MonoBehaviour
 
     Transform _playerTransform;
     float _attackRange;
-    ScyllaAttackState _state;
+    AttackState _state;
     Animator _snakeAnimator;
 
     public float GetAttackRange()
@@ -29,7 +29,7 @@ public class ScyllaAttack : MonoBehaviour
         _attackRange = GetAttackRange();
         _snakeAnimator = transform.Find("Snake").GetComponent<Animator>();
 
-        _state = ScyllaAttackState.preparing;
+        _state = AttackState.preparing;
         _attackTimer = _preAttackTime -_attackAnimTime;
         //On divise l'attackRange par deux car le pivot est au milieu
         transform.position = new Vector3(transform.position.x, transform.position.y, _playerTransform.position.z - _attackRange / 2 + 5);
@@ -45,14 +45,14 @@ public class ScyllaAttack : MonoBehaviour
         if (_attackTimer <= 0)
             switch (_state)
             {
-                case ScyllaAttackState.preparing:
-                    _state = ScyllaAttackState.attacking;
+                case AttackState.preparing:
+                    _state = AttackState.attacking;
                     _snakeAnimator.SetTrigger("Attack");
                     //On met le vrai timer à la fin de coroutine
                     _attackTimer =1000;
                     StartCoroutine(WaitEndAnim());
                     break;
-                case ScyllaAttackState.attacking:
+                case AttackState.attacking:
                     Destroy(gameObject);
                     return;
                 default:

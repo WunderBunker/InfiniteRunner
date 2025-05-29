@@ -4,4 +4,5 @@ using UnityEngine;
 public class PatternConfig : ScriptableObject
 {
     public float DistanceBtwLines;   
+    public int SublinesNb;   
 }

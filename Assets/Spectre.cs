@@ -24,6 +24,7 @@ public class Spectre : MonoBehaviour
 
         _mat = transform.Find("Body").GetComponent<SkinnedMeshRenderer>().material;
         _mat = new(_mat);
+        transform.Find("Body").GetComponent<SkinnedMeshRenderer>().material = _mat;
     }
 
     // Update is called once per frame

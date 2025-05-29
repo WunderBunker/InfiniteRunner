@@ -43,7 +43,8 @@ public class MainCanvas : MonoBehaviour
 
     public void OnRetryButton()
     {
-        SaveManager.AddOboles(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CollectedOboles);
+        PartieManager.Instance.SaveRunData();
+
         SceneManager.LoadScene("RunScene");
         Time.timeScale = 1;
 
@@ -52,8 +53,7 @@ public class MainCanvas : MonoBehaviour
 
     public void OnBackToMenuButton()
     {
-        SaveManager.AddOboles(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CollectedOboles);
-        SaveManager.SaveSave();
+        PartieManager.Instance.SaveRunData();
         Time.timeScale = 1;
         StartCoroutine(WaitForClickSoundAndLoad());
     }

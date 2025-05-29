@@ -14,6 +14,7 @@ TagManager:
   - WaterPlane
   - AudioManager
   - Global
+  - Obole
   layers:
   - Default
   - TransparentFX

@@ -65,22 +65,20 @@ public static class SaveManager
     public static void AddOboles(int pNb)
     {
         if (_save == null) LoadSave();
-        
+
         _save.Oboles = Math.Max(_save.Oboles + pNb, 0);
+    }
+    public static void MajScore(int pScore)
+    {
+        if (_save == null) LoadSave();
+        if (pScore > _save.HighScore)
+            _save.HighScore = pScore;
     }
 
     static string GetSaveFolder()
     {
-        string vSavePath = "";
-
-        //if (OperatingSystem.IsWindows())
+        string vSavePath;
         vSavePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        /* else if (OperatingSystem.IsLinux())
-            vSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), ".config");
-        else if (OperatingSystem.IsMacOS())
-            vSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Library", "Application Support");
-        else if (OperatingSystem.IsBrowser())
-            vSavePath = "Browser"; */
 
         vSavePath = Path.Combine(vSavePath, "InfiniteRunner");
         Directory.CreateDirectory(vSavePath);
@@ -91,8 +89,10 @@ public static class SaveManager
 public class Save
 {
     public int Oboles;
-    public Save(int pObole = 1)
+    public int HighScore;
+    public Save(int pObole = 0, int pHighScore = 0)
     {
         Oboles = pObole;
+        HighScore = pHighScore;
     }
 }

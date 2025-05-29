@@ -17,6 +17,7 @@ public class Scylla : MonoBehaviour, IBoss
     [SerializeField] AudioClip _shieldSound;
     [SerializeField] Color _shieldColor;
 
+    bool _hasBeenTriggered;
 
     float _initMaxDistanceToPLayer;
 
@@ -88,6 +89,7 @@ public class Scylla : MonoBehaviour, IBoss
     {
         if (!_isActive) return;
         _isActive = false;
+        _hasBeenTriggered = false;
         _body.SetActive(false);
 
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
@@ -118,7 +120,11 @@ public class Scylla : MonoBehaviour, IBoss
 
             _distanceToPlayer = vNewDistanceToPlayer;
             _bossIndicator.value = 1 - _distanceToPlayer / _maxDistanceToPlayer;
-            if (_distanceToPlayer == 0) Activate();
+            if (_distanceToPlayer == 0)
+            {
+                _hasBeenTriggered = true;
+                Activate();
+            }
             return;
         }
 
@@ -241,6 +247,8 @@ public class Scylla : MonoBehaviour, IBoss
     IEnumerator IsBeaten()
     {
         _isBeaten = true;
+        _playerTransform.GetComponent<PlayerManager>().HasBeatenABoss();
+
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() != null) _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetTrigger("Beaten");
         yield return new WaitForSeconds(0.2f);
@@ -252,7 +260,7 @@ public class Scylla : MonoBehaviour, IBoss
 }
 
 
-public enum ScyllaAttackState
+public enum AttackState
 {
     preparing, attacking
 }

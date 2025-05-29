@@ -66,40 +66,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Prefab\Patterns\PatternConfig.cs" />
+    <Compile Include="Assets\Scripts\UI\ScoreUI.cs" />
     <Compile Include="Assets\Scripts\Player\playerControls.cs" />
     <Compile Include="Assets\FiltreAlerte.cs" />
     <Compile Include="Assets\Scripts\Boss\ScyllaAttack2.cs" />
     <Compile Include="Assets\Scripts\Utiilities\BiomesManager.cs" />
     <Compile Include="Assets\SoundMenu.cs" />
     <Compile Include="Assets\Scripts\Item\Plank.cs" />
-    <Compile Include="Assets\CoursGlobal.cs" />
     <Compile Include="Assets\Scripts\UI\BulletsUI.cs" />
     <Compile Include="Assets\Scripts\UI\LifeUI.cs" />
-    <Compile Include="Assets\Scripts\UI\DistanceUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainCanvas.cs" />
     <Compile Include="Assets\AudioButton.cs" />
+    <Compile Include="Assets\Scripts\Cours\CoursTrigger.cs" />
     <Compile Include="Assets\Scripts\Utiilities\EditorMisc.cs" />
     <Compile Include="Assets\Scripts\Boss\AttackCollider.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
-    <Compile Include="Assets\Cours_player.cs" />
+    <Compile Include="Assets\Scripts\Cours\CoursGlobal.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Log.cs" />
-    <Compile Include="Assets\CoursTrigger.cs" />
     <Compile Include="Assets\Prefab\Patterns\Biome.cs" />
+    <Compile Include="Assets\JellyFish.cs" />
     <Compile Include="Assets\Scripts\Player\Projectile.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Utiilities\SaveManager.cs" />
-    <Compile Include="Assets\Charron.cs" />
     <Compile Include="Assets\Scripts\Camera\FollowPlayer.cs" />
     <Compile Include="Assets\Spectre.cs" />
     <Compile Include="Assets\Scripts\World\WindManager.cs" />
     <Compile Include="Assets\Scripts\Item\Obole.cs" />
     <Compile Include="Assets\Scripts\Boss\ScyllaAttack.cs" />
+    <Compile Include="Assets\CharonAttack.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Mermaid.cs" />
+    <Compile Include="Assets\Charon.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Rock.cs" />
     <Compile Include="Assets\Scripts\World\LanesManager.cs" />
     <Compile Include="Assets\Hands.cs" />
+    <Compile Include="Assets\CharonAttack2.cs" />
     <Compile Include="Assets\Scripts\Cours\Cours.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Cours\Cours_player.cs" />
     <Compile Include="Assets\Scripts\UI\ObolesUI.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Gate.cs" />
     <Compile Include="Assets\Scripts\Utiilities\Pattern.cs" />
@@ -107,9 +110,9 @@
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\World\WaterPlanes.cs" />
     <Compile Include="Assets\Scripts\Utiilities\Tools.cs" />
+    <Compile Include="Assets\Scripts\Cours\piece_cours.cs" />
     <Compile Include="Assets\Scripts\Utiilities\PartieManager.cs" />
     <Compile Include="Assets\Scripts\World\PatternsManager.cs" />
-    <Compile Include="Assets\piece_cours.cs" />
     <Compile Include="Assets\Scripts\Boss\Scylla.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1131,12 +1134,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.AI.Navigation">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Formats.Alembic.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Formats.Alembic.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">

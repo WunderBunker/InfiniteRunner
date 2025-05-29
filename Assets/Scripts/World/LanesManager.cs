@@ -20,7 +20,7 @@ public class LanesManager : MonoBehaviour
 
     Lane[] _lanes;
 
-    void Start()
+    void Awake()
     {
         _playertransform = GameObject.FindGameObjectWithTag("Player").transform.Find("Pivot");
         GroundHeight = _playertransform.position.y;

@@ -14,9 +14,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] List<AudioClip> _healSounds = new();
     [SerializeField] List<AudioClip> _oboleSounds = new();
 
-    public float TotalDistance { get; set; } = 0;
-    public float DeltaDistance { get; set; } = 0;
-    public int CollectedOboles { get; set; } = 0;
+    public float TotalDistance { get; private set; } = 0;
+    public float Score { get; private set; } = 0;
+    public float DeltaDistance { get; private set; } = 0;
+    public int CollectedOboles { get; private set; } = 0;
 
     [SerializeField] GameObject _bullet;
 
@@ -31,10 +32,14 @@ public class PlayerManager : MonoBehaviour
     bool _mustReload;
     float _fireRateTimer;
 
+    ScoreUI _scoreUI;
     BulletsUI _bulletsUI;
     LifeUI _lifeUI;
 
     float _invincibilityTimer;
+
+    float _coinSerieTimer;
+    int _coinSerieCount;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,6 +59,7 @@ public class PlayerManager : MonoBehaviour
         _lifeUI = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Life").GetComponent<LifeUI>();
         _lifeUI.SetMaxLife(_maxLife);
 
+        _scoreUI = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Score").GetComponent<ScoreUI>();
     }
 
     void Update()
@@ -61,6 +67,11 @@ public class PlayerManager : MonoBehaviour
         DeltaDistance = transform.position.z - _lastZ;
         _lastZ = transform.position.z;
         TotalDistance += DeltaDistance;
+
+        float vScoreCoef = 1;
+        if (_playerControls.CurrentSpeed >= _playerControls.MaxSpeedInitial)
+            vScoreCoef = math.lerp(1, 3, (_playerControls.CurrentSpeed - _playerControls.MaxSpeedInitial) / (_playerControls.MaxSpeedFinal - _playerControls.MaxSpeedInitial));
+        Score += DeltaDistance * vScoreCoef;
 
         if (_invincibilityTimer > 0) _invincibilityTimer = math.max(_invincibilityTimer - Time.deltaTime, 0);
 
@@ -79,7 +90,14 @@ public class PlayerManager : MonoBehaviour
         if (_fireRateTimer > 0)
         {
             _fireRateTimer -= Time.deltaTime;
-            _bulletsUI.SetFireRateAvancement(math.max(_fireRateTimer,0) / _bulletFireRate);
+            _bulletsUI.SetFireRateAvancement(math.max(_fireRateTimer, 0) / _bulletFireRate);
+        }
+
+        if (_coinSerieTimer > 0)
+        {
+            _coinSerieTimer -= Time.deltaTime;
+            if (_coinSerieTimer <= 0)
+                _coinSerieCount = 0;
         }
     }
 
@@ -92,7 +110,7 @@ public class PlayerManager : MonoBehaviour
         _life -= pDamage;
         _lifeUI.SetLifeNb(_life);
 
-        AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)],1);
+        AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1);
 
         if (_life == 0) { Die(); return; }
 
@@ -104,14 +122,14 @@ public class PlayerManager : MonoBehaviour
     {
         _life = (byte)(_life >= 0 && _life < _maxLife ? _life + pPV : _life);
         _lifeUI.SetLifeNb(_life);
-        AudioManager.Instance.PlaySound(_healSounds[new System.Random().Next(0, _healSounds.Count)],1);
+        AudioManager.Instance.PlaySound(_healSounds[new System.Random().Next(0, _healSounds.Count)], 1);
     }
 
 
     public void OnShoot(InputAction.CallbackContext pContext)
     {
         if (_bulletCount == 0 || _fireRateTimer > 0) return;
-        
+
 
         if (pContext.started)
         {
@@ -140,8 +158,29 @@ public class PlayerManager : MonoBehaviour
     public void AddOboles(int pNb)
     {
         CollectedOboles += pNb;
-        
-        AudioManager.Instance.PlaySound(_oboleSounds[new System.Random().Next(0, _oboleSounds.Count)],1);
+
+        _coinSerieCount++;
+
+        AudioManager.Instance.PlaySound(_oboleSounds[_coinSerieCount - 1], 1);
+
+        if (_coinSerieCount == 10)
+        {
+            _coinSerieCount = 0;
+            Score += 10;
+            _scoreUI.AddPonctualScore(10);
+        }
+        else
+        {
+            Score += 1;
+            _scoreUI.AddPonctualScore(1);
+            _coinSerieTimer = 1.5f;
+        }
+    }
+
+    public void HasBeatenABoss()
+    {
+        Score += 2000;
+        _scoreUI.AddPonctualScore(2000);
     }
 
 }

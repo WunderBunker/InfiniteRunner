@@ -4,8 +4,15 @@ using UnityEngine.InputSystem;
 
 public class PartieManager : MonoBehaviour
 {
+    public static PartieManager Instance;
+
     PlayerManager _playerManager;
-    
+
+    void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     public static void OnDebug(InputAction.CallbackContext pContext)
     {
@@ -21,13 +28,18 @@ public class PartieManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        SaveManager.AddOboles(_playerManager.CollectedOboles);
-        SaveManager.SaveSave();
+        SaveRunData();
     }
 
     public void Death()
     {
+        SaveRunData();
+    }
+
+    public void SaveRunData()
+    {
         SaveManager.AddOboles(_playerManager.CollectedOboles);
+        SaveManager.MajScore((int)_playerManager.Score);
         SaveManager.SaveSave();
     }
 

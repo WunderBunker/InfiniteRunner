@@ -53,7 +53,21 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "Charron",
+            "fullManagedTypeName": "Charon",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "CharonAttack",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "CharonAttack2",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -62,13 +76,6 @@
             "nativeClass": "DelayedCallManager",
             "fullManagedTypeName": "",
             "moduleName": "Core",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "Assembly-CSharp.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "DistanceUI",
-            "moduleName": "",
             "usedInScenes": []
         },
         {
@@ -123,6 +130,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "Hands",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "JellyFish",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -313,6 +327,13 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "ScoreUI",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "Scylla",
             "moduleName": "",
             "usedInScenes": []
@@ -468,6 +489,15 @@
             "fullManagedTypeName": "UnityEditor.VFXManager",
             "moduleName": "VFX",
             "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "Animation",
+            "fullManagedTypeName": "UnityEngine.Animation",
+            "moduleName": "Animation",
+            "usedInScenes": [
+                "Assets/Scenes/RunScene.unity"
+            ]
         },
         {
             "managedAssemblyName": "UnityEngine.dll",

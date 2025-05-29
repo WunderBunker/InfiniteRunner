@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: MainPatternConfig
   m_EditorClassIdentifier: 
   DistanceBtwLines: 15
+  SublinesNb: 5

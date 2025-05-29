@@ -14,7 +14,7 @@ public class ScyllaAttack2 : MonoBehaviour
     float _attackTimer;
 
     Transform _playerTransform;
-    ScyllaAttackState _state;
+    AttackState _state;
     Animator _snakeAnimator;
     ParticleSystem _PS;
 
@@ -28,7 +28,7 @@ public class ScyllaAttack2 : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _snakeAnimator = transform.Find("Snake").GetComponent<Animator>();
 
-        _state = ScyllaAttackState.preparing;
+        _state = AttackState.preparing;
         _attackTimer = _preAttackTime;
 
         _PS = transform.Find("PreAttack").GetComponent<ParticleSystem>();
@@ -42,9 +42,9 @@ public class ScyllaAttack2 : MonoBehaviour
     {
         _attackTimer -= Time.deltaTime;
 
-        if (_state == ScyllaAttackState.preparing && _attackTimer <= 0)
+        if (_state == AttackState.preparing && _attackTimer <= 0)
         {
-            _state = ScyllaAttackState.attacking;
+            _state = AttackState.attacking;
             _snakeAnimator.SetTrigger("Jump");
             _attack.SetActive(true);
             transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", new Color(1, 0, 1, 0.9f));
@@ -54,12 +54,13 @@ public class ScyllaAttack2 : MonoBehaviour
             _PS.Stop();
             StartCoroutine(WaitEndAnim());
         }
-        else if (_state == ScyllaAttackState.attacking)
+        else if (_state == AttackState.attacking)
         {
             if (_attack.activeSelf && _attackTimer <= 0)
             {
                 _attack.SetActive(false);
-            transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", new Color(1, 1, 1, 0.1f));}
+                transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", new Color(1, 1, 1, 0.1f));
+            }
         }
 
         //On divise l'attackRange par deux car le pivot est au milieu

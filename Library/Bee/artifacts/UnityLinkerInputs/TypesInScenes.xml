@@ -6,12 +6,14 @@
 		<type fullname="Biome" preserve="nothing"/>
 		<type fullname="BiomesManager" preserve="nothing"/>
 		<type fullname="BulletsUI" preserve="nothing"/>
-		<type fullname="Charron" preserve="nothing"/>
-		<type fullname="DistanceUI" preserve="nothing"/>
+		<type fullname="Charon" preserve="nothing"/>
+		<type fullname="CharonAttack" preserve="nothing"/>
+		<type fullname="CharonAttack2" preserve="nothing"/>
 		<type fullname="FiltreAlerte" preserve="nothing"/>
 		<type fullname="FollowPlayer" preserve="nothing"/>
 		<type fullname="Gate" preserve="nothing"/>
 		<type fullname="Hands" preserve="nothing"/>
+		<type fullname="JellyFish" preserve="nothing"/>
 		<type fullname="LanesManager" preserve="nothing"/>
 		<type fullname="LifeUI" preserve="nothing"/>
 		<type fullname="Log" preserve="nothing"/>
@@ -29,6 +31,7 @@
 		<type fullname="PlayerManager" preserve="nothing"/>
 		<type fullname="Projectile" preserve="nothing"/>
 		<type fullname="Rock" preserve="nothing"/>
+		<type fullname="ScoreUI" preserve="nothing"/>
 		<type fullname="Scylla" preserve="nothing"/>
 		<type fullname="ScyllaAttack" preserve="nothing"/>
 		<type fullname="ScyllaAttack2" preserve="nothing"/>
@@ -128,6 +131,7 @@
 		<type fullname="UnityEditor.TagManager" preserve="nothing"/>
 		<type fullname="UnityEditor.TimeManager" preserve="nothing"/>
 		<type fullname="UnityEditor.VFXManager" preserve="nothing"/>
+		<type fullname="UnityEngine.Animation" preserve="nothing"/>
 		<type fullname="UnityEngine.AnimationClip" preserve="nothing"/>
 		<type fullname="UnityEngine.Animator" preserve="nothing"/>
 		<type fullname="UnityEngine.Audio.AudioMixer" preserve="nothing"/>

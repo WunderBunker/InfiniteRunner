@@ -14,7 +14,7 @@ public class playerControls : MonoBehaviour
     //Vitesse max en début de run
     [SerializeField] public float MaxSpeedInitial;
     //Vitesse max en fin de run mètres
-    [SerializeField] float _maxSpeedFinal;
+    [SerializeField] public float MaxSpeedFinal;
 
     [SerializeField] float _minSpeed;
     //Temps nécessaire pour un dmpnening à pleine puissance pour passer de maxSpeed à minSpeed
@@ -139,7 +139,7 @@ public class playerControls : MonoBehaviour
         }
 
         //Maj de la vitesse maximal tous les 500m (equivaut à interpolation lineaire sur 50000m)
-        CurrentMaxSpeed = math.min(math.lerp(MaxSpeedInitial, _maxSpeedFinal, _playerManager.TotalDistance / 5000), _maxSpeedFinal);
+        CurrentMaxSpeed = math.min(math.lerp(MaxSpeedInitial, MaxSpeedFinal, _playerManager.TotalDistance / 5000), MaxSpeedFinal);
 
         //Maj du coefficient de décélération
         UpdateWindDampening();
@@ -213,22 +213,22 @@ public class playerControls : MonoBehaviour
         //Lorsque le coef est à 0 on revient à la vitesse max sans boost particulier
         else CurrentSpeed = math.min(CurrentSpeed + Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime, CurrentMaxSpeed);
 
-        if (CurrentSpeed >= _maxSpeedFinal / 4)
+        if (CurrentSpeed >= MaxSpeedFinal / 4)
         {
             if (!_speedPS.isPlaying) _speedPS.Play();
 
             ParticleSystem.EmissionModule vEmission = _speedPS.emission;
-            vEmission.rateOverTime = new() { constant = math.lerp(0, _maxSpeedPartEmission, CurrentSpeed / _maxSpeedFinal) };
+            vEmission.rateOverTime = new() { constant = math.lerp(0, _maxSpeedPartEmission, CurrentSpeed / MaxSpeedFinal) };
             ParticleSystem.ShapeModule vShape = _speedPS.shape;
-            vShape.radius = math.lerp(_minSpeedPartRadius + 7, _minSpeedPartRadius, CurrentSpeed / _maxSpeedFinal);
+            vShape.radius = math.lerp(_minSpeedPartRadius + 7, _minSpeedPartRadius, CurrentSpeed / MaxSpeedFinal);
         }
         else if (_speedPS.isPlaying) _speedPS.Stop();
 
         ParticleSystem.EmissionModule vSpashEmission = _splashPS.emission;
-        vSpashEmission.rateOverTime = new() { constant = math.lerp(0, _maxSplashPartEmission, CurrentSpeed / _maxSpeedFinal) };
+        vSpashEmission.rateOverTime = new() { constant = math.lerp(0, _maxSplashPartEmission, CurrentSpeed / MaxSpeedFinal) };
 
         //Maj du bruit des vagues
-        byte vNewWindSound = (byte)(CurrentSpeed < _maxSpeedFinal / 3 ? 0 : (CurrentSpeed < _maxSpeedFinal * 2 / 3 ? 1 : 2));
+        byte vNewWindSound = (byte)(CurrentSpeed < MaxSpeedFinal / 3 ? 0 : (CurrentSpeed < MaxSpeedFinal * 2 / 3 ? 1 : 2));
         if (vNewWindSound != _currentWindSound)
         {
             if (_windSoudnToken != 0) AudioManager.Instance.StopKeepSound(_windSoudnToken);
