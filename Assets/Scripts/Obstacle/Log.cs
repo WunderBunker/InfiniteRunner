@@ -12,6 +12,7 @@ public class Log : MonoBehaviour
         {
             pOther.gameObject.GetComponent<PlayerManager>().Hurt(1);
             AudioManager.Instance.PlaySound(_destroySounds[new System.Random().Next(0, _destroySounds.Count)], 1);
+            BiomesManager.Instance.RaiseNoise(1);
             Instantiate(_explosion, transform.position, _explosion.transform.rotation, transform.parent);
             Destroy(gameObject);
         }

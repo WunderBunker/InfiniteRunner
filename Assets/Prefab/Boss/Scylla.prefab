@@ -103,12 +103,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b85fccc2dc31c499fc71d20922d9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _indicator: {fileID: 5398764547522897293, guid: c443ed3ce8564374297633a62522c007, type: 3}
+  _warningFilter: {fileID: 0}
+  _bulletItem: {fileID: 2855193317047037250, guid: 48dbb95d5cd0e8343b7461596aa2175e, type: 3}
+  _maxLife: 3
   _maxDistanceToPlayer: 30
   _attack: {fileID: 4879660614814153508, guid: b5e0d081591002d4da73f207aca15931, type: 3}
   _attack2: {fileID: 4879660614814153508, guid: 3340a1a4b953d734b96230e09957ebb1, type: 3}
   _attackTempo: 4
   _attack2Tempo: 4
-  _maxLife: 3
   _hurtSounds:
   - {fileID: 8300000, guid: f2548927b0ad47c4c9afd231038a6a14, type: 3}
   - {fileID: 8300000, guid: 44df4a64a41c35b4abd7091a9226fad4, type: 3}

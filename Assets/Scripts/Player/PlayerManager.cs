@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] byte _maxLife;
     [SerializeField] byte _maxBulletStock;
-    [SerializeField] float _bulletReloadTime;
     [SerializeField] float _bulletFireRate;
     [SerializeField] List<AudioClip> _canonSounds = new();
     [SerializeField] List<AudioClip> _hurtSounds = new();
@@ -28,8 +27,6 @@ public class PlayerManager : MonoBehaviour
     byte _life { get; set; }
 
     byte _bulletCount;
-    float _reloadTimer;
-    bool _mustReload;
     float _fireRateTimer;
 
     ScoreUI _scoreUI;
@@ -75,18 +72,6 @@ public class PlayerManager : MonoBehaviour
 
         if (_invincibilityTimer > 0) _invincibilityTimer = math.max(_invincibilityTimer - Time.deltaTime, 0);
 
-        if (_mustReload)
-        {
-            _reloadTimer -= Time.deltaTime;
-            _bulletsUI.SetReloadValue(1 - math.max(_reloadTimer, 0) / _bulletReloadTime);
-            if (_reloadTimer <= 0)
-            {
-                _reloadTimer = _bulletReloadTime;
-                _bulletCount += 1;
-                _bulletsUI.SetStockValue(_bulletCount);
-                if (_bulletCount == _maxBulletStock) _mustReload = false;
-            }
-        }
         if (_fireRateTimer > 0)
         {
             _fireRateTimer -= Time.deltaTime;
@@ -124,7 +109,12 @@ public class PlayerManager : MonoBehaviour
         _lifeUI.SetLifeNb(_life);
         AudioManager.Instance.PlaySound(_healSounds[new System.Random().Next(0, _healSounds.Count)], 1);
     }
-
+    public void GainBullet(byte pNb)
+    {
+        if (_bulletCount >= _maxBulletStock) return;
+        _bulletCount += pNb;
+        _bulletsUI.SetStockValue(_bulletCount);
+    }
 
     public void OnShoot(InputAction.CallbackContext pContext)
     {
@@ -136,8 +126,8 @@ public class PlayerManager : MonoBehaviour
             GameObject vBullet = Instantiate(_bullet, transform.Find("CanonPivot").position, Quaternion.identity, null);
             _bulletCount -= 1;
             _bulletsUI.SetStockValue(_bulletCount);
-            _mustReload = true;
             _fireRateTimer = _bulletFireRate;
+            BiomesManager.Instance.RaiseNoise(1);
 
             AudioManager.Instance.PlaySound(_canonSounds[new System.Random().Next(0, _canonSounds.Count)], 1);
 

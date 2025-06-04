@@ -39,7 +39,7 @@ public class PatternsManager : MonoBehaviour
         if (!_bossHasDefendedGate && _gateSpawnTimerInMeters <= _gateSpawnTempoInMeters * 0.1f)
         {
             _bossHasDefendedGate = true;
-            GameObject.FindGameObjectWithTag("BiomesManager").GetComponent<BiomesManager>().CurrentBoss.GetComponent<IBoss>().Activate();
+            BiomesManager.Instance.CurrentBoss.GetComponent<Boss>().Activate();
         }
 
 
@@ -118,8 +118,8 @@ public class PatternsManager : MonoBehaviour
     {
         if (pContext.started)
         {
-            if (_isBossMode) GameObject.FindGameObjectWithTag("BiomesManager").GetComponent<BiomesManager>().CurrentBoss.GetComponent<IBoss>().DeActivate();
-            else GameObject.FindGameObjectWithTag("BiomesManager").GetComponent<BiomesManager>().CurrentBoss.GetComponent<IBoss>().Activate();;
+            if (_isBossMode) BiomesManager.Instance.CurrentBoss.GetComponent<Boss>().DeActivate();
+            else BiomesManager.Instance.CurrentBoss.GetComponent<Boss>().Activate();;
         }
     }
 }

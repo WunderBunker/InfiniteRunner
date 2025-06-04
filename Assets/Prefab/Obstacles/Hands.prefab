@@ -7749,6 +7749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc103ac386abd9c49a2a7d57e55f734c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bubbleSound: {fileID: 8300000, guid: 48fe9cff288b9f147b694f2b8621809a, type: 3}
+  _screamSound: {fileID: 8300000, guid: 1ec62495a418dd348a24593a0acb8d21, type: 3}
 --- !u!4 &979257699185815847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6507968b35743a14b879cb3f6ca4c00b, type: 3}

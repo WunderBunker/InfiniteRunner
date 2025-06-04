@@ -5,11 +5,13 @@
 		<type fullname="AudioManager" preserve="nothing"/>
 		<type fullname="Biome" preserve="nothing"/>
 		<type fullname="BiomesManager" preserve="nothing"/>
+		<type fullname="BossFilter" preserve="nothing"/>
+		<type fullname="bulletItem" preserve="nothing"/>
 		<type fullname="BulletsUI" preserve="nothing"/>
 		<type fullname="Charon" preserve="nothing"/>
 		<type fullname="CharonAttack" preserve="nothing"/>
 		<type fullname="CharonAttack2" preserve="nothing"/>
-		<type fullname="FiltreAlerte" preserve="nothing"/>
+		<type fullname="CharonIndicator" preserve="nothing"/>
 		<type fullname="FollowPlayer" preserve="nothing"/>
 		<type fullname="Gate" preserve="nothing"/>
 		<type fullname="Hands" preserve="nothing"/>
@@ -119,6 +121,7 @@
 		<type fullname="TMPro.TMP_Settings" preserve="nothing"/>
 		<type fullname="TMPro.TMP_SpriteAsset" preserve="nothing"/>
 		<type fullname="TMPro.TMP_StyleSheet" preserve="nothing"/>
+		<type fullname="TMPro.TMP_SubMeshUI" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="UnityEngine">
 		<type fullname="UnityEditor.Animations.AnimatorController" preserve="nothing"/>

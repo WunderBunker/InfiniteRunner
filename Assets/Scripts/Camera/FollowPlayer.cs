@@ -27,7 +27,7 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
 
-        Vector3 vTempTargetPosition = new Vector3(transform.position.x, transform.position.y, _playertransform.position.z);
+        Vector3 vTempTargetPosition = new Vector3(0, transform.position.y, _playertransform.position.z);
         //Dans le cas du backward on augmente le spacing car smoothdamp a une inertie qui cause un retard sur l'axe z (car le player se déplace dans ce sens)
         vTempTargetPosition.z += _isBackward ? -_initialZSpacingWithPlayer*1.75f : _initialZSpacingWithPlayer; 
 
@@ -39,6 +39,7 @@ public class FollowPlayer : MonoBehaviour
             if ((_isBackward && math.abs(transform.eulerAngles.y - 180) <= 2) || !_isBackward && math.abs(transform.eulerAngles.y) <= 5)
             {
                 transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, _isBackward ? 180 : 0, transform.eulerAngles.z));
+                vTempTargetPosition.x = 0;
                 _rotationIsFixed = true;
                 _playertransform.GetComponent<playerControls>().IsBossMode = _isBackward;
             }

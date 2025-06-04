@@ -4,38 +4,27 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Scylla : MonoBehaviour, IBoss
+public class Scylla : Boss
 {
     [SerializeField] float _maxDistanceToPlayer;
     [SerializeField] GameObject _attack;
     [SerializeField] GameObject _attack2;
     [SerializeField] float _attackTempo;
     [SerializeField] float _attack2Tempo;
-    [SerializeField] float _maxLife;
     [SerializeField] List<AudioClip> _hurtSounds = new();
     [SerializeField] AudioClip _deathSound;
     [SerializeField] AudioClip _shieldSound;
     [SerializeField] Color _shieldColor;
-
-    bool _hasBeenTriggered;
 
     float _initMaxDistanceToPLayer;
 
     float _attackTimer;
     float _attack2Timer;
 
-    LanesManager _laneManager;
-    Transform _playerTransform;
     playerControls _playerControls;
-    FiltreAlerte _filtreAlerte;
+    BossFilter _filterAlarm;
     System.Random _random = new();
-    List<GameObject> _attackList = new();
 
-    bool _isActive = false;
-    bool _isBeaten = false;
-    GameObject _body;
-
-    float _life;
     float _attackRange;
 
     float _speed;
@@ -45,30 +34,26 @@ public class Scylla : MonoBehaviour, IBoss
     bool _shieldFlicker;
     private bool _isHit;
 
-    void Start()
+    override protected void Start()
     {
-        _laneManager = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        _playerControls = _playerTransform.GetComponent<playerControls>();
-        _filtreAlerte = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filtre").GetComponent<FiltreAlerte>();
+        base.Start();
 
-        _body = transform.GetChild(0).gameObject;
-        _body.SetActive(false);
+        _playerControls = _playerTransform.GetComponent<playerControls>();
+        _filterAlarm = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("Alarm").GetComponent<BossFilter>();
+
         _attackRange = _attack.GetComponent<ScyllaAttack>().GetAttackRange();
 
         _distanceToPlayer = _maxDistanceToPlayer;
         _speed = _playerControls.CurrentMaxSpeed / 2;
         _initMaxDistanceToPLayer = _maxDistanceToPlayer;
 
-        _bossIndicator = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").GetComponent<Slider>();
+        _bossIndicator = _indicator.GetComponent<Slider>();
     }
 
-    public void Activate()
+    public override void Activate()
     {
-        if (_isActive) return;
-        _isActive = true;
+        base.Activate();
 
-        _body.SetActive(true);
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
         {
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() == null) continue;
@@ -77,36 +62,29 @@ public class Scylla : MonoBehaviour, IBoss
             _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", _shieldColor);
         }
 
-        _life = _maxLife;
         _attackTimer = _attackTempo;
         _attack2Timer = _attack2Tempo / 2;
-        GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(true);
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
 
-        _filtreAlerte.SetActive(false);
+        _filterAlarm.SetActive(false);
     }
-    public void DeActivate()
+    public override void DeActivate()
     {
-        if (!_isActive) return;
-        _isActive = false;
-        _hasBeenTriggered = false;
-        _body.SetActive(false);
+        base.DeActivate();
 
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() != null) _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetBool("Stopped", true);
 
-        GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>().SwitchBossMode(false);
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
         foreach (GameObject lAttack in _attackList) Destroy(lAttack);
         _attackList.Clear();
         _distanceToPlayer = _maxDistanceToPlayer;
-        _isBeaten = false;
 
-        _filtreAlerte.SetActive(false);
+        _filterAlarm.SetActive(false);
     }
 
-    void Update()
+    override protected void Update()
     {
+        base.Update();
+
         if (!_isActive)
         {
             //On pondère la dstance max en fonction de la vitesse max du joueur (pour garder des temps de rattrappage identiques durant la partie)
@@ -115,8 +93,8 @@ public class Scylla : MonoBehaviour, IBoss
             _speed = _playerControls.CurrentMaxSpeed * 0.7f;
             float vNewDistanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
 
-            if (vNewDistanceToPlayer <= _maxDistanceToPlayer / 4 && _distanceToPlayer > _maxDistanceToPlayer / 4) _filtreAlerte.SetActive(true);
-            else if (_distanceToPlayer <= _maxDistanceToPlayer / 4 && vNewDistanceToPlayer > _maxDistanceToPlayer / 4) _filtreAlerte.SetActive(false);
+            if (vNewDistanceToPlayer <= _maxDistanceToPlayer / 4 && _distanceToPlayer > _maxDistanceToPlayer / 4) _filterAlarm.SetActive(true);
+            else if (_distanceToPlayer <= _maxDistanceToPlayer / 4 && vNewDistanceToPlayer > _maxDistanceToPlayer / 4) _filterAlarm.SetActive(false);
 
             _distanceToPlayer = vNewDistanceToPlayer;
             _bossIndicator.value = 1 - _distanceToPlayer / _maxDistanceToPlayer;
@@ -172,62 +150,53 @@ public class Scylla : MonoBehaviour, IBoss
         if (_attackTimer <= 0)
         {
             _attackTimer = _attackTempo;
-            int vAttackNumber = (byte)_random.Next(1, _laneManager.LaneNumber);
+            int vAttackNumber = (byte)_random.Next(1, _LM.LaneNumber);
             byte vAttackLane = 0;
             byte vNextLane = vAttackLane;
             for (int i = 0; i < vAttackNumber; i++)
             {
                 while (vNextLane == vAttackLane)
-                    vNextLane = (byte)_random.Next(0, _laneManager.LaneNumber);
+                    vNextLane = (byte)_random.Next(0, _LM.LaneNumber);
                 vAttackLane = vNextLane;
 
-                _attackList.Add(Instantiate(_attack, new Vector3((float)_laneManager.GetLaneCenter(vAttackLane), _laneManager.GroundHeight, transform.position.z), Quaternion.identity, transform));
+                _attackList.Add(Instantiate(_attack, new Vector3((float)_LM.GetLaneCenter(vAttackLane), _LM.GroundHeight, transform.position.z), Quaternion.identity, transform));
             }
         }
         if (_attack2Timer <= 0)
         {
             _attack2Timer = _attack2Tempo;
-            int vAttackNumber = (byte)_random.Next(1, _laneManager.LaneNumber - 1);
+            int vAttackNumber = (byte)_random.Next(1, _LM.LaneNumber - 1);
             byte vAttackLane = 0;
             byte vNextLane = vAttackLane;
             for (int i = 0; i < vAttackNumber; i++)
             {
                 while (vNextLane == vAttackLane)
-                    vNextLane = (byte)_random.Next(0, _laneManager.LaneNumber);
+                    vNextLane = (byte)_random.Next(0, _LM.LaneNumber);
                 vAttackLane = vNextLane;
 
-                _attackList.Add(Instantiate(_attack2, new Vector3((float)_laneManager.GetLaneCenter(vAttackLane), _laneManager.GroundHeight, transform.position.z), Quaternion.identity, transform));
+                _attackList.Add(Instantiate(_attack2, new Vector3((float)_LM.GetLaneCenter(vAttackLane), _LM.GroundHeight, transform.position.z), Quaternion.identity, transform));
             }
         }
 
         _body.transform.position = new Vector3(_body.transform.position.x, _body.transform.position.y, _playerTransform.position.z - _attackRange - 5);
     }
 
-    void OnTriggerEnter(Collider pOther)
+    override protected void OnHit(Projectile pBullet)
     {
-        if (pOther.CompareTag("Bullet"))
-        {
-            if (_life == 0) return;
-            _life -= 1;
-            _isHit = true;
-
-            pOther.GetComponent<Projectile>().Explode();
-
-            AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1);
-
-            Color vCol = new Color(1, 0, 0, 0.9f);
-            foreach (GameObject lAttack in _attackList)
-                if (lAttack != null)
-                {
-                    Material lMat = lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0];
-                    lMat.SetColor("_Emission", vCol);
-                }
-            for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
-                _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vCol);
-
-            if (_life == 0) StartCoroutine(IsBeaten());
-        }
+        base.OnHit(pBullet);
+        AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1);
+        Color vCol = new Color(1, 0, 0, 0.9f);
+        foreach (GameObject lAttack in _attackList)
+            if (lAttack != null)
+            {
+                Material lMat = lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0];
+                lMat.SetColor("_Emission", vCol);
+            }
+        for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
+            _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vCol);
     }
+
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -244,10 +213,9 @@ public class Scylla : MonoBehaviour, IBoss
         }
     }
 
-    IEnumerator IsBeaten()
+    override protected IEnumerator IsBeaten()
     {
-        _isBeaten = true;
-        _playerTransform.GetComponent<PlayerManager>().HasBeatenABoss();
+        yield return base.IsBeaten();
 
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() != null) _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetTrigger("Beaten");
@@ -263,10 +231,4 @@ public class Scylla : MonoBehaviour, IBoss
 public enum AttackState
 {
     preparing, attacking
-}
-
-interface IBoss
-{
-    public void Activate();
-    public void DeActivate();
 }

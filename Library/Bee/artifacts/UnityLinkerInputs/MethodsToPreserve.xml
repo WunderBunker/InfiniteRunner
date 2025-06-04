@@ -2,6 +2,7 @@
 	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
 		<type fullname="AudioButton">
 			<method name="OnButtonClick"/>
+			<method name="OnButtonClick"/>
 		</type>
 		<type fullname="MainCanvas">
 			<method name="LaunchPauseMenu"/>
@@ -29,8 +30,12 @@
 		</type>
 		<type fullname="SoundMenu">
 			<method name="OnClose"/>
+			<method name="OnClose"/>
+			<method name="OnFxChange"/>
 			<method name="OnFxChange"/>
 			<method name="OnMasterChange"/>
+			<method name="OnMasterChange"/>
+			<method name="OnMusicChange"/>
 			<method name="OnMusicChange"/>
 		</type>
 	</assembly>

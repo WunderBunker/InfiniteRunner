@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
         Save vSave = SaveManager.LoadSave();
 
         transform.Find("ObolesCount").GetComponent<TextMeshProUGUI>().text = "Oboles : " + vSave.Oboles.ToString();
+        transform.Find("HighScore").GetComponent<TextMeshProUGUI>().text = "High Score : " + vSave.HighScore.ToString();
     }
 
     void OnApplicationQuit()

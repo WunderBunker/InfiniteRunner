@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class BiomesManager : MonoBehaviour
 {
+    public static BiomesManager Instance;
+
     public string CurrentBiomeId { get; private set; }
     public GameObject CurrentBoss { get; private set; }
     [SerializeField] List<Biome> _biomes = new();
@@ -10,6 +12,11 @@ public class BiomesManager : MonoBehaviour
     PatternsManager _PM;
     Material _waterMaterial;
 
+    void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +43,12 @@ public class BiomesManager : MonoBehaviour
                 RenderSettings.skybox.SetColor("_SkyTint", lBiome.SkyColor);
                 RenderSettings.skybox.SetColor("_GroundColor", lBiome.HorizonColor);
                 RenderSettings.fogColor = lBiome.HorizonColor;
+
+                //UI
+                if (GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").childCount >0)
+                    Destroy(GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").GetChild(0).gameObject);
+                if (GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("BossSpecific").childCount >0)
+                    Destroy(GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("BossSpecific").GetChild(0).gameObject);
 
                 //Boss
                 Destroy(CurrentBoss);
@@ -68,5 +81,8 @@ public class BiomesManager : MonoBehaviour
         return vNewBiome;
     }
 
-
+    public void RaiseNoise(byte pValue)
+    {
+        if (CurrentBoss.GetComponent<Boss>() is INoiseSensitive) CurrentBoss.GetComponent<INoiseSensitive>().AddNoise(pValue);
+    }
 }

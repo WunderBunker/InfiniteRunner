@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -27,7 +26,6 @@ public class AudioManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -116,7 +114,7 @@ public class AudioManager : MonoBehaviour
         foreach (AudioSource lSource in vAudioToStop)
         {
             _fadingSources.Remove(lSource);
-            Destroy(lSource?.gameObject);
+            if(lSource != null) Destroy(lSource.gameObject);
         }
         vAudioToStop.Clear();
     }

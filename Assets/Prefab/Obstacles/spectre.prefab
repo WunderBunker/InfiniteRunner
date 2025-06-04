@@ -153,8 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sideMoveLatency: 1
-  _deathSound: {fileID: 8300000, guid: 595378119f9889d4f84d3fcf04569199, type: 3}
   _explosion: {fileID: 0}
+  _spectreSound: {fileID: 8300000, guid: 2654a755a1bcbf847b4c62bcaaca8eea, type: 3}
+  _spectreDyingSound: {fileID: 8300000, guid: 606e7a05c21420640b9b589270a46a08, type: 3}
 --- !u!108 &2803586947556690511
 Light:
   m_ObjectHideFlags: 0

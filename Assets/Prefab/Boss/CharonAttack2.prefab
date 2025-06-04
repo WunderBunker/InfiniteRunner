@@ -149,6 +149,7 @@ MonoBehaviour:
   _preAttackTime: 0.75
   _attack: {fileID: 3839972821122014460}
   _attackTime: 1
+  _bubbleSound: {fileID: 8300000, guid: 48fe9cff288b9f147b694f2b8621809a, type: 3}
 --- !u!1 &6296455996471343365
 GameObject:
   m_ObjectHideFlags: 0

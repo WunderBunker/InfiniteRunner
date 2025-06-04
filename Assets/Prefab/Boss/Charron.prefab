@@ -3284,14 +3284,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b573a879b526a4993373a8701c0a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _indicator: {fileID: 8062971046839581937, guid: bc4263eebaeb55544a1527d644f948ab, type: 3}
+  _warningFilter: {fileID: 5446168582552716921, guid: a3a403251f5d12348b64ba57c1414f81, type: 3}
+  _warningNoise: {fileID: 8300000, guid: e86598071eba5264f9c0cc43642b301e, type: 3}
+  _bulletItem: {fileID: 2855193317047037250, guid: 48dbb95d5cd0e8343b7461596aa2175e, type: 3}
+  _maxLife: 3
   _attack: {fileID: 2372688337085631183, guid: 108824c617f1baa41bcec3d8668ef898, type: 3}
   _attack2: {fileID: 4879660614814153508, guid: e3b730b42cb941c46a2a6a7ab53b8116, type: 3}
   _attackTempo: 2
   _attack2Tempo: 3
-  _maxLife: 3
   _nbAttackBfExposed: 3
   _nbAttackBfHidden: 10
   _sideMoveLatency: 0.5
+  _resetNoiseTempo: 10
+  _hitSound: {fileID: 8300000, guid: 5e8948648ee7a6045a14549423b56819, type: 3}
+  _deathSound: {fileID: 8300000, guid: b79439eb368a2a746a7b550bb2c54df9, type: 3}
 --- !u!54 &8541399750589060890
 Rigidbody:
   m_ObjectHideFlags: 0
