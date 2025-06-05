@@ -185,7 +185,10 @@
         175,
         176,
         177,
-        178
+        178,
+        179,
+        180,
+        181
       ],
       "DebugActionIndex": 0
     },
@@ -6237,6 +6240,24 @@
       "DebugActionIndex": 175
     },
     {
+      "Annotation": "CopyFiles Build/UnityCrashHandler64.pdb",
+      "DisplayName": "Copying UnityCrashHandler64.pdb",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/win64_player_nondevelopment_mono/UnityCrashHandler64.pdb"
+      ],
+      "InputFlags": [
+        0
+      ],
+      "Outputs": [
+        "Build/UnityCrashHandler64.pdb"
+      ],
+      "OutputFlags": [
+        2
+      ],
+      "DebugActionIndex": 176
+    },
+    {
       "Annotation": "CopyFiles Build/UnityPlayer.dll",
       "DisplayName": "Copying UnityPlayer.dll",
       "ActionType": "CopyFiles",
@@ -6252,7 +6273,43 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 176
+      "DebugActionIndex": 177
+    },
+    {
+      "Annotation": "CopyFiles Build/UnityPlayer_Win64_player_mono_x64.pdb",
+      "DisplayName": "Copying UnityPlayer_Win64_player_mono_x64.pdb",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/win64_player_nondevelopment_mono/UnityPlayer_Win64_player_mono_x64.pdb"
+      ],
+      "InputFlags": [
+        0
+      ],
+      "Outputs": [
+        "Build/UnityPlayer_Win64_player_mono_x64.pdb"
+      ],
+      "OutputFlags": [
+        2
+      ],
+      "DebugActionIndex": 178
+    },
+    {
+      "Annotation": "CopyFiles Build/WindowsPlayer_player_Master_mono_x64.pdb",
+      "DisplayName": "Copying WindowsPlayer_player_Master_mono_x64.pdb",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Program Files/Unity/Hub/Editor/6000.0.39f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/win64_player_nondevelopment_mono/WindowsPlayer_player_Master_mono_x64.pdb"
+      ],
+      "InputFlags": [
+        0
+      ],
+      "Outputs": [
+        "Build/WindowsPlayer_player_Master_mono_x64.pdb"
+      ],
+      "OutputFlags": [
+        2
+      ],
+      "DebugActionIndex": 179
     },
     {
       "Annotation": "CopyFiles Build/D3D12/D3D12Core.dll",
@@ -6270,7 +6327,7 @@
       "OutputFlags": [
         2
       ],
-      "DebugActionIndex": 177
+      "DebugActionIndex": 180
     },
     {
       "Annotation": "Player",
@@ -6450,9 +6507,12 @@
         174,
         175,
         176,
-        177
+        177,
+        178,
+        179,
+        180
       ],
-      "DebugActionIndex": 178
+      "DebugActionIndex": 181
     }
   ],
   "FileSignatures": [
@@ -6673,7 +6733,7 @@
   "EmitDataForBeeWhy": 0,
         "NamedNodes": {
           "all_tundra_nodes": 0,
-          "Player": 178
+          "Player": 181
         }
 ,  "DefaultNodes": [
     0

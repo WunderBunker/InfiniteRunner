@@ -119,6 +119,7 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.ShaderGraph.Editor.dll:
     - UnityEditor.ShaderGraph.Drawing.MaterialGraphEditWindow
+    - UnityEditor.ShaderGraph.ShaderGraphProjectSettings
     Unity.TextMeshPro:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
@@ -134,10 +135,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -309,24 +308,6 @@ ScriptsOnlyBuild:
     fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerButton
     methodName: OnAction
   - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
-    methodName: OnScrollbarClicked
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
-    methodName: OnScrollbarClicked
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnIncrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnDecrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnDecrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnIncrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
     fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
     methodName: OnDecrement
   - assembly: Unity.RenderPipelines.Core.Runtime
@@ -343,6 +324,24 @@ ScriptsOnlyBuild:
     methodName: OnDecrement
   - assembly: Unity.RenderPipelines.Core.Runtime
     fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerObjectPopupField
+    methodName: OnIncrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
+    methodName: OnScrollbarClicked
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
+    methodName: OnScrollbarClicked
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
+    methodName: OnIncrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
+    methodName: OnDecrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
+    methodName: OnDecrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
     methodName: OnIncrement
   - assembly: Unity.RenderPipelines.Core.Runtime
     fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel

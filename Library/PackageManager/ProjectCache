@@ -133,10 +133,12 @@ m_ResolvedPackages:
     - 2.0.5
     - 2.0.6
     - 2.0.7
+    - 2.0.8
     compatible:
     - 2.0.6
     - 2.0.7
-    recommended: 2.0.7
+    - 2.0.8
+    recommended: 2.0.8
     deprecated: []
   dependencies:
   - name: com.unity.modules.ai
