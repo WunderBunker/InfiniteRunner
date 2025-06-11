@@ -5,12 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] AudioClip _soundScape;
+    int _soundscapeToken;
+    GameObject _tutorialPanel;
+    GameObject _leaderBoardPanel;
+
     void Start()
     {
         Save vSave = SaveManager.LoadSave();
 
         transform.Find("ObolesCount").GetComponent<TextMeshProUGUI>().text = "Oboles : " + vSave.Oboles.ToString();
         transform.Find("HighScore").GetComponent<TextMeshProUGUI>().text = "High Score : " + vSave.HighScore.ToString();
+        _tutorialPanel = transform.Find("Tutorial").gameObject;
+        _leaderBoardPanel = transform.Find("LeaderBoard").gameObject;
+
+        //Si premier pas encore de score d'enregitrer on affiche le tuto
+        if (vSave.HighScore == 0) LaunchTutorialPanel(true);
+
+        _soundscapeToken = AudioManager.Instance.PlayKeepSound(_soundScape, 1);
     }
 
     void OnApplicationQuit()
@@ -21,13 +33,29 @@ public class MenuManager : MonoBehaviour
     public void PlayButtonClick()
     {
         SaveManager.SaveSave();
-        StartCoroutine(WaitForClickSoundAndLoad());
+        PlayClickSound();
+        StartCoroutine(LoadOtherScene("RunScene"));
     }
 
-    IEnumerator WaitForClickSoundAndLoad()
+    IEnumerator LoadOtherScene(string pScene)
     {
-        AudioManager.Instance.PlayClickSound();
-        yield return new WaitForSeconds(0.25f);
-        SceneManager.LoadScene("RunScene");
+        yield return transform.Find("FadeInBlack").GetComponent<FadeInBlack>().FadeIn();
+        SceneManager.LoadScene(pScene);
     }
+
+
+    public void LaunchTutorialPanel(bool pActive) => _tutorialPanel.SetActive(pActive);
+
+    public void LaunchLeaderBoardPanel(bool pActive) => _leaderBoardPanel.SetActive(pActive);
+
+
+    public void LaunchShopScene() => StartCoroutine(LoadOtherScene("Shop"));
+
+    public void PlayClickSound() => AudioManager.Instance.PlayClickSound();
+
+    void OnDestroy()
+    {
+        AudioManager.Instance.StopKeepSound(_soundscapeToken);
+    }
+
 }

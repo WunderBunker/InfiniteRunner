@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         _center = GameObject.Find("Player")?.transform;
-        if (_center == null) _center = transform;
+        if (_center == null) _center = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     void Update()

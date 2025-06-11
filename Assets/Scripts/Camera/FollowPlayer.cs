@@ -41,7 +41,7 @@ public class FollowPlayer : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, _isBackward ? 180 : 0, transform.eulerAngles.z));
                 vTempTargetPosition.x = 0;
                 _rotationIsFixed = true;
-                _playertransform.GetComponent<playerControls>().IsBossMode = _isBackward;
+                _playertransform.GetComponent<PlayerControls>().IsBossMode = _isBackward;
             }
         }
 

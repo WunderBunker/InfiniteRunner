@@ -1,6 +1,7 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WindManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class WindManager : MonoBehaviour
     System.Random _random = new();
     Quaternion _refQuaternionDeriv;
     Transform _compassPointerTransform;
+    Image _compassPointeImage;
     Transform _windParticles;
     Transform _playerTransform;
     float _initDistanceFromPlayer;
@@ -22,6 +24,7 @@ public class WindManager : MonoBehaviour
     void Start()
     {
         _compassPointerTransform = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Compass").Find("Pointer");
+        _compassPointeImage = _compassPointerTransform.Find("Pointe").GetComponent<Image>();
         _changeAngleTimer = _changeAngleFrequency;
 
         CurrentAngle = (-_compassPointerTransform.localEulerAngles.z) % 360;
@@ -31,7 +34,7 @@ public class WindManager : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _initDistanceFromPlayer = _windParticles.transform.position.z - _playerTransform.position.z;
         _windParticles.localRotation = Quaternion.Euler(new Vector3(_windParticles.localEulerAngles.x, CurrentAngle, _windParticles.localEulerAngles.z));
-        _windParticles.transform.position = new Vector3(_playerTransform.position.x + _initDistanceFromPlayer * (float)math.cos(CurrentAngle*Math.PI/180+math.PI/2), _windParticles.transform.position.y, _playerTransform.position.z + _initDistanceFromPlayer * (float)math.sin(CurrentAngle*Math.PI/180 +math.PI/2));
+        _windParticles.transform.position = new Vector3(_playerTransform.position.x + _initDistanceFromPlayer * (float)math.cos(CurrentAngle * Math.PI / 180 + math.PI / 2), _windParticles.transform.position.y, _playerTransform.position.z + _initDistanceFromPlayer * (float)math.sin(CurrentAngle * Math.PI / 180 + math.PI / 2));
     }
 
     // Update is called once per frame
@@ -74,6 +77,9 @@ public class WindManager : MonoBehaviour
             _windParticles.localRotation = Quaternion.Euler(new Vector3(_windParticles.localEulerAngles.x, CurrentAngle, _windParticles.localEulerAngles.z));
         }
         //maj de la position des particules de vent sur axe z
-        _windParticles.transform.position = new Vector3(_playerTransform.position.x - _initDistanceFromPlayer * (float)math.cos(CurrentAngle*Math.PI/180+math.PI/2), _windParticles.transform.position.y, _playerTransform.position.z + _initDistanceFromPlayer * (float)math.sin(CurrentAngle*Math.PI/180+math.PI/2));
+        _windParticles.transform.position = new Vector3(_playerTransform.position.x - _initDistanceFromPlayer * (float)math.cos(CurrentAngle * Math.PI / 180 + math.PI / 2), _windParticles.transform.position.y, _playerTransform.position.z + _initDistanceFromPlayer * (float)math.sin(CurrentAngle * Math.PI / 180 + math.PI / 2));
     }
+
+    public void SetPointerColor(Color pColor) =>  _compassPointeImage.color = pColor;
+       
 }

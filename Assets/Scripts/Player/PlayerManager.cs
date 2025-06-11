@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
 
     GameObject _camera;
     float _lastZ;
-    playerControls _playerControls;
+    PlayerControls _playerControls;
     Vector3 _playerSize;
     byte _life { get; set; }
 
@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
-        _playerControls = gameObject.GetComponent<playerControls>();
+        _playerControls = gameObject.GetComponent<PlayerControls>();
         _lastZ = transform.position.z;
         _playerSize = gameObject.GetComponent<BoxCollider>().size;
 

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055faeb8a82ba3940957d1cd891ca791, type: 3}
+  m_Name: BoatSail
+  m_EditorClassIdentifier: 
+  ListId: Sail
+  MatArray:
+  - Id: Sa_1
+    Material: {fileID: 2100000, guid: 1b82ad8e4d6038c4a8a1cf40d4b01cb1, type: 2}
+  - Id: Sa_2
+    Material: {fileID: 2100000, guid: 92c2652149dd70b44a300bb96f303a11, type: 2}
+  - Id: Sa_3
+    Material: {fileID: 2100000, guid: 15b8d76491a005a4386cbf86c407d160, type: 2}
+  - Id: Sa_4
+    Material: {fileID: 2100000, guid: 67461d0da851ec6498f0d237109e2230, type: 2}

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -15,6 +14,7 @@ public class Charon : Boss, INoiseSensitive
     [SerializeField] float _resetNoiseTempo;
     [SerializeField] AudioClip _hitSound;
     [SerializeField] AudioClip _deathSound;
+    [SerializeField] Color _hitColor;
 
     int _attackCounter;
 
@@ -39,6 +39,10 @@ public class Charon : Boss, INoiseSensitive
 
     float _resetNoiseTimer;
 
+    bool _isHit;
+
+    BossFilter _filterAlarm;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     override protected void Start()
     {
@@ -51,6 +55,7 @@ public class Charon : Boss, INoiseSensitive
         _noiseCounter = 0;
         _bossIndicator.MajNoiseValue(_noiseCounter);
         _bossIndicator.MajChronoValue(_hellTimer);
+        _filterAlarm = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("Alarm").GetComponent<BossFilter>();
     }
 
     override public void Activate()
@@ -59,11 +64,14 @@ public class Charon : Boss, INoiseSensitive
 
         _currentLane = _LM.GetLaneFromXPos(transform.position.x + _bodyOrigin.position.x);
         _targetXPosition = (float)_LM.GetLaneCenter(_currentLane) + _bodyOrigin.position.x;
+        _body.transform.Find("Cape").GetComponent<SkinnedMeshRenderer>().material.SetColor("_Emission", new Color(_hitColor.r, _hitColor.g, _hitColor.b, 0));
 
         _isExposed = false;
         _attackCounter = _nbAttackBfExposed;
         //Juste le temps que le bateau se retourne
         _attackTimer = _attackTempo / 4;
+
+        _filterAlarm.SetActive(false);
     }
     override public void DeActivate()
     {
@@ -71,6 +79,8 @@ public class Charon : Boss, INoiseSensitive
 
         _noiseCounter = 0;
         _bossIndicator.MajNoiseValue(_noiseCounter);
+
+        _filterAlarm.SetActive(false);
     }
 
     override protected void Update()
@@ -95,6 +105,7 @@ public class Charon : Boss, INoiseSensitive
             {
                 _resetNoiseTimer -= Time.deltaTime;
                 if (_resetNoiseTimer <= 0) AddNoise(-1);
+
             }
             return;
         }
@@ -147,6 +158,19 @@ public class Charon : Boss, INoiseSensitive
             }
         }
 
+        //Animation de dégât
+        if (_isHit)
+        {
+            Color vBodyColor = _body.transform.Find("Cape").GetComponent<SkinnedMeshRenderer>().material.GetColor("_Emission");
+            if (vBodyColor.a > 0)
+            {
+                vBodyColor.a -= Time.deltaTime * 0.35f;
+                if (vBodyColor.a <= 0.1f) { _isHit = false; vBodyColor.a = 0; }
+            }
+            else _isHit = false;
+            _body.transform.Find("Cape").GetComponent<SkinnedMeshRenderer>().material.SetColor("_Emission", vBodyColor);
+        }
+
         //Maj de la position en Z
         transform.position = new Vector3(transform.position.x, transform.position.y, _playerTransform.position.z - _attackRange - 10);
         _attacksParent.position = new Vector3(0, 0, transform.position.z);
@@ -186,10 +210,16 @@ public class Charon : Boss, INoiseSensitive
 
     public void AddNoise(int pNb)
     {
-        _noiseCounter = (byte)math.clamp(_noiseCounter + pNb,0, 5);
-        if (_noiseCounter>0 ) _resetNoiseTimer = _resetNoiseTempo;
+        if (_isActive) return;
+        
+        _noiseCounter = (byte)math.clamp(_noiseCounter + pNb, 0, 5);
+        if (_noiseCounter > 0) _resetNoiseTimer = _resetNoiseTempo;
+
+        if (pNb > 0 && _noiseCounter == 4) _filterAlarm.SetActive(true);
+        else if (pNb < 0 && _noiseCounter == 3) _filterAlarm.SetActive(false);
 
         _bossIndicator.MajNoiseValue(_noiseCounter);
+
         if (_noiseCounter == 5)
         {
             Activate();
@@ -212,14 +242,17 @@ public class Charon : Boss, INoiseSensitive
                 vNextLane = (byte)_random.Next(0, _LM.LaneNumber);
             vAttackLane = vNextLane;
 
-            _attackList.Add(Instantiate(_attack2, new Vector3((float)_LM.GetLaneCenter(vAttackLane), _LM.GroundHeight-10, _playerTransform.position.z), Quaternion.identity, _attacksParent));
+            _attackList.Add(Instantiate(_attack2, new Vector3((float)_LM.GetLaneCenter(vAttackLane), _LM.GroundHeight - 10, _playerTransform.position.z), Quaternion.identity, _attacksParent));
         }
     }
 
-      override protected void OnHit(Projectile pBullet)
+    override protected void OnHit(Projectile pBullet)
     {
         base.OnHit(pBullet);
         AudioManager.Instance.PlaySound(_hitSound, 1);
+        _isHit = true;
+        Color vColor = _body.transform.Find("Cape").GetComponent<SkinnedMeshRenderer>().material.GetColor("_Emission");
+        _body.transform.Find("Cape").GetComponent<SkinnedMeshRenderer>().material.SetColor("_Emission", new Color(vColor.r, vColor.g, vColor.b, 1));
     }
 
     override protected IEnumerator IsBeaten()

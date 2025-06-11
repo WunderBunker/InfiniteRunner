@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerControls : MonoBehaviour
+public class PlayerControls : MonoBehaviour
 {
     public float CurrentSpeed { get; private set; }
     //True si phase de boss  (caméra et directions sur l'axe X sont inversés )
@@ -29,8 +29,9 @@ public class playerControls : MonoBehaviour
     [SerializeField] float _minSailZScale;
     [SerializeField] float _maxSailZScale;
 
-    [SerializeField] List<AudioClip> _winSounds = new();
+    [SerializeField] List<AudioClip> _windSounds = new();
     [SerializeField] List<AudioClip> _waterSlideSounds = new();
+    [SerializeField] AudioClip[] _sailSounds = new AudioClip[2];
 
     PlayerManager _playerManager;
 
@@ -47,6 +48,7 @@ public class playerControls : MonoBehaviour
     float _currentSailAngle;
     float _windDampeningCoef = 0;
 
+
     ParticleSystem _speedPS;
     float _maxSpeedPartEmission;
     float _minSpeedPartRadius;
@@ -57,8 +59,10 @@ public class playerControls : MonoBehaviour
     bool _isBlockOnLane;
     float _blockTimer;
 
-    [SerializeField] byte _currentWindSound = 0;
+    byte _currentWindSound = 0;
+    byte _currentSailSound = 0;
     int _windSoudnToken = 0;
+    int _sailSoudnToken = 0;
 
     void Start()
     {
@@ -90,7 +94,7 @@ public class playerControls : MonoBehaviour
             Vector2 vInputValue = pContext.ReadValue<Vector2>();
             if (IsBossMode) vInputValue *= -1;
 
-            AudioManager.Instance.PlaySound(_waterSlideSounds[new System.Random().Next(0, _waterSlideSounds.Count)],1);
+            AudioManager.Instance.PlaySound(_waterSlideSounds[new System.Random().Next(0, _waterSlideSounds.Count)], 1);
 
             float? vNewXTarget = _laneManager.GetNextLaneX((int)vInputValue.x);
             _goingToNextLane = vNewXTarget != null;
@@ -184,16 +188,28 @@ public class playerControls : MonoBehaviour
         vSailAngleFromZero = math.clamp(vSailAngleFromZero, 0, vEcartMax);
 
         float vAngleDiff = math.abs(vSailAngleFromZero - vWindAngleFromZero);
-
-        if (IsBossMode || vAngleDiff < _maxAngleForFullWind) _windDampeningCoef = -2;
-        else if (vAngleDiff < 2 * _maxAngleForFullWind) _windDampeningCoef = 0;
+        float vNewCoeff;
+        if (IsBossMode || vAngleDiff < _maxAngleForFullWind) vNewCoeff = -2;
+        else if (vAngleDiff < 2 * _maxAngleForFullWind) vNewCoeff = 0;
         else
         {
             //On proportionnalise l'écart en fonction de l'angle min et l'écart max
             vAngleDiff = vAngleDiff * vEcartMax / (vEcartMax - _maxAngleForFullWind) - _maxAngleForFullWind;
             //On détermine notre coeff qui servira au dampening de la vitesse
-            _windDampeningCoef = vAngleDiff / vEcartMax;
+            vNewCoeff = vAngleDiff / vEcartMax;
         }
+        if (_windDampeningCoef != vNewCoeff) _windManager.SetPointerColor(vNewCoeff < 0 ? Color.green : (vNewCoeff == 0 ? Color.blue : Color.red));
+        _windDampeningCoef = vNewCoeff;
+
+        //Maj bruit de la voile
+        byte vNewSailSound = (byte)(vNewCoeff < 0 ? 1 : (vNewCoeff == 0 ? 0 : 3));
+        if (vNewSailSound != _currentSailSound)
+        {
+            if (_sailSoudnToken != 0 && _currentSailSound !=3) AudioManager.Instance.StopKeepSound(_sailSoudnToken);
+            if (vNewSailSound != 3) _sailSoudnToken = AudioManager.Instance.PlayKeepSound(_sailSounds[vNewSailSound], 1);
+            _currentSailSound = vNewSailSound;
+        }
+
         DebugTool.DrawDebugOnUI(2, "Sail angle : " + _currentSailAngle.ToString("0.0"));
         DebugTool.DrawDebugOnUI(3, "Current speed : " + CurrentSpeed.ToString("0.0") + " / angle diff : " + vAngleDiff.ToString("0.0")
         + " / dampening coef  : " + _windDampeningCoef.ToString("0.0") + " / current max speed : " + CurrentMaxSpeed.ToString("0.0"));
@@ -232,7 +248,7 @@ public class playerControls : MonoBehaviour
         if (vNewWindSound != _currentWindSound)
         {
             if (_windSoudnToken != 0) AudioManager.Instance.StopKeepSound(_windSoudnToken);
-            _windSoudnToken = AudioManager.Instance.PlayKeepSound(_winSounds[vNewWindSound], 1);
+            _windSoudnToken = AudioManager.Instance.PlayKeepSound(_windSounds[vNewWindSound], 1);
             _currentWindSound = vNewWindSound;
         }
 

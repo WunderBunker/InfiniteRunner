@@ -9,6 +9,16 @@
     "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.39f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
+    "com.coffee.ui-particle@https://github.com/mob-sakai/ParticleEffectForUGUI.git": {
+      "name": "com.coffee.ui-particle",
+      "displayName": "UI Particle",
+      "resolvedPath": "D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.coffee.ui-particle@4b98abd7469b",
+      "fingerprint": "4b98abd7469b10d55c9c623830cb6e1518f72731",
+      "editorCompatibility": "2018.2.0a1",
+      "version": "4.11.2",
+      "source": "git",
+      "testable": false
+    },
     "com.unity.2d.sprite@1.0.0": {
       "name": "com.unity.2d.sprite",
       "displayName": "2D Sprite",

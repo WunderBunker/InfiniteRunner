@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b366af9e8af4c62489549150def9893d, type: 3}
+  m_Name: ShoppingList
+  m_EditorClassIdentifier: 
+  ItemsList:
+  - Cost: 500
+    ItemType: 0
+    ItemSubType: 0
+    ItemId: Pl_1
+    Sprite: {fileID: 21300000, guid: 3359dd708bec081439c14e5ce3a20a65, type: 3}
+  - Cost: 1500
+    ItemType: 0
+    ItemSubType: 0
+    ItemId: Pl_2
+    Sprite: {fileID: 21300000, guid: 4ad894206e0800c4093dc967f8c40dc1, type: 3}
+  - Cost: 2000
+    ItemType: 0
+    ItemSubType: 0
+    ItemId: Pl_3
+    Sprite: {fileID: 21300000, guid: 11f204ac15a353a4a89b82d6b7ef3d54, type: 3}
+  - Cost: 2500
+    ItemType: 0
+    ItemSubType: 0
+    ItemId: Pl_4
+    Sprite: {fileID: 21300000, guid: 92b5913b2d480e14ea6dafb74cab848e, type: 3}
+  - Cost: 500
+    ItemType: 0
+    ItemSubType: 1
+    ItemId: Sa_1
+    Sprite: {fileID: 21300000, guid: 45c1f8a3e538d484d9fea832df705032, type: 3}
+  - Cost: 1500
+    ItemType: 0
+    ItemSubType: 1
+    ItemId: Sa_2
+    Sprite: {fileID: 21300000, guid: eaef3458ec5bec04ab75daddade6a13d, type: 3}
+  - Cost: 2000
+    ItemType: 0
+    ItemSubType: 1
+    ItemId: Sa_3
+    Sprite: {fileID: 21300000, guid: 7e5f431f8174be149a242e60bab9e39f, type: 3}
+  - Cost: 2000
+    ItemType: 0
+    ItemSubType: 1
+    ItemId: Sa_4
+    Sprite: {fileID: 21300000, guid: ad23c800dc1776e46aafd4cf2a223c44, type: 3}

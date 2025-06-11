@@ -18,7 +18,6 @@ public class BiomesManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,9 +44,9 @@ public class BiomesManager : MonoBehaviour
                 RenderSettings.fogColor = lBiome.HorizonColor;
 
                 //UI
-                if (GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").childCount >0)
+                if (GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").childCount > 0)
                     Destroy(GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator").GetChild(0).gameObject);
-                if (GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("BossSpecific").childCount >0)
+                if (GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("BossSpecific").childCount > 0)
                     Destroy(GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("BossSpecific").GetChild(0).gameObject);
 
                 //Boss

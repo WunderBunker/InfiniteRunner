@@ -1,12 +1,15 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BossFilter : MonoBehaviour
 {
     [SerializeField] float _maxAlpha;
+    [SerializeField] float _speed = 1;
     [SerializeField] AudioClip _alertSound;
     [SerializeField] bool _activeOnStart;
     [SerializeField] float _maxTime;
+    [SerializeField] float _soundDelay = 0;
     bool _onAlert;
     bool _isAnim;
     Image _image;
@@ -31,7 +34,7 @@ public class BossFilter : MonoBehaviour
             if (_onAlert)
             {
                 Color vColor = _image.color;
-                vColor.a += Time.deltaTime;
+                vColor.a += Time.deltaTime * _speed;
                 if (vColor.a >= _maxAlpha)
                 {
                     vColor.a = _maxAlpha;
@@ -43,7 +46,7 @@ public class BossFilter : MonoBehaviour
             else
             {
                 Color vColor = _image.color;
-                vColor.a -= Time.deltaTime;
+                vColor.a -= Time.deltaTime * _speed;
                 if (vColor.a <= 0)
                 {
                     vColor.a = 0;
@@ -53,7 +56,7 @@ public class BossFilter : MonoBehaviour
             }
         }
 
-        if (_timer > 0 && _maxTime > 0 )
+        if (_timer > 0 && _maxTime > 0)
         {
             _timer -= Time.deltaTime;
             if (_timer <= 0)
@@ -66,7 +69,13 @@ public class BossFilter : MonoBehaviour
     public void SetActive(bool pActive)
     {
         _onAlert = pActive;
-        if (pActive && _alertSound!=null) AudioManager.Instance.PlaySound(_alertSound, 0.8f);
+        if (pActive && _alertSound != null) StartCoroutine(PlayWarningSound());
         _isAnim = true;
+    }
+
+    IEnumerator PlayWarningSound()
+    {
+        yield return new WaitForSeconds(_soundDelay);
+        AudioManager.Instance.PlaySound(_alertSound, 0.9f);
     }
 }

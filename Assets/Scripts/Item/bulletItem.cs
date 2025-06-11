@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class bulletItem : MonoBehaviour
 {
+    [SerializeField] GameObject _particles;
     [SerializeField] AudioClip _collectSound;
 
     void OnTriggerEnter(Collider pOther)
@@ -10,9 +11,8 @@ public class bulletItem : MonoBehaviour
         {
             pOther.GetComponent<PlayerManager>().GainBullet(1);
             AudioManager.Instance.PlaySound(_collectSound, 1);
-            
+            Instantiate(_particles, transform.position, _particles.transform.rotation, transform.parent);
             Destroy(gameObject);
-
         }
     }
 

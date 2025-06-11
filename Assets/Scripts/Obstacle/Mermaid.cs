@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Mermaid : MonoBehaviour
@@ -57,7 +56,7 @@ public class Mermaid : MonoBehaviour
         {
 
             if (transform.position.z - _player.transform.position.z >= 0 && transform.position.z - _player.transform.position.z <= 2*_chantRange)
-                _player.GetComponent<playerControls>().BlockLane(_currentLane, _timer);
+                _player.GetComponent<PlayerControls>().BlockLane(_currentLane, _timer);
 
             if (_timer <= 0)
             {
@@ -93,6 +92,7 @@ public class Mermaid : MonoBehaviour
         _isDead = true;
         AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1, transform.position);
         _body.GetComponent<Animator>().SetTrigger("Death");
+        _player.GetComponent<PlayerControls>().BlockLane(_currentLane, 0);
         yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(_body.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
         Destroy(gameObject);

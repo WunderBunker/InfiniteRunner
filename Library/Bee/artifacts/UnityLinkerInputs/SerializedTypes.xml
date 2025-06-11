@@ -1,6 +1,8 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
+		<type fullname="IdentifiedMaterial" preserve="nothing" serialized="true"/>
 		<type fullname="ObjectData" preserve="nothing" serialized="true"/>
+		<type fullname="ShopItemStruct" preserve="nothing" serialized="true"/>
 	</assembly>
 	<assembly fullname="Unity.InputSystem">
 		<type fullname="UnityEngine.InputSystem.InputAction" preserve="nothing" serialized="true"/>

@@ -4880,7 +4880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdb95af6cac1314caa21f5e50051790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chantTime: 2
+  _chantTime: 1.5
   _chantTempo: 3
   _chantRange: 15
   _hurtSounds:

@@ -65,27 +65,31 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.39f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Prefab\Patterns\PatternConfig.cs" />
     <Compile Include="Assets\Scripts\UI\ScoreUI.cs" />
     <Compile Include="Assets\Scripts\Boss\Boss.cs" />
-    <Compile Include="Assets\Scripts\Player\playerControls.cs" />
     <Compile Include="Assets\Scripts\Boss\ScyllaAttack2.cs" />
     <Compile Include="Assets\Scripts\Utiilities\BiomesManager.cs" />
     <Compile Include="Assets\Scripts\Item\Plank.cs" />
+    <Compile Include="Assets\LeaderBoard.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\Biome.cs" />
     <Compile Include="Assets\Scripts\UI\BulletsUI.cs" />
     <Compile Include="Assets\Scripts\UI\LifeUI.cs" />
+    <Compile Include="Assets\Scripts\Utiilities\FPSLimit.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Hands.cs" />
     <Compile Include="Assets\Scripts\UI\MainCanvas.cs" />
+    <Compile Include="Assets\SkinManager.cs" />
     <Compile Include="Assets\Scripts\UI\AudioButton.cs" />
     <Compile Include="Assets\Scripts\UI\SoundMenu.cs" />
     <Compile Include="Assets\Scripts\Cours\CoursTrigger.cs" />
     <Compile Include="Assets\Scripts\Item\bulletItem.cs" />
     <Compile Include="Assets\Scripts\Utiilities\EditorMisc.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\PatternConfig.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\ShoppingList.cs" />
     <Compile Include="Assets\Scripts\Boss\AttackCollider.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Cours\CoursGlobal.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Log.cs" />
-    <Compile Include="Assets\Prefab\Patterns\Biome.cs" />
+    <Compile Include="Assets\Scripts\UI\ButtonFloater.cs" />
     <Compile Include="Assets\Scripts\Player\Projectile.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Utiilities\SaveManager.cs" />
@@ -96,27 +100,34 @@
     <Compile Include="Assets\Scripts\Item\Obole.cs" />
     <Compile Include="Assets\Scripts\Boss\CharonAttack2.cs" />
     <Compile Include="Assets\Scripts\Boss\ScyllaAttack.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\MaterialList.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Mermaid.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Rock.cs" />
     <Compile Include="Assets\Scripts\World\LanesManager.cs" />
     <Compile Include="Assets\Scripts\Cours\Cours.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Cours\Cours_player.cs" />
     <Compile Include="Assets\Scripts\UI\ObolesUI.cs" />
+    <Compile Include="Assets\Shop.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Gate.cs" />
-    <Compile Include="Assets\Scripts\Utiilities\Pattern.cs" />
+    <Compile Include="Assets\Scripts\UI\FadeInBlack.cs" />
+    <Compile Include="Assets\BoatShowcase.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\World\WaterPlanes.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\Pattern.cs" />
     <Compile Include="Assets\Scripts\Boss\CharonAttack.cs" />
     <Compile Include="Assets\Scripts\Utiilities\Tools.cs" />
     <Compile Include="Assets\Scripts\Cours\piece_cours.cs" />
     <Compile Include="Assets\Scripts\UI\BossFilter.cs" />
     <Compile Include="Assets\Scripts\Utiilities\PartieManager.cs" />
+    <Compile Include="Assets\Scripts\World\BoatReel.cs" />
     <Compile Include="Assets\Scripts\World\PatternsManager.cs" />
     <Compile Include="Assets\Scripts\UI\CharonIndicator.cs" />
     <Compile Include="Assets\Scripts\Boss\Charon.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Spectre.cs" />
     <Compile Include="Assets\Scripts\Boss\Scylla.cs" />
+    <Compile Include="Assets\ShopItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -623,6 +634,10 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Coffee.UIParticle.R">
+      <HintPath>Library\PackageCache\com.coffee.ui-particle@4b98abd7469b\Runtime\Coffee.UIParticle.R.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1207,6 +1222,10 @@
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Coffee.UIParticle">
+      <HintPath>Library\ScriptAssemblies\Coffee.UIParticle.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">

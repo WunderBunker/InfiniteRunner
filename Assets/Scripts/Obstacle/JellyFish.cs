@@ -76,6 +76,8 @@ public class JellyFish : MonoBehaviour
 
     void OnTriggerEnter(Collider pOther)
     {
+        if (_isDying) return; 
+        
         if (pOther.gameObject.CompareTag("Player"))
         {
             pOther.gameObject.GetComponent<PlayerManager>().Hurt(1);

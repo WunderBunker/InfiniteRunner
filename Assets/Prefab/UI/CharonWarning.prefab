@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxAlpha: 0.5
-  _alertSound: {fileID: 0}
+  _speed: 0.5
+  _alertSound: {fileID: 8300000, guid: e86598071eba5264f9c0cc43642b301e, type: 3}
   _activeOnStart: 1
   _maxTime: 1.5
+  _soundDelay: 0.5

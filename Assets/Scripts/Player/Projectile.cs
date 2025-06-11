@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         _groundDistance = math.abs(transform.position.y - _groundHeight);
         _groundHeight *= 1.2f;
         _ZInit = transform.position.z;
-        float vNewSpeed = _speed + (Direction > 0 ? GameObject.FindGameObjectWithTag("Player").GetComponent<playerControls>().CurrentSpeed : 0);
+        float vNewSpeed = _speed + (Direction > 0 ? GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().CurrentSpeed : 0);
         _range *= vNewSpeed / _speed;
         _initSpeed = vNewSpeed;
         _bulletHalfSize = gameObject.GetComponent<MeshFilter>().mesh.bounds.extents.x;

@@ -12,7 +12,17 @@
 			<method name="OnRetryButton"/>
 		</type>
 		<type fullname="MenuManager">
+			<method name="LaunchLeaderBoardPanel"/>
+			<method name="LaunchLeaderBoardPanel"/>
+			<method name="LaunchShopScene"/>
+			<method name="LaunchTutorialPanel"/>
+			<method name="LaunchTutorialPanel"/>
 			<method name="PlayButtonClick"/>
+			<method name="PlayClickSound"/>
+			<method name="PlayClickSound"/>
+			<method name="PlayClickSound"/>
+			<method name="PlayClickSound"/>
+			<method name="PlayClickSound"/>
 		</type>
 		<type fullname="PartieManager">
 			<method name="OnDebug"/>
@@ -20,13 +30,19 @@
 		<type fullname="PatternsManager">
 			<method name="OnRotateInput"/>
 		</type>
-		<type fullname="playerControls">
+		<type fullname="PlayerControls">
 			<method name="OnMoveInput"/>
 			<method name="OnTakeSail"/>
 			<method name="OnTurnSail"/>
 		</type>
 		<type fullname="PlayerManager">
 			<method name="OnShoot"/>
+		</type>
+		<type fullname="Shop">
+			<method name="Quit"/>
+		</type>
+		<type fullname="ShopItem">
+			<method name="BuyButton"/>
 		</type>
 		<type fullname="SoundMenu">
 			<method name="OnClose"/>

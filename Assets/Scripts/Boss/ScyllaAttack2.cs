@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class ScyllaAttack2 : MonoBehaviour
     [SerializeField] float _attackAnimTime;
     [SerializeField] GameObject _splash;
     [SerializeField] List<AudioClip> _splashSounds = new();
+    [NonSerialized] public Color AttackColor;
     float _attackTimer;
 
     Transform _playerTransform;
@@ -47,7 +49,7 @@ public class ScyllaAttack2 : MonoBehaviour
             _state = AttackState.attacking;
             _snakeAnimator.SetTrigger("Jump");
             _attack.SetActive(true);
-            transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", new Color(1, 0, 1, 0.9f));
+            transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", AttackColor);
             Instantiate(_splash, transform.Find("SplashPosition").position, _splash.transform.rotation, transform.parent);
             AudioManager.Instance.PlaySound(_splashSounds[new System.Random().Next(0, _splashSounds.Count)], 1);
             _attackTimer = _attackTime;

@@ -104,7 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _indicator: {fileID: 5398764547522897293, guid: c443ed3ce8564374297633a62522c007, type: 3}
-  _warningFilter: {fileID: 0}
+  _lifeUIPrefab: {fileID: 3218593355855837646, guid: f338088a446f1b247bca59823a620b29, type: 3}
+  _warningFilter: {fileID: 5446168582552716921, guid: 01986a857fd24bc4eb141d852163ade3, type: 3}
+  _warningNoise: {fileID: 8300000, guid: f2548927b0ad47c4c9afd231038a6a14, type: 3}
   _bulletItem: {fileID: 2855193317047037250, guid: 48dbb95d5cd0e8343b7461596aa2175e, type: 3}
   _maxLife: 3
   _maxDistanceToPlayer: 30
@@ -118,7 +120,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bdbc7000ef27f0c41a380b89539ce34f, type: 3}
   _deathSound: {fileID: 8300000, guid: dd25ae3ea50337a43897cdfc76d532e2, type: 3}
   _shieldSound: {fileID: 8300000, guid: a52e159203473af47ab125e4e70581a6, type: 3}
-  _shieldColor: {r: 0, g: 1, b: 0.9394505, a: 0.09803922}
+  _shieldColor: {r: 0, g: 1, b: 0.34961176, a: 0.7607843}
+  _hurtColor: {r: 0.9928546, g: 0, b: 1, a: 0.8784314}
+  _attackColor: {r: 1, g: 0, b: 0, a: 0.9372549}
 --- !u!54 &8646592089881896573
 Rigidbody:
   m_ObjectHideFlags: 0

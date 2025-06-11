@@ -62,7 +62,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.025
+  m_Radius: 0.05
   m_Center: {x: -0.03, y: 0, z: -0.03}
 --- !u!114 &4905802095507362556
 MonoBehaviour:
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3d24071784e92408f0edd26eb6ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _particles: {fileID: 9083347666636277694, guid: 0c63b223a031b9a4999457a37961cf47, type: 3}
   _collectSound: {fileID: 8300000, guid: 77be54b7c8d47f849bfb8fd0adff07b0, type: 3}
 --- !u!23 &2239635494788022395
 MeshRenderer:

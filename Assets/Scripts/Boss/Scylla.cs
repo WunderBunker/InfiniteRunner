@@ -15,13 +15,15 @@ public class Scylla : Boss
     [SerializeField] AudioClip _deathSound;
     [SerializeField] AudioClip _shieldSound;
     [SerializeField] Color _shieldColor;
+    [SerializeField] Color _hurtColor;
+    [SerializeField] Color _attackColor;
 
     float _initMaxDistanceToPLayer;
 
     float _attackTimer;
     float _attack2Timer;
 
-    playerControls _playerControls;
+    PlayerControls _playerControls;
     BossFilter _filterAlarm;
     System.Random _random = new();
 
@@ -38,7 +40,7 @@ public class Scylla : Boss
     {
         base.Start();
 
-        _playerControls = _playerTransform.GetComponent<playerControls>();
+        _playerControls = _playerTransform.GetComponent<PlayerControls>();
         _filterAlarm = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Filters").Find("Alarm").GetComponent<BossFilter>();
 
         _attackRange = _attack.GetComponent<ScyllaAttack>().GetAttackRange();
@@ -59,7 +61,7 @@ public class Scylla : Boss
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() == null) continue;
             _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetBool("Stopped", false);
             _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetInteger("Head", lCptChild);
-            _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", _shieldColor);
+            _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", new Color(_shieldColor.r, _shieldColor.g, _shieldColor.b, 0));
         }
 
         _attackTimer = _attackTempo;
@@ -109,20 +111,19 @@ public class Scylla : Boss
         if (_isHit)
         {
             Color vBodyColor = _body.transform.GetChild(0).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].GetColor("_Emission");
-            if (vBodyColor.a > 0.1f)
+            if (vBodyColor.a > 0)
             {
                 vBodyColor.a -= Time.deltaTime * 0.35f;
-                if (vBodyColor.a <= 0.1f) _isHit = false;
+                if (vBodyColor.a <= 0.1f) { _isHit = false; vBodyColor.a = 0; }
             }
             else _isHit = false;
 
-            Color vAttackColor = new Color(1, 0, 0, vBodyColor.a);
-
+            Color vAttackHurtColor = new Color(_hurtColor.r, _hurtColor.g, _hurtColor.b, vBodyColor.a);
             foreach (GameObject lAttack in _attackList)
                 if (lAttack != null)
                 {
                     Material lMat = lAttack.transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0];
-                    lMat.SetColor("_Emission", vAttackColor);
+                    lMat.SetColor("_Emission", vAttackHurtColor);
                 }
             for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
                 _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vBodyColor);
@@ -131,10 +132,10 @@ public class Scylla : Boss
         if (_shieldFlicker)
         {
             Color vShieldColor = _body.transform.GetChild(0).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].GetColor("_Emission");
-            if (vShieldColor.a > 0.1f)
+            if (vShieldColor.a > 0f)
             {
-                vShieldColor.a -= Time.deltaTime * 0.35f;
-                if (vShieldColor.a <= 0.2f) _shieldFlicker = false;
+                vShieldColor.a -= Time.deltaTime * 0.25f;
+                if (vShieldColor.a <= 0.1f) _shieldFlicker = false;
             }
             else _shieldFlicker = false;
 
@@ -160,6 +161,7 @@ public class Scylla : Boss
                 vAttackLane = vNextLane;
 
                 _attackList.Add(Instantiate(_attack, new Vector3((float)_LM.GetLaneCenter(vAttackLane), _LM.GroundHeight, transform.position.z), Quaternion.identity, transform));
+                _attackList[_attackList.Count - 1].GetComponent<ScyllaAttack>().AttackColor = _attackColor;
             }
         }
         if (_attack2Timer <= 0)
@@ -175,6 +177,7 @@ public class Scylla : Boss
                 vAttackLane = vNextLane;
 
                 _attackList.Add(Instantiate(_attack2, new Vector3((float)_LM.GetLaneCenter(vAttackLane), _LM.GroundHeight, transform.position.z), Quaternion.identity, transform));
+                _attackList[_attackList.Count - 1].GetComponent<ScyllaAttack2>().AttackColor = _attackColor;
             }
         }
 
@@ -185,7 +188,7 @@ public class Scylla : Boss
     {
         base.OnHit(pBullet);
         AudioManager.Instance.PlaySound(_hurtSounds[new System.Random().Next(0, _hurtSounds.Count)], 1);
-        Color vCol = new Color(1, 0, 0, 0.9f);
+        Color vCol = new Color(_hurtColor.r, _hurtColor.g, _hurtColor.b, 0.9f);
         foreach (GameObject lAttack in _attackList)
             if (lAttack != null)
             {

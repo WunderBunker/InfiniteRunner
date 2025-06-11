@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public void BackToMenu()
     {
         PartieManager.Instance.SaveRunData();
-        SceneManager.LoadScene("Menu");
+        StartCoroutine(transform.parent.GetComponent<MainCanvas>().LoadScene("Menu"));
     }
 
     void OnEnable()

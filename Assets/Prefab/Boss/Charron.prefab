@@ -291,8 +291,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1299875, y: 14.290071, z: 16.59981}
-  m_Center: {x: -0.32875887, y: 5.7376876, z: -0.22504424}
+  m_Size: {x: 6.2515254, y: 14.290071, z: 9.984002}
+  m_Center: {x: 1.7320354, y: 5.7376876, z: -3.5329509}
 --- !u!1 &1122297831740100716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71c14b60b87ac894ea3c326cf947cbdd, type: 2}
+  - {fileID: 2100000, guid: 7f706ac497f0d7b4889883e375f2113f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3285,6 +3285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _indicator: {fileID: 8062971046839581937, guid: bc4263eebaeb55544a1527d644f948ab, type: 3}
+  _lifeUIPrefab: {fileID: 3218593355855837646, guid: dbc5a0f1abd88ba46b4a4db9dc02f22f, type: 3}
   _warningFilter: {fileID: 5446168582552716921, guid: a3a403251f5d12348b64ba57c1414f81, type: 3}
   _warningNoise: {fileID: 8300000, guid: e86598071eba5264f9c0cc43642b301e, type: 3}
   _bulletItem: {fileID: 2855193317047037250, guid: 48dbb95d5cd0e8343b7461596aa2175e, type: 3}
@@ -3299,6 +3300,7 @@ MonoBehaviour:
   _resetNoiseTempo: 10
   _hitSound: {fileID: 8300000, guid: 5e8948648ee7a6045a14549423b56819, type: 3}
   _deathSound: {fileID: 8300000, guid: b79439eb368a2a746a7b550bb2c54df9, type: 3}
+  _hitColor: {r: 0.76018333, g: 0, b: 1, a: 1}
 --- !u!54 &8541399750589060890
 Rigidbody:
   m_ObjectHideFlags: 0

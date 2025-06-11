@@ -45,23 +45,27 @@ public class MainCanvas : MonoBehaviour
     {
         PartieManager.Instance.SaveRunData();
 
-        SceneManager.LoadScene("RunScene");
         Time.timeScale = 1;
-
         AudioManager.Instance.PlayClickSound();
+
+        StartCoroutine(LoadScene("RunScene"));
     }
 
     public void OnBackToMenuButton()
     {
         PartieManager.Instance.SaveRunData();
         Time.timeScale = 1;
-        StartCoroutine(WaitForClickSoundAndLoad());
+        AudioManager.Instance.PlayClickSound();
+
+        StartCoroutine(LoadScene("Menu"));
     }
 
-    IEnumerator WaitForClickSoundAndLoad()
+    public IEnumerator LoadScene(string pScene)
     {
-        AudioManager.Instance.PlayClickSound();
-        yield return new WaitForSeconds(0.25f);
-        SceneManager.LoadScene("Menu");
+        yield return transform.Find("Filters").Find("FadeInBlack").GetComponent<FadeInBlack>().FadeIn();
+        SceneManager.LoadScene(pScene);
     }
+
+
+
 }

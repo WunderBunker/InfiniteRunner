@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class ScyllaAttack : MonoBehaviour
     [SerializeField] float _attackAnimTime;
     [SerializeField] GameObject _splash;
     [SerializeField] List<AudioClip> _splashSounds = new();
+    [NonSerialized] public Color HurtColor;
+    [NonSerialized] public Color AttackColor;
     float _attackTimer;
 
     Transform _playerTransform;
@@ -69,7 +72,7 @@ public class ScyllaAttack : MonoBehaviour
         yield return new WaitForSeconds(_attackAnimTime);
         _preAttack.SetActive(false);
         _attack.SetActive(true);
-        transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", new Color(1, 0, 1, 0.9f));
+        transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", AttackColor);
         
         _attackTimer = _attackTime;
         Instantiate(_splash, transform.Find("SplashPosition").position, _splash.transform.rotation, transform.parent);

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89cf10599949b48abdeedb92640479, type: 3}
   m_Name: MainPatternConfig
   m_EditorClassIdentifier: 
-  DistanceBtwLines: 15
+  DistanceBtwLines: 20
   SublinesNb: 5

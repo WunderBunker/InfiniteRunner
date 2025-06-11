@@ -39,6 +39,20 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "BoatReel",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "BoatShowcase",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "BossFilter",
             "moduleName": "",
             "usedInScenes": []
@@ -61,6 +75,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "BulletsUI",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "ButtonFloater",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -93,6 +114,27 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "Coffee.UIParticle.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Coffee.UIExtensions.UIParticle",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Coffee.UIParticle.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Coffee.UIExtensions.UIParticleProjectSettings",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Coffee.UIParticle.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Coffee.UIExtensions.UIParticleRenderer",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "",
             "nativeClass": "DelayedCallManager",
             "fullManagedTypeName": "",
@@ -106,13 +148,28 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
+            "fullManagedTypeName": "FadeInBlack",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
             "fullManagedTypeName": "FollowPlayer",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "FPSLimit",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -123,7 +180,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -162,13 +220,21 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "LeaderBoard",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "",
             "nativeClass": "LevelGameManager",
             "fullManagedTypeName": "",
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -189,6 +255,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "MainCanvas",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "MaterialList",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -220,7 +293,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -237,7 +311,8 @@
             "moduleName": "AI",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -299,7 +374,7 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "playerControls",
+            "fullManagedTypeName": "PlayerControls",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -371,6 +446,34 @@
             "nativeClass": "ShaderNameRegistry",
             "fullManagedTypeName": "",
             "moduleName": "Core",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Shop",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "ShopItem",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "ShoppingList",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "SkinManager",
+            "moduleName": "",
             "usedInScenes": []
         },
         {
@@ -466,7 +569,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -538,7 +642,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -548,7 +653,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -558,7 +664,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -568,7 +675,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -578,7 +686,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -588,7 +697,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -598,7 +708,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -608,7 +719,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -618,7 +730,8 @@
             "moduleName": "Audio",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -628,7 +741,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -647,7 +761,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -657,7 +772,8 @@
             "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -667,7 +783,8 @@
             "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -694,6 +811,7 @@
             "fullManagedTypeName": "UnityEngine.Collider",
             "moduleName": "Physics",
             "usedInScenes": [
+                "Assets/Scenes/Menu.unity",
                 "Assets/Scenes/RunScene.unity"
             ]
         },
@@ -704,7 +822,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -721,7 +840,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -745,7 +865,8 @@
             "moduleName": "TextRendering",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -755,7 +876,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -824,7 +946,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -834,7 +957,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -843,7 +967,18 @@
             "fullManagedTypeName": "UnityEngine.Mesh",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "MeshCollider",
+            "fullManagedTypeName": "UnityEngine.MeshCollider",
+            "moduleName": "Physics",
+            "usedInScenes": [
+                "Assets/Scenes/Menu.unity"
             ]
         },
         {
@@ -852,7 +987,9 @@
             "fullManagedTypeName": "UnityEngine.MeshFilter",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -861,7 +998,9 @@
             "fullManagedTypeName": "UnityEngine.MeshRenderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -871,7 +1010,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -890,7 +1030,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -899,7 +1040,9 @@
             "fullManagedTypeName": "UnityEngine.ParticleSystem",
             "moduleName": "ParticleSystem",
             "usedInScenes": [
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -908,7 +1051,9 @@
             "fullManagedTypeName": "UnityEngine.ParticleSystemRenderer",
             "moduleName": "ParticleSystem",
             "usedInScenes": [
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -934,7 +1079,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -943,7 +1089,9 @@
             "fullManagedTypeName": "UnityEngine.Renderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/Menu.unity",
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1382,7 +1530,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1410,7 +1559,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1438,7 +1588,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1448,7 +1599,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1458,7 +1610,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1468,7 +1621,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1478,7 +1632,8 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/Menu.unity",
-                "Assets/Scenes/RunScene.unity"
+                "Assets/Scenes/RunScene.unity",
+                "Assets/Scenes/Shop.unity"
             ]
         },
         {
@@ -1506,6 +1661,13 @@
             "managedAssemblyName": "UnityEngine.UI.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.UI.GraphicRaycaster",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "UnityEngine.UI.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.UI.GridLayoutGroup",
             "moduleName": "",
             "usedInScenes": []
         },
