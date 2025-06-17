@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+//GESTION DU MENU PRINCIPAL ET DE SES DIFFERENTS BOUTONS
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] AudioClip _soundScape;
@@ -12,14 +14,14 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        Save vSave = SaveManager.LoadSave();
+        PlayerSave vSave = SaveManager.LoadPlayerSave();
 
         transform.Find("ObolesCount").GetComponent<TextMeshProUGUI>().text = "Oboles : " + vSave.Oboles.ToString();
         transform.Find("HighScore").GetComponent<TextMeshProUGUI>().text = "High Score : " + vSave.HighScore.ToString();
         _tutorialPanel = transform.Find("Tutorial").gameObject;
         _leaderBoardPanel = transform.Find("LeaderBoard").gameObject;
 
-        //Si premier pas encore de score d'enregitrer on affiche le tuto
+        //Si premier pas encore de score d'enregitré on affiche le tuto
         if (vSave.HighScore == 0) LaunchTutorialPanel(true);
 
         _soundscapeToken = AudioManager.Instance.PlayKeepSound(_soundScape, 1);
@@ -27,12 +29,12 @@ public class MenuManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        SaveManager.SaveSave();
+        SaveManager.SavePlayerSave();
     }
 
     public void PlayButtonClick()
     {
-        SaveManager.SaveSave();
+        SaveManager.SavePlayerSave();
         PlayClickSound();
         StartCoroutine(LoadOtherScene("RunScene"));
     }
@@ -42,7 +44,6 @@ public class MenuManager : MonoBehaviour
         yield return transform.Find("FadeInBlack").GetComponent<FadeInBlack>().FadeIn();
         SceneManager.LoadScene(pScene);
     }
-
 
     public void LaunchTutorialPanel(bool pActive) => _tutorialPanel.SetActive(pActive);
 

@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//GESTION GLOBALE DE LA RUN
 public class PartieManager : MonoBehaviour
 {
     public static PartieManager Instance;
@@ -16,7 +17,6 @@ public class PartieManager : MonoBehaviour
 
     public static void OnDebug(InputAction.CallbackContext pContext)
     {
-        Debug.Log("vho -1");
         if (pContext.started) DebugTool.ChangeDebugMode();
     }
 
@@ -40,7 +40,7 @@ public class PartieManager : MonoBehaviour
     {
         SaveManager.AddOboles(_playerManager.CollectedOboles);
         SaveManager.MajScore((int)_playerManager.Score);
-        SaveManager.SaveSave();
+        SaveManager.SavePlayerSave();
     }
 
 }

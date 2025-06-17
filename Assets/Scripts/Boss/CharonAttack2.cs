@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+//ATTAQUE SECONDAIRE DE CHARON (MAINS)
 public class CharonAttack2 : MonoBehaviour
 {
     [SerializeField] GameObject _preAttack;
@@ -43,14 +44,16 @@ public class CharonAttack2 : MonoBehaviour
 
     void Update()
     {
+        //On remonte l'attaque si elle emmerge
         if (!_isAtSurface)
         {
             transform.position += new Vector3(0, Time.deltaTime * 10, 0);
             if (transform.position.y >= _groundHeight) _isAtSurface = true;
         }
 
-        _attackTimer -= Time.deltaTime;
 
+        //Maj de l'état de l'attaque
+        _attackTimer -= Time.deltaTime;
         if (_state == AttackState.preparing && _attackTimer <= 0)
         {
             _state = AttackState.attacking;
@@ -67,6 +70,7 @@ public class CharonAttack2 : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, _playerTransform.position.z);
     }
 
+    //On attend la fin de l'anim en cours avant de détruire l'objet
     IEnumerator WaitEndAnim()
     {
         yield return new WaitForSeconds(0.25f);

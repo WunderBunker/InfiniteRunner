@@ -142,6 +142,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TMP_SubMeshUI
     - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
@@ -178,6 +179,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
@@ -305,25 +307,25 @@ ScriptsOnlyBuild:
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: MenuManager
+    methodName: LaunchShopScene
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuManager
+    methodName: PlayClickSound
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuManager
     methodName: LaunchLeaderBoardPanel
   - assembly: Assembly-CSharp
     fullTypeName: MenuManager
     methodName: PlayClickSound
   - assembly: Assembly-CSharp
     fullTypeName: MenuManager
-    methodName: LaunchShopScene
+    methodName: LaunchTutorialPanel
   - assembly: Assembly-CSharp
     fullTypeName: MenuManager
     methodName: PlayClickSound
   - assembly: Assembly-CSharp
     fullTypeName: AudioButton
     methodName: OnButtonClick
-  - assembly: Assembly-CSharp
-    fullTypeName: MenuManager
-    methodName: LaunchTutorialPanel
-  - assembly: Assembly-CSharp
-    fullTypeName: MenuManager
-    methodName: PlayClickSound
   - assembly: Assembly-CSharp
     fullTypeName: SoundMenu
     methodName: OnFxChange
@@ -1254,7 +1256,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 808f71664b5e7da87adffab3328d360e
+      Hash: 5f818a47a201fc07df025a6c6d5b51f4
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PatternsManager
@@ -2166,7 +2168,7 @@ ScriptsOnlyBuild:
     className: UnityOnBeginDragMessageListener
   - hash:
       serializedVersion: 2
-      Hash: f335f12daf6c87ed66495f669d23a913
+      Hash: 2b598dc6cdc79f30d2e8472d443f79d2
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AudioManager

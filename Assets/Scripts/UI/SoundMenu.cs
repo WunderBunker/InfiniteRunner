@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+//GESTION DU MENU DES OPTIONS SONORES
 public class SoundMenu : MonoBehaviour
 {
     [SerializeField] protected AudioMixer _mixer;

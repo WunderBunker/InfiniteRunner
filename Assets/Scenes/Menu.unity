@@ -2021,6 +2021,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4198829768518156015, guid: d523c6d69c3bbab4ab9bf8b2c3c27706, type: 3}
+      propertyPath: _mainMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: f005bdc0e4eaf2242b99d76212910ca3, type: 2}
+    - target: {fileID: 4198829768518156015, guid: d523c6d69c3bbab4ab9bf8b2c3c27706, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 2713746825584975519, guid: ee837c1c961bd1445a3d5e6a71fcc709, type: 3}
     - target: {fileID: 5723625448906796357, guid: d523c6d69c3bbab4ab9bf8b2c3c27706, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5581,7 +5589,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 739050175436023934, guid: c90a335b19425754f920b1189bd7f7ae, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5735224780481164793, guid: c90a335b19425754f920b1189bd7f7ae, type: 3}

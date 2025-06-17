@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//GESTION DU CANVAS DE LA SCENE DE JEUX
 public class MainCanvas : MonoBehaviour
 {
     GameObject _pauseMenu;
@@ -10,7 +11,6 @@ public class MainCanvas : MonoBehaviour
     bool _isOnPause = false;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _pauseMenu = transform.Find("PauseMenu").gameObject;

@@ -22,7 +22,7 @@ public class ScoreUI : MonoBehaviour
         if (_isFadingPonctual)
         {
             _ponctualPointText.color = new Color(_ponctualPointText.color.r, _ponctualPointText.color.g, _ponctualPointText.color.b, _ponctualPointText.color.a - Time.deltaTime * _ponctualFadingSpeed);
-            if(_ponctualPointText.color.a<=0)
+            if (_ponctualPointText.color.a <= 0)
                 _isFadingPonctual = false;
         }
     }

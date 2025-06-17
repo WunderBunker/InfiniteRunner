@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
+//GESTION DU VENT
 public class WindManager : MonoBehaviour
 {
     public float MaxWindAngle;
@@ -80,6 +81,6 @@ public class WindManager : MonoBehaviour
         _windParticles.transform.position = new Vector3(_playerTransform.position.x - _initDistanceFromPlayer * (float)math.cos(CurrentAngle * Math.PI / 180 + math.PI / 2), _windParticles.transform.position.y, _playerTransform.position.z + _initDistanceFromPlayer * (float)math.sin(CurrentAngle * Math.PI / 180 + math.PI / 2));
     }
 
-    public void SetPointerColor(Color pColor) =>  _compassPointeImage.color = pColor;
-       
+    public void SetPointerColor(Color pColor) => _compassPointeImage.color = pColor;
+
 }

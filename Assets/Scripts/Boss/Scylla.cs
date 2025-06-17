@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
+//BOSS SCYLLA
 public class Scylla : Boss
 {
     [SerializeField] float _maxDistanceToPlayer;
@@ -56,6 +57,7 @@ public class Scylla : Boss
     {
         base.Activate();
 
+        //activation de toutes les parties du corps (serpents)
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
         {
             if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() == null) continue;
@@ -65,6 +67,7 @@ public class Scylla : Boss
         }
 
         _attackTimer = _attackTempo;
+        //On décale les deux timer
         _attack2Timer = _attack2Tempo / 2;
 
         _filterAlarm.SetActive(false);
@@ -74,7 +77,8 @@ public class Scylla : Boss
         base.DeActivate();
 
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
-            if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() != null) _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetBool("Stopped", true);
+            if (_body.transform.GetChild(lCptChild).GetComponent<Animator>() != null)
+                _body.transform.GetChild(lCptChild).GetComponent<Animator>().SetBool("Stopped", true);
 
         foreach (GameObject lAttack in _attackList) Destroy(lAttack);
         _attackList.Clear();
@@ -87,14 +91,17 @@ public class Scylla : Boss
     {
         base.Update();
 
+        //Si pas actif on maj la distance au joueur
         if (!_isActive)
         {
-            //On pondère la dstance max en fonction de la vitesse max du joueur (pour garder des temps de rattrappage identiques durant la partie)
+            //On pondère la dIstance max en fonction de la vitesse max du joueur (pour garder des temps de rattrappage identiques durant la partie)
             _maxDistanceToPlayer = _initMaxDistanceToPLayer * _playerControls.CurrentMaxSpeed / _playerControls.MaxSpeedInitial;
 
+            //On se déplace à x% de la vitesse max actuel du joueur 
             _speed = _playerControls.CurrentMaxSpeed * 0.7f;
-            float vNewDistanceToPlayer = math.clamp(_distanceToPlayer - (_speed - _playerControls.CurrentSpeed) * Time.deltaTime, 0, _maxDistanceToPlayer);
+            float vNewDistanceToPlayer = math.clamp(_distanceToPlayer + (_playerControls.CurrentSpeed - _speed) * Time.deltaTime, 0, _maxDistanceToPlayer);
 
+            //Activation ou désactivation de l'alarme
             if (vNewDistanceToPlayer <= _maxDistanceToPlayer / 4 && _distanceToPlayer > _maxDistanceToPlayer / 4) _filterAlarm.SetActive(true);
             else if (_distanceToPlayer <= _maxDistanceToPlayer / 4 && vNewDistanceToPlayer > _maxDistanceToPlayer / 4) _filterAlarm.SetActive(false);
 
@@ -108,6 +115,7 @@ public class Scylla : Boss
             return;
         }
 
+        //Maj de l'animation de couleur si blessé
         if (_isHit)
         {
             Color vBodyColor = _body.transform.GetChild(0).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].GetColor("_Emission");
@@ -129,6 +137,7 @@ public class Scylla : Boss
                 _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vBodyColor);
         }
 
+        //Maj de l'animation de couleur si frappé sur bouclier
         if (_shieldFlicker)
         {
             Color vShieldColor = _body.transform.GetChild(0).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().materials[0].GetColor("_Emission");
@@ -148,6 +157,7 @@ public class Scylla : Boss
         _attackTimer -= Time.deltaTime;
         _attack2Timer -= Time.deltaTime;
 
+        //Instanciation des différentes attaques
         if (_attackTimer <= 0)
         {
             _attackTimer = _attackTempo;
@@ -181,6 +191,7 @@ public class Scylla : Boss
             }
         }
 
+        //Maj de la position sur z
         _body.transform.position = new Vector3(_body.transform.position.x, _body.transform.position.y, _playerTransform.position.z - _attackRange - 5);
     }
 
@@ -198,8 +209,6 @@ public class Scylla : Boss
         for (int lCptChild = 0; lCptChild < _body.transform.childCount; lCptChild++)
             _body.transform.GetChild(lCptChild).Find("Cylinder").GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Emission", vCol);
     }
-
-
 
     void OnCollisionEnter(Collision collision)
     {

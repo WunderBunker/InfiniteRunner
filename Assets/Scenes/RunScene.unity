@@ -11708,7 +11708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patternSpawnTempoInMeters: 70
-  _gateSpawnTempoInMeters: 1000
+  _gateSpawnTempoInMeters: 250
   _spawnDistance: 150
   _numberOfPassedPatternsBfDelete: 5
   _gate: {fileID: 551672196284593298, guid: 3706dc0f2c38ba548ad54148407d1056, type: 3}
@@ -12838,6 +12838,9 @@ MonoBehaviour:
   _biomes:
   - {fileID: 11400000, guid: 06ac2a0ff16ba6f40bcd80d3c4c59075, type: 2}
   - {fileID: 11400000, guid: 8b137cd3508f22d4c9081da4c5134bff, type: 2}
+  _reliques:
+  - {fileID: 2211254793632587633, guid: 1c26b27ab95f1c74f876549357468fc0, type: 3}
+  - {fileID: 2211254793632587633, guid: e307fe48f8d857b4eba42bfa2c5de6d9, type: 3}
 --- !u!1 &1067011057
 GameObject:
   m_ObjectHideFlags: 0
@@ -20271,7 +20274,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 68.65
   m_fontSizeBase: 38.71
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -26062,6 +26065,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4198829768518156015, guid: d523c6d69c3bbab4ab9bf8b2c3c27706, type: 3}
+      propertyPath: _mainMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: f005bdc0e4eaf2242b99d76212910ca3, type: 2}
+    - target: {fileID: 4198829768518156015, guid: d523c6d69c3bbab4ab9bf8b2c3c27706, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 2713746825584975519, guid: ee837c1c961bd1445a3d5e6a71fcc709, type: 3}
     - target: {fileID: 5723625448906796357, guid: d523c6d69c3bbab4ab9bf8b2c3c27706, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.832243

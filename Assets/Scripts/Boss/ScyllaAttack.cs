@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ATTAQUE PREMIERE DE SCYLLA (GRAND SERPENT)
 public class ScyllaAttack : MonoBehaviour
 {
     [SerializeField] GameObject _preAttack;
@@ -33,7 +34,7 @@ public class ScyllaAttack : MonoBehaviour
         _snakeAnimator = transform.Find("Snake").GetComponent<Animator>();
 
         _state = AttackState.preparing;
-        _attackTimer = _preAttackTime -_attackAnimTime;
+        _attackTimer = _preAttackTime - _attackAnimTime;
         //On divise l'attackRange par deux car le pivot est au milieu
         transform.position = new Vector3(transform.position.x, transform.position.y, _playerTransform.position.z - _attackRange / 2 + 5);
         _preAttack.SetActive(true);
@@ -45,6 +46,7 @@ public class ScyllaAttack : MonoBehaviour
     {
         _attackTimer -= Time.deltaTime;
 
+        //Maj de l'état de l'attaque
         if (_attackTimer <= 0)
             switch (_state)
             {
@@ -52,7 +54,7 @@ public class ScyllaAttack : MonoBehaviour
                     _state = AttackState.attacking;
                     _snakeAnimator.SetTrigger("Attack");
                     //On met le vrai timer à la fin de coroutine
-                    _attackTimer =1000;
+                    _attackTimer = 1000;
                     StartCoroutine(WaitEndAnim());
                     break;
                 case AttackState.attacking:
@@ -67,16 +69,17 @@ public class ScyllaAttack : MonoBehaviour
     }
 
 
+    //On attend la fin de l'anim en cours avant de lancer le timer pour la prochain état d'attaque
     IEnumerator WaitEndAnim()
     {
         yield return new WaitForSeconds(_attackAnimTime);
         _preAttack.SetActive(false);
         _attack.SetActive(true);
         transform.Find("Snake").Find("Skin").GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_Emission", AttackColor);
-        
+
         _attackTimer = _attackTime;
         Instantiate(_splash, transform.Find("SplashPosition").position, _splash.transform.rotation, transform.parent);
-        AudioManager.Instance.PlaySound(_splashSounds[new System.Random().Next(0, _splashSounds.Count)],1);
+        AudioManager.Instance.PlaySound(_splashSounds[new System.Random().Next(0, _splashSounds.Count)], 1);
     }
 }
 

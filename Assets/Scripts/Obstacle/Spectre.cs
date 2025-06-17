@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//GESTION D'UN SPECTRE 
 public class Spectre : MonoBehaviour
 {
 
@@ -47,6 +48,7 @@ public class Spectre : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, vTempTargetPosition,
                 ref _SDVelocityRef, _sideMoveLatency);
 
+        //Lorsqu'on arrive à la nouvelle lane on choisit la prochaine aléatoirement
         if (Mathf.Abs(transform.position.x - _targetXPosition) < 0.05f)
         {
             transform.position = vTempTargetPosition;
@@ -93,13 +95,13 @@ public class Spectre : MonoBehaviour
             AudioManager.Instance.PlaySound(_spectreDyingSound, 1);
             AudioManager.Instance.StopKeepSound(_spectreSoundToken);
             _spectreSoundToken = 0;
-            
+
             _isDying = true;
         }
     }
 
     void OnDestroy()
     {
-        if(_spectreSoundToken!=0)AudioManager.Instance.StopKeepSound(_spectreSoundToken);
+        if (_spectreSoundToken != 0) AudioManager.Instance.StopKeepSound(_spectreSoundToken);
     }
 }

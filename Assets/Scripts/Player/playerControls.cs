@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//GESTION DES DEPLACEMENTS DU JOUEUR    
 public class PlayerControls : MonoBehaviour
 {
     public float CurrentSpeed { get; private set; }
@@ -26,9 +27,11 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float _sideMoveLatency;
     //Vitesse de rotation de la voile
     [SerializeField] float _sailTurnSpeed;
+    //Gonflement de la voile
     [SerializeField] float _minSailZScale;
     [SerializeField] float _maxSailZScale;
 
+    //Sons relatifs à la vitesses et aux déplacement
     [SerializeField] List<AudioClip> _windSounds = new();
     [SerializeField] List<AudioClip> _waterSlideSounds = new();
     [SerializeField] AudioClip[] _sailSounds = new AudioClip[2];
@@ -68,6 +71,7 @@ public class PlayerControls : MonoBehaviour
     {
         _playerManager = GetComponent<PlayerManager>();
         _laneManager = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
+
         _sailTransform = transform.Find("Sail");
         _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y, _minSailZScale);
         _sailInitColor = _sailTransform.GetComponent<MeshRenderer>().materials[1].color;
@@ -85,17 +89,23 @@ public class PlayerControls : MonoBehaviour
         _maxSplashPartEmission = _splashPS.emission.rateOverTime.constant;
 
     }
+
+    //Méthode déclenchée par les inputs de mouvements latéraux
     public void OnMoveInput(InputAction.CallbackContext pContext)
     {
+        //Si bloqué (par une sirène) on ne fait rien
         if (_isBlockOnLane) return;
 
         if (pContext.performed)
         {
+            //On récupère le sens de l'input et on l'inverse si on est à l'envers
             Vector2 vInputValue = pContext.ReadValue<Vector2>();
             if (IsBossMode) vInputValue *= -1;
 
+            //Bruit de vague de déplacement
             AudioManager.Instance.PlaySound(_waterSlideSounds[new System.Random().Next(0, _waterSlideSounds.Count)], 1);
 
+            //On récupère la position du centre de la lane vers laquelle on va si elle existe (donc pas au bord, sinon juste la moitié d'une lane dans la direction souhaité avant demi-tour)
             float? vNewXTarget = _laneManager.GetNextLaneX((int)vInputValue.x);
             _goingToNextLane = vNewXTarget != null;
             _isMovingOnSide = true;
@@ -103,12 +113,14 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    //Méthode déclenchée par l'input de prise de contrôle de la voile
     public void OnTakeSail(InputAction.CallbackContext pContext)
     {
         if (pContext.started) _sailTaken = true;
         if (pContext.canceled) _sailTaken = false;
     }
 
+    //Méthode déclenchée par le déplacement de la souris (ou pad) 
     public void OnTurnSail(InputAction.CallbackContext pContext)
     {
         //Si mouvement trop faible on ne fait rien
@@ -122,7 +134,7 @@ public class PlayerControls : MonoBehaviour
         float vNewAngle = (_currentSailAngle + vRotation) % 360;
         if (vNewAngle < 0) vNewAngle += 360;
 
-        //On controle qu'on reste bien dans les bornes de win (de -Max à +Max mais traduit en positif entre 0 et 360)
+        //On controle qu'on reste bien dans les bornes du wind (de -Max à +Max) et on traduit en positif entre 0 et 360
         if (vRotation > 0 && vNewAngle > _windManager.MaxWindAngle && _currentSailAngle < 180)
             vNewAngle = _windManager.MaxWindAngle;
         else if (vRotation < 0 && vNewAngle < (360 - _windManager.MaxWindAngle) && vNewAngle > 180)
@@ -156,17 +168,20 @@ public class PlayerControls : MonoBehaviour
 
     }
 
+    //Permetde ralentir le bateau (en cas de collision avec obstacle)
     public void SlowDown(float pDecreaseCoef)
     {
         CurrentSpeed = math.max(CurrentSpeed - pDecreaseCoef * CurrentSpeed, _minSpeed);
     }
 
 
+    //Attire et bloque le bateau sur une lane pour un certain temps (sirène)
     public void BlockLane(byte pLane, float pTime)
     {
         _isBlockOnLane = true;
         _blockTimer = pTime;
 
+        //Si il faut attirer le bateau sur la lane on modifie la target su X
         int vDirection = pLane > _laneManager.CurrentPlayerLane ? 1 : pLane < _laneManager.CurrentPlayerLane ? -1 : 0;
         if (vDirection != 0)
         {
@@ -177,6 +192,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    //Maj du coefficient de décélération
     void UpdateWindDampening()
     {
         //Calcul du coefficient de prise de vent en fonction de l'angle du vent et de la voile
@@ -205,7 +221,7 @@ public class PlayerControls : MonoBehaviour
         byte vNewSailSound = (byte)(vNewCoeff < 0 ? 1 : (vNewCoeff == 0 ? 0 : 3));
         if (vNewSailSound != _currentSailSound)
         {
-            if (_sailSoudnToken != 0 && _currentSailSound !=3) AudioManager.Instance.StopKeepSound(_sailSoudnToken);
+            if (_sailSoudnToken != 0 && _currentSailSound != 3) AudioManager.Instance.StopKeepSound(_sailSoudnToken);
             if (vNewSailSound != 3) _sailSoudnToken = AudioManager.Instance.PlayKeepSound(_sailSounds[vNewSailSound], 1);
             _currentSailSound = vNewSailSound;
         }
@@ -215,12 +231,13 @@ public class PlayerControls : MonoBehaviour
         + " / dampening coef  : " + _windDampeningCoef.ToString("0.0") + " / current max speed : " + CurrentMaxSpeed.ToString("0.0"));
     }
 
+    //Maj de l'avancée vers l'avant et des effets associés
     void UpdateForwardMove()
     {
         //Modifications visuelles de la voile
         _sailTransform.localScale = new Vector3(_sailTransform.localScale.x, _sailTransform.localScale.y,
             math.lerp(_minSailZScale, _maxSailZScale, _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef));
-        _sailTransform.GetComponent<MeshRenderer>().materials[1].color = Color.Lerp(_sailInitColor, new Color(1, 0, 0, _sailInitColor.a), _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef);
+        _sailTransform.GetComponent<MeshRenderer>().materials[1].color = Color.Lerp(new Color(0.8f, 0.8f, 0.8f, _sailInitColor.a) , _sailInitColor, _windDampeningCoef < 0 ? 1 : 1 - _windDampeningCoef);
 
         //On applique un éventuel dampening à la  vitesse
         if (_windDampeningCoef > 0) CurrentSpeed = math.max(CurrentSpeed - Time.deltaTime * (CurrentMaxSpeed - _minSpeed) / _FullDampTime * _windDampeningCoef, _minSpeed);
@@ -256,22 +273,28 @@ public class PlayerControls : MonoBehaviour
         transform.position += CurrentSpeed * Time.deltaTime * Vector3.forward;
     }
 
-
+    //Déplacement de côté pour changement de lane
     void UpdateLaneMove()
     {
         Vector3 vTempTargetPosition = new Vector3(_XTarget, transform.position.y, transform.position.z);
 
+        //Soit on va vers une lane en smoothdamp...
         if (_goingToNextLane)
             transform.position = Vector3.SmoothDamp(transform.position, vTempTargetPosition,
                 ref _SDVelocityRef, _sideMoveLatency);
+        //...soit on est au bord et on va vers un léger déplacement (pas en smoothdamp pour que le demi-our se asse correctement ensuite)
         else
             transform.position = Vector3.MoveTowards(transform.position, vTempTargetPosition, _laneManager.LaneWidth / _sideMoveLatency * Time.deltaTime);
 
+
+        //On s'arrête à l'emplacement target
         if (Mathf.Abs(transform.position.x - _XTarget) < 0.05f)
         {
             transform.position = vTempTargetPosition;
 
+
             if (_goingToNextLane) _isMovingOnSide = false;
+            //Si on était au bord on entame le demi-tour vers la lane actuelle
             else
             {
                 _XTarget = (float)_laneManager.GetLaneCenter(_laneManager.CurrentPlayerLane);

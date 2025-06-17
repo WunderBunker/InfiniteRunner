@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//GESTION GENERAL DU JOUEUR (HORS MOUVEMENTS ET COSMETIQUES)
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] byte _maxLife;
@@ -47,6 +48,8 @@ public class PlayerManager : MonoBehaviour
         _lastZ = transform.position.z;
         _playerSize = gameObject.GetComponent<BoxCollider>().size;
 
+        //Initialisations des indicateurs UI
+
         _bulletCount = _maxBulletStock;
         _bulletsUI = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BulletStock").GetComponent<BulletsUI>();
         _bulletsUI.SetStockMaxValue(_maxBulletStock);
@@ -61,23 +64,28 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        //Maj de la distance parcourue jusqu'ici
         DeltaDistance = transform.position.z - _lastZ;
         _lastZ = transform.position.z;
         TotalDistance += DeltaDistance;
 
+        //Maj du score (en fonction de la distance parcourue et de à quel point la vitesse max initiale est dépassée)
         float vScoreCoef = 1;
         if (_playerControls.CurrentSpeed >= _playerControls.MaxSpeedInitial)
             vScoreCoef = math.lerp(1, 3, (_playerControls.CurrentSpeed - _playerControls.MaxSpeedInitial) / (_playerControls.MaxSpeedFinal - _playerControls.MaxSpeedInitial));
         Score += DeltaDistance * vScoreCoef;
 
+        //Maj du timer d'invincibilité après coup
         if (_invincibilityTimer > 0) _invincibilityTimer = math.max(_invincibilityTimer - Time.deltaTime, 0);
 
+        //Maj du fire rate qui érgule l'enchainement des tirs de canon
         if (_fireRateTimer > 0)
         {
             _fireRateTimer -= Time.deltaTime;
             _bulletsUI.SetFireRateAvancement(math.max(_fireRateTimer, 0) / _bulletFireRate);
         }
 
+        //Maj du timer permettant les combos de pièces
         if (_coinSerieTimer > 0)
         {
             _coinSerieTimer -= Time.deltaTime;
@@ -86,6 +94,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    //inflige des dégât
     public void Hurt(byte pDamage)
     {
         if (_invincibilityTimer > 0) return;
@@ -103,12 +112,16 @@ public class PlayerManager : MonoBehaviour
 
         StartCoroutine(_camera.GetComponent<FollowPlayer>().Tremour());
     }
+
+    //Récupère des PV
     public void Heal(byte pPV)
     {
         _life = (byte)(_life >= 0 && _life < _maxLife ? _life + pPV : _life);
         _lifeUI.SetLifeNb(_life);
         AudioManager.Instance.PlaySound(_healSounds[new System.Random().Next(0, _healSounds.Count)], 1);
     }
+
+    //Récupère un boulet de canon
     public void GainBullet(byte pNb)
     {
         if (_bulletCount >= _maxBulletStock) return;
@@ -116,6 +129,7 @@ public class PlayerManager : MonoBehaviour
         _bulletsUI.SetStockValue(_bulletCount);
     }
 
+    //Méthode déclenchée par l'Input de tir de canon
     public void OnShoot(InputAction.CallbackContext pContext)
     {
         if (_bulletCount == 0 || _fireRateTimer > 0) return;
@@ -131,6 +145,7 @@ public class PlayerManager : MonoBehaviour
 
             AudioManager.Instance.PlaySound(_canonSounds[new System.Random().Next(0, _canonSounds.Count)], 1);
 
+            //On tir à l'envers si phase de boss
             if (_playerControls.IsBossMode)
             {
                 vBullet.transform.position = new Vector3(vBullet.transform.position.x, vBullet.transform.position.y, vBullet.transform.position.z - _playerSize.z);
@@ -139,12 +154,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    //Mort du joueur
     void Die()
     {
         GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<MainCanvas>().LaunchEndMenu();
-        //gameObject.SetActive(false);
     }
 
+    //Gain d'oboles
     public void AddOboles(int pNb)
     {
         CollectedOboles += pNb;
@@ -153,24 +169,29 @@ public class PlayerManager : MonoBehaviour
 
         AudioManager.Instance.PlaySound(_oboleSounds[_coinSerieCount - 1], 1);
 
+        //Gestion du combo de pièce
         if (_coinSerieCount == 10)
         {
             _coinSerieCount = 0;
-            Score += 10;
-            _scoreUI.AddPonctualScore(10);
+            AddPonctualScore(10);
         }
         else
         {
-            Score += 1;
-            _scoreUI.AddPonctualScore(1);
+            AddPonctualScore(1);
             _coinSerieTimer = 1.5f;
         }
     }
 
+    //Ajou de points supplémentaires quand boss vaincu
     public void HasBeatenABoss()
     {
-        Score += 2000;
-        _scoreUI.AddPonctualScore(2000);
+        AddPonctualScore(2000);
+    }
+
+    public void AddPonctualScore(int pValue)
+    {
+        Score += pValue;
+        _scoreUI.AddPonctualScore(pValue);
     }
 
 }

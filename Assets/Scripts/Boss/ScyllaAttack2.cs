@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ATTAQUE PREMIERE DE SCYLLA (PETIT SERPENT)
 public class ScyllaAttack2 : MonoBehaviour
 {
     [SerializeField] GameObject _preAttack;
@@ -44,6 +45,7 @@ public class ScyllaAttack2 : MonoBehaviour
     {
         _attackTimer -= Time.deltaTime;
 
+        //maj de l'état de l'attaque
         if (_state == AttackState.preparing && _attackTimer <= 0)
         {
             _state = AttackState.attacking;
@@ -69,6 +71,7 @@ public class ScyllaAttack2 : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, _playerTransform.position.z);
     }
 
+    //On attend la fin de l'anim en cours avant de dtruire l'objet
     IEnumerator WaitEndAnim()
     {
         yield return new WaitForSeconds(_attackAnimTime);

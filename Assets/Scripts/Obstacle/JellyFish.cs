@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//GESTION D'UNE MEDUSE
 public class JellyFish : MonoBehaviour
 {
     [SerializeField] float _sideMoveLatency;
@@ -39,8 +40,8 @@ public class JellyFish : MonoBehaviour
 
         if (_isDying)
         {
-            transform.position = new Vector3(transform.position.x,transform.position.y -Time.deltaTime * 10, transform.position.z);
-            transform.Rotate(new Vector3(0,0,Time.deltaTime*100), Space.World);
+            transform.position = new Vector3(transform.position.x, transform.position.y - Time.deltaTime * 10, transform.position.z);
+            transform.Rotate(new Vector3(0, 0, Time.deltaTime * 100), Space.World);
             if (transform.position.z <= -10) Destroy(gameObject);
             return;
         }
@@ -49,6 +50,7 @@ public class JellyFish : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, vTempTargetPosition,
                 ref _SDVelocityRef, _sideMoveLatency);
 
+        //Lorsqu'on arrive à la nouvelle lane on choisit la prochaine aléatoirement
         if (Mathf.Abs(transform.position.x - _targetXPosition) < 0.05f)
         {
             transform.position = vTempTargetPosition;
@@ -57,12 +59,13 @@ public class JellyFish : MonoBehaviour
             byte vNewLane = _currentLane;
             float? vNextLaneX = null;
             int vloopCount = 0;
+            //On cherche une lane aléatoire dfférente de la lane en cours
             while (vNextLaneX == null || vNewLane == _currentLane)
             {
                 vloopCount++;
                 if (vloopCount > 100)
                 {
-                    Debug.Log("Boucle infinie spectre");
+                    Debug.Log("Boucle infinie meduse");
                     break;
                 }
 
@@ -76,8 +79,8 @@ public class JellyFish : MonoBehaviour
 
     void OnTriggerEnter(Collider pOther)
     {
-        if (_isDying) return; 
-        
+        if (_isDying) return;
+
         if (pOther.gameObject.CompareTag("Player"))
         {
             pOther.gameObject.GetComponent<PlayerManager>().Hurt(1);

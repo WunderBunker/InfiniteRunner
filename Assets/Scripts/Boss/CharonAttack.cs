@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//ATTAQUE PREMIERE DE CHARON (RAME)
 public class CharonAttack : MonoBehaviour
 {
     [SerializeField] float _attackRange;

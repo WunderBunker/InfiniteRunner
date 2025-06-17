@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
+//BOSS CHARON
 public class Charon : Boss, INoiseSensitive
 {
     [SerializeField] GameObject _attack;
@@ -43,7 +44,6 @@ public class Charon : Boss, INoiseSensitive
 
     BossFilter _filterAlarm;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     override protected void Start()
     {
         base.Start();
@@ -73,6 +73,7 @@ public class Charon : Boss, INoiseSensitive
 
         _filterAlarm.SetActive(false);
     }
+
     override public void DeActivate()
     {
         base.DeActivate();
@@ -87,6 +88,7 @@ public class Charon : Boss, INoiseSensitive
     {
         base.Update();
 
+        //Maj du timer de déclencehement du boss
         if (_hellTimer > 0)
         {
             _hellTimer -= Time.deltaTime;
@@ -99,6 +101,7 @@ public class Charon : Boss, INoiseSensitive
             _bossIndicator.MajChronoValue(_hellTimer);
         }
 
+        //Maj du reset d'une barre de bruit
         if (!_isActive)
         {
             if (_resetNoiseTimer > 0)
@@ -141,6 +144,7 @@ public class Charon : Boss, INoiseSensitive
                 }
             }
 
+            //Maj du compteur d'attaque avant d'exposer ou de cacher Charon
             _attackCounter--;
             if (_attackCounter <= 0)
             {
@@ -208,10 +212,11 @@ public class Charon : Boss, INoiseSensitive
         }
     }
 
+    //Ajout de bruit
     public void AddNoise(int pNb)
     {
         if (_isActive) return;
-        
+
         _noiseCounter = (byte)math.clamp(_noiseCounter + pNb, 0, 5);
         if (_noiseCounter > 0) _resetNoiseTimer = _resetNoiseTempo;
 
@@ -227,6 +232,7 @@ public class Charon : Boss, INoiseSensitive
         }
     }
 
+    //Lancement d'une attaque secondaire (a besoin d'être dans une coroutine)    
     IEnumerator WaitForAttack()
     {
         yield return new WaitForSeconds(0.1f);

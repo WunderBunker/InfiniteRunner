@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+//UI PERMETTANT LES FONDUS AU NOIR
 public class FadeInBlack : MonoBehaviour
 {
     [SerializeField] float _speed;

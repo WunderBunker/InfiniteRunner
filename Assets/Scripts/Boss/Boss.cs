@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//CLASSE PARENTE DES BOSS
 public abstract class Boss : MonoBehaviour
 {
     [SerializeField] protected GameObject _indicator;
@@ -36,6 +37,7 @@ public abstract class Boss : MonoBehaviour
         _LM = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
+        //On instancie les éventuels indicateurs UI et pannel de warning
         if (_indicator != null) _indicator = Instantiate(_indicator, GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossIndicator"));
         if (_warningFilter != null) StartCoroutine(InstanciateWarning());
     }
@@ -44,22 +46,26 @@ public abstract class Boss : MonoBehaviour
     {
         if (!_isActive) return;
 
+        //Maj du timer pour le spawn de munition
         _bulletTimer -= Time.deltaTime;
         if (_bulletTimer <= 0)
         {
-            _bulletTimer = 10;
+            _bulletTimer = 7;
             _bulletList.Add(Instantiate(_bulletItem, new Vector3((float)_LM.GetLaneCenter((byte)_random.Next(0, _LM.LaneNumber)), _LM.GroundHeight - 10, _playerTransform.position.z),
                 _bulletItem.transform.rotation, _attacksParent));
         }
+        //Maj de a position des munition
         foreach (var lBullet in _bulletList) if (lBullet != null)
             {
                 float vYPos = lBullet.transform.position.y;
+                //si elle émmerge à la surface
                 if (lBullet.transform.position.y < _LM.GroundHeight + 2) vYPos += Time.deltaTime * 10;
 
                 lBullet.transform.position = new Vector3(lBullet.transform.position.x, vYPos, _playerTransform.position.z);
             }
     }
 
+    //Active le boss
     public virtual void Activate()
     {
         if (_isActive) return;
@@ -79,6 +85,8 @@ public abstract class Boss : MonoBehaviour
         _lifeUI = Instantiate(_lifeUIPrefab, GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossLifeBar"));
         _lifeUI.transform.Find("Life").GetComponent<LifeUI>().SetMaxLife(_maxLife);
     }
+
+    //Désactive le boss
     public virtual void DeActivate()
     {
         if (!_isActive) return;
@@ -95,9 +103,11 @@ public abstract class Boss : MonoBehaviour
 
     void OnTriggerEnter(Collider pOther)
     {
+        //Collision avec un tir de canon
         if (pOther.CompareTag("Bullet")) OnHit(pOther.GetComponent<Projectile>());
     }
 
+    //Collision avec un tir de canon
     virtual protected void OnHit(Projectile pBullet)
     {
         if (_life == 0) return;

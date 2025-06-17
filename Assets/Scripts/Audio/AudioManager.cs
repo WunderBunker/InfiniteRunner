@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
+//GESTION DU LANCEMENT ET DE L'ARRET DES SONS DU JEUX
 public class AudioManager : MonoBehaviour
 {
     static public AudioManager Instance;
-    [SerializeField] protected AudioSource gAudioSource;
-    [SerializeField] protected AudioMixer gMainMixer;
+    [SerializeField] protected AudioSource _audioSource;
+    [SerializeField] protected AudioMixer _mainMixer;
     [SerializeField] protected AudioClip _clickSound;
 
     private Transform _center;
@@ -20,6 +21,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        //Application du design Singleton + persistence de scène
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
@@ -29,6 +31,8 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        //Au chargement d'une scène on récupère une position d'écoute par défaut "centrale"
+        //Si il y a un player c'est lui sinon on prend la caméra
         _center = GameObject.Find("Player")?.transform;
         if (_center == null) _center = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
@@ -38,11 +42,12 @@ public class AudioManager : MonoBehaviour
         FadeSound();
     }
 
+    //Joue un son sans boucle
     public void PlaySound(AudioClip pAudio, float pVolume, Vector3? pPosition = null)
     {
-        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
+        AudioSource vAudioSource = Instantiate(_audioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
 
-        vAudioSource.outputAudioMixerGroup = gMainMixer.FindMatchingGroups("FX")[0];
+        vAudioSource.outputAudioMixerGroup = _mainMixer.FindMatchingGroups("FX")[0];
         vAudioSource.clip = pAudio;
         vAudioSource.volume = pVolume;
         vAudioSource.Play();
@@ -50,11 +55,12 @@ public class AudioManager : MonoBehaviour
         Destroy(vAudioSource.gameObject, vAudioSource.clip.length);
     }
 
+    //Joue un son avec boucle. Renvoie un token permettant à l'objet appelant de demander la coupure du son 
     public int PlayKeepSound(AudioClip pAudio, float pVolume, Vector3? pPosition = null)
     {
-        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
+        AudioSource vAudioSource = Instantiate(_audioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
 
-        vAudioSource.outputAudioMixerGroup = gMainMixer.FindMatchingGroups("FX")[0];
+        vAudioSource.outputAudioMixerGroup = _mainMixer.FindMatchingGroups("FX")[0];
         vAudioSource.clip = pAudio;
         vAudioSource.volume = pVolume;
         vAudioSource.loop = true;
@@ -66,17 +72,20 @@ public class AudioManager : MonoBehaviour
         return _keepSoundToken;
     }
 
+    //Coupure d'un son qui boucle
     public void StopKeepSound(int pToken)
     {
+        //On bascule en fait le son dans une liste dont les éléments sont tûs progressivement
         _fadingSources.Add(_audioSources[pToken]);
         _audioSources.Remove(pToken);
     }
 
+    //Joue un son qui boucle mais s'arrête de lui-même au bout d'un certain temps
     public IEnumerator PlayKeepSoundForATime(AudioClip pAudio, float pVolume, float pTime, Vector3? pPosition = null)
     {
-        AudioSource vAudioSource = Instantiate(gAudioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
+        AudioSource vAudioSource = Instantiate(_audioSource, pPosition == null ? _center.position : (Vector3)pPosition, Quaternion.identity);
 
-        vAudioSource.outputAudioMixerGroup = gMainMixer.FindMatchingGroups("FX")[0];
+        vAudioSource.outputAudioMixerGroup = _mainMixer.FindMatchingGroups("FX")[0];
         vAudioSource.clip = pAudio;
         vAudioSource.volume = pVolume;
         vAudioSource.loop = true;
@@ -87,15 +96,18 @@ public class AudioManager : MonoBehaviour
         _fadingSources.Add(vAudioSource);
     }
 
+    //Joue le son de click sur un bouton (son très utilisé donc on en fait une méthode à part sans paramètres)
     public void PlayClickSound()
     {
         PlaySound(_clickSound, 1);
     }
 
+    //Diminution progressive des sons à couper puis destruction des sources
     private void FadeSound()
     {
         if (_fadingSources.Count == 0) return;
 
+        //On dimminue progressivement
         List<AudioSource> vAudioToStop = new List<AudioSource>();
         foreach (AudioSource lSource in _fadingSources)
         {
@@ -111,10 +123,11 @@ public class AudioManager : MonoBehaviour
             }
         }
 
+        //On supprime les sons dont le volume à atteint 0
         foreach (AudioSource lSource in vAudioToStop)
         {
             _fadingSources.Remove(lSource);
-            if(lSource != null) Destroy(lSource.gameObject);
+            if (lSource != null) Destroy(lSource.gameObject);
         }
         vAudioToStop.Clear();
     }

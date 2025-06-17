@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1351b231ae09da47bdbde422780655e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patternConfig: {fileID: 11400000, guid: 784573aceb625ee4288d2b6460626922, type: 2}
-  _objects:
+  PatternConfig: {fileID: 11400000, guid: 784573aceb625ee4288d2b6460626922, type: 2}
+  Objects:
   - Object: {fileID: 1638627970285479741}
     Lane: 0
     Line: 3
@@ -73,8 +73,8 @@ MonoBehaviour:
     SubLine: 0
   - Object: {fileID: 6762639111928914250}
     Lane: 1
-    Line: 2
-    SubLine: 5
+    Line: 3
+    SubLine: 0
   - Object: {fileID: 560812103362929095}
     Lane: 1
     Line: 2
@@ -131,7 +131,7 @@ MonoBehaviour:
     Lane: 0
     Line: 1
     SubLine: 0
-  _length: 45
+  _length: 60
 --- !u!1001 &187030070888633631
 PrefabInstance:
   m_ObjectHideFlags: 0
