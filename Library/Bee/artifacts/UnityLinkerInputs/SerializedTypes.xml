@@ -23,6 +23,7 @@
 		<type fullname="UnityEngine.Rendering.ColorParameter" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.FloatParameter" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.IncludeAdditionalRPAssets" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.LightmapSamplingSettings" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.MinFloatParameter" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.NoInterpTextureParameter" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.ProbeVolumeBakingResources" preserve="nothing" serialized="true"/>
@@ -46,6 +47,7 @@
 		<type fullname="UnityEngine.Rendering.Vector2Parameter" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.Vector3Parameter" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.Vector4Parameter" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.VrsRenderPipelineRuntimeResources" preserve="nothing" serialized="true"/>
 	</assembly>
 	<assembly fullname="Unity.RenderPipelines.GPUDriven.Runtime">
 		<type fullname="UnityEngine.Rendering.GPUResidentDrawerResources" preserve="nothing" serialized="true"/>
@@ -62,6 +64,8 @@
 		<type fullname="UnityEngine.Rendering.Universal.PostProcessData/TextureResources" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.Universal.Renderer2DResources" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.Universal.RenderGraphSettings" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.ScreenSpaceAmbientOcclusionDynamicResources" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.ScreenSpaceAmbientOcclusionPersistentResources" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.Universal.ScreenSpaceLensFlareResolutionParameter" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.Universal.ScriptableRendererData/DebugShaderResources" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.Rendering.Universal.ScriptableRendererData/ProbeVolumeResources" preserve="nothing" serialized="true"/>

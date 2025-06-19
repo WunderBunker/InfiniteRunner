@@ -10,6 +10,12 @@ public static class Tools
           : Mathf.Pow(2, 10 * (t - 1));
     }
 
+
+    public static float OutQuint(float t)
+    {
+        return 1 - Mathf.Pow(1 - t, 5);
+    }
+
     public static Quaternion QuaternionSmoothDamp(Quaternion rot, Quaternion target, ref Quaternion deriv, float time)
     {
         if (Time.deltaTime < Mathf.Epsilon) return rot;

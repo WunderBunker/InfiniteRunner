@@ -10,11 +10,13 @@ public class BiomesManager : MonoBehaviour
     public GameObject CurrentBoss { get; private set; }
     public GameObject CurrentRelique { get; private set; }
     [SerializeField] List<Biome> _biomes = new();
-    [SerializeField] List<GameObject> _reliques;
+    List<string> _capturedReliques = new();
 
     PatternsManager _PM;
     Material _waterMaterial;
     GameObject _mainCanvas;
+    ReliquesUI _reliquesUI;
+
 
     void Awake()
     {
@@ -28,8 +30,9 @@ public class BiomesManager : MonoBehaviour
         _PM = GameObject.FindGameObjectWithTag("PatternsManager").GetComponent<PatternsManager>();
         _waterMaterial = GameObject.FindGameObjectWithTag("WaterPlane").GetComponent<MeshRenderer>().material;
         _mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        _reliquesUI = _mainCanvas.transform.Find("Reliques").GetComponent<ReliquesUI>();
+        _reliquesUI.InitLayout(_biomes);
         ChangeBiome("Egee");
-
     }
 
     public void ChangeBiome(string pBiomeId)
@@ -60,7 +63,7 @@ public class BiomesManager : MonoBehaviour
                 CurrentBoss = Instantiate(lBiome.Boss, transform.Find("Boss").position, lBiome.Boss.transform.rotation, transform.Find("Boss"));
 
                 //Relique
-                CurrentRelique = GetCurrentRelique();
+                CurrentRelique = _capturedReliques.Contains(CurrentBiomeId) ? null : lBiome.Relique;
 
                 break;
             }
@@ -96,23 +99,18 @@ public class BiomesManager : MonoBehaviour
         if (CurrentBoss.GetComponent<Boss>() is INoiseSensitive) CurrentBoss.GetComponent<INoiseSensitive>().AddNoise(pValue);
     }
 
-
-    GameObject GetCurrentRelique()
-    {
-        foreach (GameObject lRelique in _reliques)
-            if (lRelique.GetComponent<Relique>().BiomeId == CurrentBiomeId) return lRelique;
-        return null;
-    }
-
     //Récupération de la relique du biome
     public void CaptureRelique()
     {
-        for (int lCptRelique = _reliques.Count - 1; lCptRelique >= 0; lCptRelique--)
-            if (_reliques[lCptRelique].GetComponent<Relique>().BiomeId == CurrentBiomeId) _reliques.RemoveAt(lCptRelique);
+        if (!_capturedReliques.Contains(CurrentBiomeId))
+        {
+            _capturedReliques.Add(CurrentBiomeId);
+            _reliquesUI.CaptureRelique(CurrentBiomeId);
+        }
 
         PlayerManager vPlayerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         //Si plus de relique alors Jackpot
-        if (_reliques.Count == 0)
+        if (_capturedReliques.Count == _biomes.Count)
         {
             vPlayerManager.AddPonctualScore(5000);
             vPlayerManager.AddOboles(100);

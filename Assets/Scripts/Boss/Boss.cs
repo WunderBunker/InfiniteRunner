@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,8 @@ public abstract class Boss : MonoBehaviour
     System.Random _random = new();
 
     protected GameObject _lifeUI;
+
+    byte _beatenTimes;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
@@ -73,7 +76,7 @@ public abstract class Boss : MonoBehaviour
         _isBeaten = false;
         _bulletTimer = 10;
 
-        _life = _maxLife;
+        _life = (byte)Math.Max(_maxLife-_beatenTimes, 1);
 
         _attacksParent = new GameObject().transform;
 
@@ -83,7 +86,7 @@ public abstract class Boss : MonoBehaviour
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>().ChangeDirection();
 
         _lifeUI = Instantiate(_lifeUIPrefab, GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BossLifeBar"));
-        _lifeUI.transform.Find("Life").GetComponent<LifeUI>().SetMaxLife(_maxLife);
+        _lifeUI.transform.Find("Life").GetComponent<LifeUI>().SetMaxLife(_life);
     }
 
     //Désactive le boss
@@ -91,6 +94,7 @@ public abstract class Boss : MonoBehaviour
     {
         if (!_isActive) return;
         _isActive = false;
+        _hasBeenTriggered = false;
         _body.SetActive(false);
 
         Destroy(_attacksParent.gameObject);
@@ -119,11 +123,11 @@ public abstract class Boss : MonoBehaviour
         if (_life == 0) StartCoroutine(IsBeaten());
     }
 
-
     virtual protected IEnumerator IsBeaten()
     {
         _isBeaten = true;
-        _playerTransform.GetComponent<PlayerManager>().HasBeatenABoss();
+        _playerTransform.GetComponent<PlayerManager>().HasBeatenABoss(_hasBeenTriggered);
+        _beatenTimes++;
 
         yield return null;
     }

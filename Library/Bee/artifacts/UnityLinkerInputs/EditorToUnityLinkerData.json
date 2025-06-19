@@ -393,6 +393,20 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "Relique",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "ReliquesUI",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "",
             "nativeClass": "ResourceManager",
             "fullManagedTypeName": "",
@@ -529,13 +543,6 @@
             "managedAssemblyName": "Unity.TextMeshPro.dll",
             "nativeClass": "",
             "fullManagedTypeName": "TMPro.TMP_StyleSheet",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "Unity.TextMeshPro.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "TMPro.TMP_SubMeshUI",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -1268,6 +1275,13 @@
             "managedAssemblyName": "Unity.RenderPipelines.Core.Runtime.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.Rendering.UI.DebugUIHandlerProgressBar",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.RenderPipelines.Core.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.Rendering.UI.DebugUIHandlerRenderingLayerField",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -3951,6 +3965,14 @@
             "qualifiedName": "VisualEffectResource",
             "nativeNamespace": "",
             "module": "VFXEditor",
+            "baseName": "NamedObject",
+            "baseModule": "Core"
+        },
+        {
+            "name": "VulkanDeviceFilterLists",
+            "qualifiedName": "VulkanDeviceFilterLists",
+            "nativeNamespace": "",
+            "module": "Core",
             "baseName": "NamedObject",
             "baseModule": "Core"
         },

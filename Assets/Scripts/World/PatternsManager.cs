@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting.InputSystem;
+using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 //GESTION DE L'INSTANCIATION DES PATTERNES D'OBSTCACLES ET ITEMS
 public class PatternsManager : MonoBehaviour
@@ -14,6 +16,7 @@ public class PatternsManager : MonoBehaviour
     [SerializeField] GameObject _gate;
 
     LanesManager _laneManager;
+    Slider _avancementUI;
 
     List<GameObject> _patterns = new();
     float _patternSpawnTimerInMeters;
@@ -26,6 +29,7 @@ public class PatternsManager : MonoBehaviour
     bool _isBossMode = false;
     bool _bossHasDefendedGate;
     bool _hasSpawnRelique;
+    bool _hasSpawnGates;
 
     float _distFromStopSpawn;
     bool _hasPlayedAlert;
@@ -38,6 +42,7 @@ public class PatternsManager : MonoBehaviour
         _gateSpawnTimerInMeters = _gateSpawnTempoInMeters;
         _player = GameObject.FindGameObjectWithTag("Player");
         _laneManager = GameObject.FindGameObjectWithTag("LanesManager").GetComponent<LanesManager>();
+        _avancementUI = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("BiomeAvancement").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -48,6 +53,7 @@ public class PatternsManager : MonoBehaviour
 
         _patternSpawnTimerInMeters -= _player.GetComponent<PlayerManager>().DeltaDistance;
         _gateSpawnTimerInMeters -= _player.GetComponent<PlayerManager>().DeltaDistance;
+        _avancementUI.value = math.clamp(1 - (_gateSpawnTimerInMeters + _spawnDistance) / (_gateSpawnTempoInMeters + _spawnDistance), 0, 1);
 
         //A -10% du spawn des prochains portails on fait une zone de calme avec un boss qui arrive
         if (!_bossHasDefendedGate && _gateSpawnTimerInMeters <= _gateSpawnTempoInMeters * 0.1f)
@@ -97,13 +103,18 @@ public class PatternsManager : MonoBehaviour
         //Si relique null (déjà récupérée) on ne fait rien
         if (vRelique == null) return;
 
-        Pattern vCurrentPattern = _objects.Peek().GetComponent<Pattern>();
-        bool _isFound = false;
+        Vector3 vReliquePosition = _player.transform.position + _spawnDistance * Vector3.forward;
 
-        byte vLine = 0;
-        byte vLane = 0;
+        Pattern vCurrentPattern = _objects.Count > 0 ? _objects.Last().GetComponent<Pattern>() : null;
 
-        Action<byte, byte> vCheckPattern = (byte pLane, byte pLine) =>
+        if (vCurrentPattern != null)
+        {
+            bool _isFound = false;
+
+            byte vLine = 0;
+            byte vLane = 0;
+
+            Action<byte, byte> vCheckPattern = (byte pLane, byte pLine) =>
         {
             bool lThereIsObject = false;
             foreach (ObjectData lObj in vCurrentPattern.Objects)
@@ -118,26 +129,29 @@ public class PatternsManager : MonoBehaviour
             return;
         };
 
-        int vLoopCounter = 0;
-        while (!_isFound)
-        {
-            vLoopCounter++;
-            if (vLoopCounter > 250)
+            int vLoopCounter = 0;
+            while (!_isFound)
             {
-                Debug.Log("boucle infinie patterne");
-                return;
+                vLoopCounter++;
+                if (vLoopCounter > 250)
+                {
+                    Debug.Log("boucle infinie patterne");
+                    return;
+                }
+
+                for (vLane = 0; vLane < _laneManager.LaneNumber; vLane++)
+                {
+                    vCheckPattern(vLane, vLine);
+                    if (_isFound) break;
+                }
+
+                vLine++;
             }
 
-            for (vLane = 0; vLane < _laneManager.LaneNumber; vLane++)
-            {
-                vCheckPattern(vLane, vLine);
-                if (_isFound) break;
-            }
-
-            vLine++;
+            vReliquePosition = new Vector3((float)_laneManager.GetLaneCenter(vLane), vRelique.transform.position.y, vCurrentPattern.transform.position.z + vLine * vCurrentPattern.PatternConfig.DistanceBtwLines);
         }
 
-        Vector3 vReliquePosition = new Vector3((float)_laneManager.GetLaneCenter(vLane), vRelique.transform.position.y, vCurrentPattern.transform.position.z + vLine * vCurrentPattern.PatternConfig.DistanceBtwLines);
+
 
         _objects.Enqueue(Instantiate(vRelique, vReliquePosition, vRelique.transform.localRotation, transform));
 
@@ -152,9 +166,9 @@ public class PatternsManager : MonoBehaviour
         _patternSpawnTimerInMeters = _patternSpawnTempoInMeters;
 
         //Si il est temps d'instancier des portails alors on fait ça à la place
-        if (_gateSpawnTimerInMeters <= 0)
+        if (!_hasSpawnGates && _gateSpawnTimerInMeters <= 0)
         {
-            _gateSpawnTimerInMeters = _gateSpawnTempoInMeters;
+            _hasSpawnGates = true;
             for (byte lLane = 0; lLane < _laneManager.LaneNumber; lLane++)
                 _objects.Enqueue(
                     Instantiate(_gate,
@@ -179,6 +193,12 @@ public class PatternsManager : MonoBehaviour
         if (_objects.Count == 0) return;
 
         GameObject vFirstObj = _objects.Peek();
+        if (vFirstObj == null)
+        {
+            _objects.Dequeue();
+            return;
+        }
+
         Vector3 vPlayerPivotPosition = _player.transform.Find("Pivot").position;
 
         if (vFirstObj.transform.position.z < vPlayerPivotPosition.z - _patternSpawnTempoInMeters * _numberOfPassedPatternsBfDelete)
@@ -194,6 +214,7 @@ public class PatternsManager : MonoBehaviour
         _patterns = pPatternsList;
         _bossHasDefendedGate = false;
         _hasSpawnRelique = false;
+        _hasSpawnGates = false;
         DestroyObjects();
         _patternSpawnTimerInMeters = _patternSpawnTempoInMeters;
         _gateSpawnTimerInMeters = _gateSpawnTempoInMeters;

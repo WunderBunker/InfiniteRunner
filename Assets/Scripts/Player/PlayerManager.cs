@@ -70,10 +70,13 @@ public class PlayerManager : MonoBehaviour
         TotalDistance += DeltaDistance;
 
         //Maj du score (en fonction de la distance parcourue et de à quel point la vitesse max initiale est dépassée)
-        float vScoreCoef = 1;
-        if (_playerControls.CurrentSpeed >= _playerControls.MaxSpeedInitial)
-            vScoreCoef = math.lerp(1, 3, (_playerControls.CurrentSpeed - _playerControls.MaxSpeedInitial) / (_playerControls.MaxSpeedFinal - _playerControls.MaxSpeedInitial));
-        Score += DeltaDistance * vScoreCoef;
+        if (!_playerControls.IsBossMode)
+        {
+            float vScoreCoef = 1;
+            if (_playerControls.CurrentSpeed >= _playerControls.MaxSpeedInitial)
+                vScoreCoef = math.lerp(1, 3, (_playerControls.CurrentSpeed - _playerControls.MaxSpeedInitial) / (_playerControls.MaxSpeedFinal - _playerControls.MaxSpeedInitial));
+            Score += DeltaDistance * vScoreCoef;
+        }
 
         //Maj du timer d'invincibilité après coup
         if (_invincibilityTimer > 0) _invincibilityTimer = math.max(_invincibilityTimer - Time.deltaTime, 0);
@@ -183,9 +186,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     //Ajou de points supplémentaires quand boss vaincu
-    public void HasBeatenABoss()
+    public void HasBeatenABoss(bool pBossWasTriggered)
     {
-        AddPonctualScore(2000);
+        if (!pBossWasTriggered) AddPonctualScore(2000);
     }
 
     public void AddPonctualScore(int pValue)

@@ -3287,7 +3287,6 @@ MonoBehaviour:
   _indicator: {fileID: 8062971046839581937, guid: bc4263eebaeb55544a1527d644f948ab, type: 3}
   _lifeUIPrefab: {fileID: 3218593355855837646, guid: dbc5a0f1abd88ba46b4a4db9dc02f22f, type: 3}
   _warningFilter: {fileID: 5446168582552716921, guid: a3a403251f5d12348b64ba57c1414f81, type: 3}
-  _warningNoise: {fileID: 8300000, guid: e86598071eba5264f9c0cc43642b301e, type: 3}
   _bulletItem: {fileID: 2855193317047037250, guid: 48dbb95d5cd0e8343b7461596aa2175e, type: 3}
   _maxLife: 3
   _attack: {fileID: 2372688337085631183, guid: 108824c617f1baa41bcec3d8668ef898, type: 3}
@@ -3295,7 +3294,7 @@ MonoBehaviour:
   _attackTempo: 2
   _attack2Tempo: 3
   _nbAttackBfExposed: 3
-  _nbAttackBfHidden: 10
+  _nbAttackBfHidden: 5
   _sideMoveLatency: 0.5
   _resetNoiseTempo: 10
   _hitSound: {fileID: 8300000, guid: 5e8948648ee7a6045a14549423b56819, type: 3}
@@ -3308,10 +3307,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7509606486658879431}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

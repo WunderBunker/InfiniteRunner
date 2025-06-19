@@ -39,6 +39,8 @@
 		<type fullname="PlayerControls" preserve="nothing"/>
 		<type fullname="PlayerManager" preserve="nothing"/>
 		<type fullname="Projectile" preserve="nothing"/>
+		<type fullname="Relique" preserve="nothing"/>
+		<type fullname="ReliquesUI" preserve="nothing"/>
 		<type fullname="Rock" preserve="nothing"/>
 		<type fullname="ScoreUI" preserve="nothing"/>
 		<type fullname="Scylla" preserve="nothing"/>
@@ -91,6 +93,7 @@
 		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerPanel" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerPersistentCanvas" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerProgressBar" preserve="nothing"/>
+		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerRenderingLayerField" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerRow" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerToggle" preserve="nothing"/>
 		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerToggleHistory" preserve="nothing"/>
@@ -137,7 +140,6 @@
 		<type fullname="TMPro.TMP_Settings" preserve="nothing"/>
 		<type fullname="TMPro.TMP_SpriteAsset" preserve="nothing"/>
 		<type fullname="TMPro.TMP_StyleSheet" preserve="nothing"/>
-		<type fullname="TMPro.TMP_SubMeshUI" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="UnityEngine">
 		<type fullname="UnityEditor.Animations.AnimatorController" preserve="nothing"/>

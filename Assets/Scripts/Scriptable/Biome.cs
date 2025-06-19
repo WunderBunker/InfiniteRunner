@@ -22,6 +22,8 @@ public class Biome : ScriptableObject
     public string BiomeId;
     public List<GameObject> Patterns;
     public GameObject Boss;
+    public GameObject Relique;
+    public Sprite ReliqueUI;
     public Sprite BossLogo;
     public Color WaterColor;
     public Color HorizonColor;

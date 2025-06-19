@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _preAttack: {fileID: 6296455996471343365}
-  _preAttackTime: 0.75
+  _preAttackTime: 1
   _attack: {fileID: 3839972821122014460}
   _attackTime: 1
   _bubbleSound: {fileID: 8300000, guid: 48fe9cff288b9f147b694f2b8621809a, type: 3}
@@ -265,7 +265,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -1046,9 +1046,9 @@ ParticleSystem:
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 50
-      minScalar: 20
+      minScalar: 50
       maxCurve:
         serializedVersion: 2
         m_Curve:
