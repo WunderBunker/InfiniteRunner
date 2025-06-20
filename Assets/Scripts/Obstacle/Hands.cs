@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+//GESTION DE MAINS SPECTRALES
 public class Hands : MonoBehaviour
 {
     [SerializeField] AudioClip _bubbleSound;
@@ -19,12 +20,14 @@ public class Hands : MonoBehaviour
     {
         if (pOther.CompareTag("Player"))
         {
+            //Première collision => détection du joueur dans la zone, on rise
             if (!_hasRised)
             {
                 _hasRised = true;
                 GetComponent<Animator>().SetTrigger("Rise");
                 StartCoroutine(WaitRise());
             }
+            //Déjà détecté => on fait du bruit
             else
             {
                 _hasHit = true;
@@ -39,6 +42,7 @@ public class Hands : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 
+        //Si on n'a pas touché le joueur durant le rising alors on repasse en mode détection
         if (!_hasHit) _hasRised = false;
         else _hasHit = false;
     }
@@ -47,6 +51,7 @@ public class Hands : MonoBehaviour
     {
         if (pOther.CompareTag("Player"))
         {
+            //Si le joueur sort de la zone de détetion sans avoir été touché on réactvie la possibilité de rise de noueveau
             if (!_hasHit) _hasRised = false;
             else _hasHit = false;
         }

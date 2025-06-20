@@ -1,16 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//EPAVE
 public class Wreck : MonoBehaviour
 {
     [SerializeField] List<AudioClip> _destroySounds = new();
     [SerializeField] GameObject _explosion;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
 
     void OnTriggerEnter(Collider pOther)
     {

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//PORTAIL DE CHANGEMEENT DE BIOME
 public class Gate : MonoBehaviour
 {
     [SerializeField] AudioClip _gateSound;

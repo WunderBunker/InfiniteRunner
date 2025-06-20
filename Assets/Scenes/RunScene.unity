@@ -12891,6 +12891,8 @@ MonoBehaviour:
   _biomes:
   - {fileID: 11400000, guid: 06ac2a0ff16ba6f40bcd80d3c4c59075, type: 2}
   - {fileID: 11400000, guid: 8b137cd3508f22d4c9081da4c5134bff, type: 2}
+  _relicSound: {fileID: 8300000, guid: 5bf4b94d936e54b43ad6b7964b85682b, type: 3}
+  _allRelicsSound: {fileID: 8300000, guid: 2b7833a863dc06c45bc6cb61eae4c7b8, type: 3}
 --- !u!1 &1067011057
 GameObject:
   m_ObjectHideFlags: 0
@@ -19622,7 +19624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5.899994}
+  m_AnchoredPosition: {x: 0, y: -5.9000244}
   m_SizeDelta: {x: 54, y: 62.49}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1689810625
@@ -26285,7 +26287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.75, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.9999695}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 0, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &543450653449719846

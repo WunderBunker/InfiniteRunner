@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//SIRENE
 public class Mermaid : MonoBehaviour
 {
     [SerializeField] float _chantTime;
@@ -24,7 +25,6 @@ public class Mermaid : MonoBehaviour
     bool _isDead;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -52,12 +52,15 @@ public class Mermaid : MonoBehaviour
         if (_isDead) return;
 
         _timer -= Time.deltaTime;
+
+        //Gestion chant en cours
         if (_isChanting)
         {
-
-            if (transform.position.z - _player.transform.position.z >= 0 && transform.position.z - _player.transform.position.z <= 2*_chantRange)
+            //Playe dans la zone => on l'attrape
+            if (transform.position.z - _player.transform.position.z >= 0 && transform.position.z - _player.transform.position.z <= 2 * _chantRange)
                 _player.GetComponent<PlayerControls>().BlockLane(_currentLane, _timer);
 
+            //Arret du chant
             if (_timer <= 0)
             {
                 _timer = _chantTempo;
@@ -66,6 +69,7 @@ public class Mermaid : MonoBehaviour
                 _PS.Stop();
             }
         }
+        //Lancement du chant
         else if (_timer <= 0)
         {
             _timer = _chantTime;

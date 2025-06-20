@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//RELIQUE
 public class Relique : MonoBehaviour
 {
     Transform _crown;

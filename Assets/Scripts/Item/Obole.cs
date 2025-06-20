@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//OBOLE 
 public class Obole : MonoBehaviour
 {
     [SerializeField] GameObject _particles;
@@ -16,6 +17,6 @@ public class Obole : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Vector3.up  *Time.deltaTime*50, Space.World);
+        transform.Rotate(Vector3.up * Time.deltaTime * 50, Space.World);
     }
 }

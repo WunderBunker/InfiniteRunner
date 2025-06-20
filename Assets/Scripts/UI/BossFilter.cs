@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+//GESTION DU FILTRE UI DES BOSS (WARNING, ALARM)
 public class BossFilter : MonoBehaviour
 {
     [SerializeField] float _maxAlpha;
@@ -28,9 +29,10 @@ public class BossFilter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Alpha en cours d'animation
         if (_isAnim)
         {
+            //On va vers l'apparition du filtre
             if (_onAlert)
             {
                 Color vColor = _image.color;
@@ -43,6 +45,7 @@ public class BossFilter : MonoBehaviour
                 }
                 _image.color = vColor;
             }
+            //On va vers la disparition du filtre
             else
             {
                 Color vColor = _image.color;
@@ -56,6 +59,8 @@ public class BossFilter : MonoBehaviour
             }
         }
 
+
+        //Gestion d'un éventuel timer pour disparition auto
         if (_timer > 0 && _maxTime > 0)
         {
             _timer -= Time.deltaTime;
@@ -66,6 +71,7 @@ public class BossFilter : MonoBehaviour
         }
     }
 
+    //Affichage/désaffichage du filtre
     public void SetActive(bool pActive)
     {
         _onAlert = pActive;

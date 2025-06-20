@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//PLANK (LIFE)
 public class Plank : MonoBehaviour
 {
     [SerializeField] GameObject _particles;

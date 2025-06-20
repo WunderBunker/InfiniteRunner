@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//TRONC D'ARBRE
 public class Log : MonoBehaviour
 {
     [SerializeField] List<AudioClip> _destroySounds = new();

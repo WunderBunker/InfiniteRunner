@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//INDICATEUR UI DE CHARON (BARRES DE BRUIT ET CHRONO)
 public class CharonIndicator : MonoBehaviour
 {
 

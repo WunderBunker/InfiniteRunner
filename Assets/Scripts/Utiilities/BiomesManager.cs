@@ -10,6 +10,8 @@ public class BiomesManager : MonoBehaviour
     public GameObject CurrentBoss { get; private set; }
     public GameObject CurrentRelique { get; private set; }
     [SerializeField] List<Biome> _biomes = new();
+    [SerializeField] AudioClip _relicSound;
+    [SerializeField] AudioClip _allRelicsSound;
     List<string> _capturedReliques = new();
 
     PatternsManager _PM;
@@ -114,8 +116,13 @@ public class BiomesManager : MonoBehaviour
         {
             vPlayerManager.AddPonctualScore(5000);
             vPlayerManager.AddOboles(100);
+            AudioManager.Instance.PlaySound(_allRelicsSound, 1f);
         }
         //Sinon 500
-        else vPlayerManager.AddPonctualScore(500);
+        else
+        {
+            vPlayerManager.AddPonctualScore(500);
+            AudioManager.Instance.PlaySound(_relicSound, 1f);
+        }
     }
 }

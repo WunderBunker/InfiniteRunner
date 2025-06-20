@@ -56,7 +56,7 @@ public class Spectre : MonoBehaviour
             System.Random vRan = new();
             byte vNewLane = _currentLane;
             float? vNextLaneX = null;
-            int vloopCount = 0;
+            byte vloopCount = 0;
             while (vNextLaneX == null || vNewLane == _currentLane)
             {
                 vloopCount++;
