@@ -12891,8 +12891,8 @@ MonoBehaviour:
   _biomes:
   - {fileID: 11400000, guid: 06ac2a0ff16ba6f40bcd80d3c4c59075, type: 2}
   - {fileID: 11400000, guid: 8b137cd3508f22d4c9081da4c5134bff, type: 2}
-  _relicSound: {fileID: 8300000, guid: 5bf4b94d936e54b43ad6b7964b85682b, type: 3}
-  _allRelicsSound: {fileID: 8300000, guid: 2b7833a863dc06c45bc6cb61eae4c7b8, type: 3}
+  _relicSound: {fileID: 8300000, guid: 66fd02c6a96c31a4f8cc34f58ad63664, type: 3}
+  _allRelicsSound: {fileID: 8300000, guid: 8716029a5daa01349ab4b7c1b9215acc, type: 3}
 --- !u!1 &1067011057
 GameObject:
   m_ObjectHideFlags: 0

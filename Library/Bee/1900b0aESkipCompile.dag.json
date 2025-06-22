@@ -26,10 +26,10 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "Extracting script serialization layouts",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Coffee.UIParticle.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.Burst.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.Collections.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.Formats.Alembic.Runtime.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.InputSystem.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.InputSystem.ForUI.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.InputSystem.TestFramework.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.Mathematics.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.Multiplayer.Center.Common.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.PerformanceTesting.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.Rendering.LightTransport.Runtime.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipeline.Universal.ShaderLibrary.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Core.Runtime.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Core.Runtime.Shared.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Core.ShaderLibrary.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.GPUDriven.Runtime.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.2D.Runtime.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.Config.Runtime.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.Runtime.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.Shaders.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.coffee.ui-particle@4b98abd7469b\\Runtime\\Coffee.UIParticle.R.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Mdb.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Pdb.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Rocks.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.Unsafe.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.collections@56bff8827a7e\\Unity.Collections.LowLevel.ILSupport\\Unity.Collections.LowLevel.ILSupport.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff\\net40\\unity-custom\\nunit.framework.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.Mdb.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.Pdb.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.Rocks.dll\" -a=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.visualscripting@6279e2b7c485\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.7f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.7f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.7f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.7f1\\Editor\\Data\\NetStandard\\EditorExtensions\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.7f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.7f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\ScriptAssemblies\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.coffee.ui-particle@4b98abd7469b\\Runtime\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.collections@56bff8827a7e\\Unity.Collections.LowLevel.ILSupport\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff\\net40\\unity-custom\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\" -s=\"D:\\Unity projects\\InfiniteRunner\\Library\\PackageCache\\com.unity.visualscripting@6279e2b7c485\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Coffee.UIParticle.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.Burst.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.Collections.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.Formats.Alembic.Runtime.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.InputSystem.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.InputSystem.ForUI.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.InputSystem.TestFramework.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.Mathematics.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.Multiplayer.Center.Common.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.PerformanceTesting.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.Rendering.LightTransport.Runtime.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipeline.Universal.ShaderLibrary.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Core.Runtime.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Core.Runtime.Shared.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Core.ShaderLibrary.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.GPUDriven.Runtime.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.2D.Runtime.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.Config.Runtime.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.Runtime.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.RenderPipelines.Universal.Shaders.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.coffee.ui-particle@4b98abd7469b\\Runtime\\Coffee.UIParticle.R.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Mdb.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Pdb.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\\Unity.Burst.Cecil.Rocks.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.Unsafe.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.collections@56bff8827a7e\\Unity.Collections.LowLevel.ILSupport\\Unity.Collections.LowLevel.ILSupport.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff\\net40\\unity-custom\\nunit.framework.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.Mdb.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.Pdb.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\\Mono.Cecil.Rocks.dll\" -a=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.visualscripting@6279e2b7c485\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.8f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.8f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.8f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.8f1\\Editor\\Data\\NetStandard\\EditorExtensions\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.8f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.1.8f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"D:\\Unity projects\\Odyssée\\Library\\ScriptAssemblies\" -s=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.coffee.ui-particle@4b98abd7469b\\Runtime\" -s=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\" -s=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.burst@59eb6f11d242\\Unity.Burst.CodeGen\" -s=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.collections@56bff8827a7e\\Unity.Collections.LowLevel.ILSupport\" -s=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.ext.nunit@031a54704bff\\net40\\unity-custom\" -s=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f\" -s=\"D:\\Unity projects\\Odyssée\\Library\\PackageCache\\com.unity.visualscripting@6279e2b7c485\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
-        "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
+        "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
+        "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
         "Library/ScriptAssemblies/Assembly-CSharp.dll",
         "Library/ScriptAssemblies/Coffee.UIParticle.dll",
         "Library/ScriptAssemblies/Unity.AI.Navigation.dll",
@@ -146,109 +146,109 @@
   ],
   "FileSignatures": [
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
     },
     {
-      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline/UnityEditor.iOS.Extensions.Xcode.dll"
+      "File": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline/UnityEditor.iOS.Extensions.Xcode.dll"
     },
     {
       "File": "Library/Bee/1900b0aESkipCompile-inputdata.json"
@@ -396,7 +396,7 @@
   ],
   "GlobSignatures": [
     {
-      "Path": "C:/Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Tools/BuildPipeline"
+      "Path": "C:/Program Files/Unity/Hub/Editor/6000.1.8f1/Editor/Data/Tools/BuildPipeline"
     }
   ],
   "ContentDigestExtensions": [
@@ -428,6 +428,6 @@
   "SharedResources": [],
   "Scanners": [],
   "Identifier": "Library/Bee/1900b0aESkipCompile.dag.json",
-  "PayloadsFile": "D:/Unity projects/InfiniteRunner/Library/Bee/1900b0aESkipCompile.dag.payloads",
+  "PayloadsFile": "D:/Unity projects/Odyssée/Library/Bee/1900b0aESkipCompile.dag.payloads",
   "RelativePathToRoot": "../.."
 }
